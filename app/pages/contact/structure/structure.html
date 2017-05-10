@@ -1,0 +1,65 @@
+<ion-view class="contact-structure">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-arrow-back" ng-click="goLastPage()">
+        <span class="back-button-text">返回</span>
+      </button>
+    </div>
+    <div class="title title-contact">
+      <div class="title-header title-filter" ng-bind="departmentName"></div>
+    </div>
+    <div class="button title-right" ng-click="closeWebSite()">关闭</div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="row search-contact-input input-height">
+      <input type="search" class="text-input" placeholder="请输入姓名/电话/邮箱" ng-readonly="true"
+             ng-click="goInputSearch()"/>
+    </div>
+    <ion-scroll delegate-handle="contactStructureDelegate" scrollbar-x="false" direction="x"
+                class="dept-scroll-contact" ng-if="showScroll">
+      <div class="row row-scroll-contact">
+        <div ng-repeat="i in currentStackList track by $index" class="dept-stack">
+          <div ng-bind="i.name" class="dept-stack-name"
+               ng-class="$index === (currentStackList.length -1)?'end-dept-stack-name':''"
+               ng-if="currentStackList.length > 1"
+               ng-click="goBackStack($index,currentStackList.length,i.id)"></div>
+          <i class="ion-ios-arrow-right" ng-if="$index != (currentStackList.length -1)"></i>
+        </div>
+      </div>
+    </ion-scroll>
+
+    <div class="children-dept">
+      <ion-item class="dept-item"
+                ng-class="$index == (childrenDept.length-1)?'dept-item-end':''"
+                ng-repeat="i in childrenDept"
+                ng-click="nextStructure(i.ID,i.OTYPE,i.NAME)">
+
+
+        <div class="row dept-item-row">
+          <img ng-if="showLogo && i.NAME == '测试组织'" class="contact-item-logo" src="build/img/contact/contactIcon.png"/>
+          <img ng-if="showLogo && i.NAME == '集团'" class="contact-item-logo" src="build/img/contact/youche1.jpeg"/>
+          <img ng-if="showLogo && i.NAME == '租车'" class="contact-item-logo" src="build/img/contact/zhuche.png"/>
+          <img ng-if="showLogo && i.NAME == '专车'" class="contact-item-logo" src="build/img/contact/zhuanche.png"/>
+          <img ng-if="showLogo && i.NAME == '买买车'" class="contact-item-logo" src="build/img/contact/maimaiche.png"/>
+          <img ng-if="showLogo && i.NAME == '闪贷'" class="contact-item-logo" src="build/img/contact/shandai.png"/>
+          <label class="dept-label" ng-bind="i.NAME"></label>
+          <!--<label class="dept-label-number" ng-bind="i.totalStaffNumber"></label>-->
+        </div>
+        <img src="build/img/contact/arrow-gray.png" class="arrow-icon"/>
+      </ion-item>
+    </div>
+    <hms-loading style="padding-top: 30%;" ng-if="showLoading"></hms-loading>
+    <div class="contact-item row no-padding"
+         ng-repeat="i in deptStaff"
+         ng-click="goDetailInfo(i.USERID)">
+      <div class="col col-15 item-logo">
+        <img ion-img-cache class="contact-item-logo"  ng-src="{{i.GESCH}}"/>
+      </div>
+      <div class="col col-40 item-name" ng-bind="i.USERNAME">
+      </div>
+      <div class="col col-45 item-name" ng-bind="i.JOB"></div>
+      <div class="item-line"></div>
+
+    </div>
+  </ion-content>
+</ion-view>

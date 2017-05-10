@@ -1,0 +1,35 @@
+<ion-view view-title="关于我们" class="aboutUs">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon ion-ios-arrow-back" ng-click="goBack()">
+        <span class="back-button-text">返回</span>
+      </button>
+    </div>
+    <h1 class="title">关于我们</h1>
+  </ion-header-bar>
+  <ion-content class="content-style">
+    <div class="head-wrap">
+      <img src="build/img/myInfo/aboutUs.png" class="head-img">
+    </div>
+    <!--<ion-list class="list list-center">-->
+      <div class="about-us-item" style="border-top: 1px solid #DDDDDD">
+        <div class="row" style="padding-left: 16%;border: none">{{'IT服务热线:'}}&nbsp;&nbsp;{{'400-800-3450'}}</div>
+        <!--<div style="text-align: left;margin-left: 35px;">{{'IT服务热线:'}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'400-900-3450'}}</div>-->
+      </div>
+      <div class="about-us-item" style="border-top: 1px solid #DDDDDD">
+        <div class="row" style="padding-left: 16%;border: none">{{'IT咨询邮箱:'}}&nbsp;&nbsp;{{'IT@hand-china.com'}}</div>
+        <!--<div style="text-align: left;margin-left: 35px;">{{'IT咨询邮箱:'}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{'IT@ucarinc.com'}}</div>-->
+      </div>
+      <div class="about-us-item" style="border-top: 1px solid #DDDDDD;border-bottom: 1px solid #dddddd;">
+        <div class="row" style="padding-left: 16%;border:none">{{'公司内部官网:w3.npm.com'}}</div>
+        <!--<div style="text-align: left;margin-left: 35px;">{{'公司内部官网：w3.ucarinc.com'}}</div>-->
+      </div>
+    <!--</ion-list>-->
+    <div class="wrapScan">
+      <img ng-src={{scanPic}} class="scanPic">
+    </div>
+    <div style="text-align: center">
+      <label class="scan-label">扫二维码，快速下载APP</label>
+    </div>
+  </ion-content>
+</ion-view>

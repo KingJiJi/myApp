@@ -1,0 +1,264 @@
+@mixin holidayItem(){
+  background: white;
+  margin-top: 10px;
+  width: 100%;
+  height:70px;
+}
+@mixin leftTitle(){
+  color:#7D7D7D;
+  font-size: 1rem;
+  padding: 10px 0 0 10px;
+}
+@mixin key {
+  font-size: 1rem;
+  color: #7D7D7D;
+  margin-left: -15px;
+}
+.new-holiday-content{
+  background-color: #f7f7f8;
+  .submitHoliday{
+    background: transparent;
+    color:white;
+    font-size: 15px;
+    font-weight:bold;
+  }
+  .bar-stable .button.activated{
+    background-color: transparent;
+  }
+  .bar-stable .button:hover{
+    color: white;
+  }
+  //请假类型
+  .holidayType{
+    @include holidayItem;
+    .typeTitle{
+    @include leftTitle;
+    }
+    .chooseHolidayType{
+      text-align: right;
+      font-size: 1rem;
+      color:#404040;
+      margin-right: 30px;
+    }
+    .choosedHolidayType{
+      text-align: right;
+      font-size: 1rem;
+      margin-right: 5%;
+    }
+    .arrow{
+      font-family:"iconfont";
+      float: right;
+      width: 19px;
+      height: 13px;
+    }
+    .icon-arrow:before{
+      content:'\e600';
+    }
+    .arrowRight{
+      position: absolute;
+      right:10px;
+      width: 19px;
+      height: 19px;
+    }
+  }
+
+  //请假时长
+  .list {
+    margin-bottom: 0;
+    .holiday-time {
+      background: #E6EDF5;
+      padding: 0;
+      font-size: 15px;
+      border: none;
+      height: 70px;
+      //.totalTimeTitle{
+      //  //align-self: center;
+      //  font-size: 1rem;
+      //  color:#919191;
+      //  margin-left: 10px;
+      //}
+      //.totalDay{
+      //  //text-align: right;
+      //  //position: absolute;
+      //  //right:30px;
+      //  //float: right;
+      //  font-size: 2.3rem;
+      //  color: #2c4a96;
+      //  margin-left: 65%;
+      //}
+      //.totalDayUnit{
+      //  //text-align: right;
+      //  //position: absolute;
+      //  //right: 10px;
+      //  padding-top: 10px;
+      //  color: #2c4a96;
+      //  margin-left: 2%;
+      //}
+      margin: 0;
+      .totalTime {
+        @include key;
+      }
+      .holiday-time-row {
+        padding: 25px;
+      }
+      .holiday-time-date {
+        text-align: right;
+        margin-right: 5px
+      }
+      .dayValue {
+        color: #2c4a96;
+        //margin-left: 67%;
+        font-size: 2.3rem;
+      }
+      .dayUnit {
+        font-size: 1rem;
+        //margin-left: 5px;
+        //margin-top: -5px;
+        padding-top: -5px;
+        color: #2c4a96;
+      }
+    }
+  }
+  //请假开始时间
+  .beginTime{
+    @include holidayItem;
+    height:80px;
+    margin-top: 0;
+    border-bottom: solid 1px #EAE3E3;
+    .typeTitle{
+      @include leftTitle;
+    }
+    .chooseBeginTime{
+      font-size: 1.1rem;
+      padding: 10px 0 0 10px;
+      color:#404040;
+    }
+    .chooseBeginTimeTitle{
+      font-size: 1.1rem;
+      padding: 10px 0 0 10px;
+      float:left;
+    }
+    .timeInterval{
+      font-size: 1.1rem;
+      padding: 10px 0 0 10px;
+      float:left;
+    }
+  }
+
+  //请假结束时间
+  .endTime{
+    @include holidayItem;
+    height:80px;
+    margin-top: 0;
+    border-bottom: solid 1px #EAE3E3;
+    .typeTitle{
+      @include leftTitle;
+    }
+    .chooseEndTime{
+      font-size: 1.1rem;
+      padding: 10px 0 0 10px;
+      color:#404040;
+    }
+    .chooseEndTimeTitle{
+      font-size: 1.1rem;
+      padding: 10px 0 0 10px;
+      float:left;
+    }
+    .timeInterval{
+      font-size: 1.1rem;
+      padding: 10px 0 0 10px;
+      float:left;
+    }
+  }
+
+  //具体事由
+  .specificReason{
+    @include holidayItem;
+    height:120px;
+    margin-top: 0;
+    border-bottom: solid 1px #EAE3E3;
+    .typeTitle{
+      @include leftTitle;
+    }
+    .reasonArea{
+      width: 98%;
+      margin-left: 1%;
+      height: 75px;
+      line-height: normal;
+      resize: none;
+      //border: 1px solid #ddd;
+      background-color: white;
+      font-size: 1em;
+    }
+  }
+
+  //图片上传
+  .uploadPics{
+    @include holidayItem;
+    height:120px;
+    margin-top: 0;
+    margin-bottom: 5%;
+    .typeTitle{
+      @include leftTitle;
+    }
+    .photo_tip{
+      height: 4rem;
+      line-height: 2rem;
+      font-size: 10px;
+      text-align: left;
+      color: #B7B4B4;
+      clear: both;
+    }
+    .photo_tip span:nth-child(1){
+      color:red;
+    }
+    .delete{
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      right: 0px;
+      top: -5px;
+      font-size: 1.6rem;
+      color: #b95756;
+    }
+  }
+
+  .blankArea{
+    height: 35px;
+    background-color: #f7f7f8;
+    //padding: 100px 0 10px 0;
+    //margin-top: 10px;
+  }
+
+}
+.new-photo-zoom{
+  .image-list-thumb {
+    padding: 2px 2px 2px 2px;
+    height: 150px;
+  }
+
+  .image-modal {
+    width: 100% !important;
+    height: 100%;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  .transparent {
+    background: black;
+  }
+
+  .slider {
+    width: 100%;
+    height: 100%;
+  }
+
+  .image {
+    width: 100%;
+    //height: 600px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center, center;
+  }
+}
+

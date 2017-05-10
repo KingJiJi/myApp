@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-hand-datePicker" version="1.0.0">
+    <name>CDXDatePicker</name>
+    <author>Liebrom Liu</author>
+    <js-module name="CDXDatePicker" src="www/CDXDatePicker.js">
+        <clobbers target="CDXDatePicker" />
+    </js-module>
+    
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="CDXDatePicker">
+                <param name="android-package" value="laine.com.timepicker.DatePickerPlugin"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/java/DatePickerPlugin.java" target-dir="src/laine/com/timepicker"/>
+        <source-file src="src/android/java/base/BaseFragmentActivity.java" target-dir="src/laine/com/timepicker/base"/>
+        <source-file src="src/android/java/base/BaseFragmentListener.java" target-dir="src/laine/com/timepicker/base"/>
+        <source-file src="src/android/java/fragment/DataEmptyFragment.java" target-dir="src/laine/com/timepicker/fragment"/>
+        <source-file src="src/android/java/fragment/DateSpinnerWheelFragment.java" target-dir="src/laine/com/timepicker/fragment"/>
+        <source-file src="src/android/java/fragment/DateWheelWidget.java" target-dir="src/laine/com/timepicker/fragment"/>
+        <source-file src="src/android/java/fragment/SimpleTextSpinnerWheelFragment.java" target-dir="src/laine/com/timepicker/fragment"/>
+        <source-file src="src/android/java/fragment/YearSpinnerWheelFragment.java" target-dir="src/laine/com/timepicker/fragment"/>
+        <source-file src="src/android/java/EntranceActivity.java" target-dir="src/laine/com/timepicker"/>
+        <source-file src="src/android/java/model/ZCEntry.java" target-dir="src/laine/com/timepicker/model"/>
+        <source-file src="src/android/java/third/spinnerwheel/AbstractWheel.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/AbstractWheelAdapter.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/AbstractWheelTextAdapter.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/AbstractWheelView.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/ArrayWheelAdapter.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/ItemsRange.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/NumericWheelAdapter.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/OnWheelChangedListener.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/OnWheelClickedListener.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/OnWheelScrollListener.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/WheelHorizontalScroller.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/WheelHorizontalView.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/WheelRecycler.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/WheelScroller.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/WheelVerticalScroller.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/WheelVerticalView.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+        <source-file src="src/android/java/third/spinnerwheel/WheelViewAdapter.java" target-dir="src/laine/com/timepicker/third/spinnerwheel"/>
+
+        <source-file src="src/android/libs/nineoldandroids-2.2.0.jar" target-dir="libs"/>
+
+        <source-file src="src/android/res/anim/bottom_in.xml" target-dir="res/anim"/>
+        <source-file src="src/android/res/anim/bottom_out.xml" target-dir="res/anim"/>
+
+        <source-file src="src/android/res/color/spinner_bottom_btn_color.xml" target-dir="res/color"/>
+        <source-file src="src/android/res/color/spinner_bottom_cancel_btn_color.xml" target-dir="res/color"/>
+
+        <source-file src="src/android/res/drawable/base_corner_bg.9.png" target-dir="res/drawable"/>
+        <source-file src="src/android/res/drawable/divider_dark_gradient_horizontal.xml" target-dir="res/drawable"/>
+
+        <source-file src="src/android/res/layout/activity_main.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/fragment_date_spinner_wheel_layout.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/no_data_layout.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/time_picker_custom_time.xml" target-dir="res/layout"/>
+
+        <source-file src="src/android/res/mipmap-xhdpi/base_corner_bg.9.png" target-dir="res/mipmap-xhdpi"/>
+        <source-file src="src/android/res/mipmap-xhdpi/ic_launcher.png" target-dir="res/mipmap-xhdpi"/>
+
+        <source-file src="src/android/res/values/color.xml" target-dir="res/values"/>
+        <source-file src="src/android/res/values/dimens.xml" target-dir="res/values"/>
+        <!-- <source-file src="src/android/res/values/strings.xml" target-dir="res/values"/> -->
+        <source-file src="src/android/res/values/styles.xml" target-dir="res/values"/>
+        <source-file src="src/android/res/values/wheel__attrs.xml" target-dir="res/values"/>
+
+        <config-file target="res/values/strings.xml" parent="/resources">
+            <!-- <string name="app_name">myapp</string> -->
+            <!-- <string name="hello_world">Hello world!</string> -->
+            <string name="action_settings">Settings</string>
+            <string name="wheel_current_date">\t\t\t\t\t\t今天\t</string>
+            <string name="action_cancel">取消</string>
+            <string name="action_complete">完成</string>
+            <string name="error_pickct_time_invalid">选取时间无效</string>
+            <string name="no_car_mes">非常抱歉!暂无您要的车型</string>
+            <string name="no_car_mes_1">请选择其他城市门店</string>
+            <string name="no_filter_car_mes">非常抱歉!暂无您要筛选的车型</string>
+            <string name="no_filter_car_mes_1">请选择其他车型</string>
+            <string name="take_car_time_text">开始时间</string>
+            <string name="return_car_time_text">结束时间</string>
+            <string name="current_date_error">您所选的时间已过期，请重新选择</string>
+        </config-file>
+
+        <framework src="com.android.support:support-v4:23.1.1" />
+        <!-- <framework src="src/android/mylibrary" custom="true"/> -->
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity
+                android:name="laine.com.timepicker.EntranceActivity"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                android:label="rili" >
+            </activity>
+        </config-file>
+
+    </platform>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="CDXDatePicker">
+                <param name="ios-package" value="CDXDatePicker"/>
+            </feature>
+        </config-file>
+
+         <!--plist 文件-->
+        <resource-file src="src/ios/plugins/PickerViewLib/Masonry/Info.plist" />
+        <!--源码 -->
+        <header-file src="src/ios/plugins/PickerViewLib/NSObject+ZCUtility.h" />
+        <source-file src="src/ios/plugins/PickerViewLib/NSObject+ZCUtility.m" />
+
+        <header-file src="src/ios/plugins/PickerViewLib/ZCCustomTimePickerView.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/ZCCustomTimePickerView.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/ZCFooterView.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/ZCFooterView.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/ZCTimePickerModel.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/ZCTimePickerModel.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/ZCTimePickerDateModel.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/ZCTimePickerDateModel.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/NSDate+ZCTimeModelHelper.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/NSDate+ZCTimeModelHelper.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/NSDate+Utilities.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/NSDate+Utilities.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/NSDate-Helper.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/NSDate-Helper.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/UIColor+HexString.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/UIColor+HexString.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/Masonry/MASCompositeConstraint.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/Masonry/MASCompositeConstraint.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/Masonry/MASConstraint.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/Masonry/MASConstraint.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/Masonry/MASConstraint+Private.h"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/Masonry/MASConstraintMaker.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/Masonry/MASConstraintMaker.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/Masonry/MASLayoutConstraint.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/Masonry/MASLayoutConstraint.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/Masonry/Masonry.h"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/Masonry/MASUtilities.h"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/Masonry/MASViewAttribute.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/Masonry/MASViewAttribute.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/Masonry/MASViewConstraint.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/Masonry/MASViewConstraint.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/Masonry/NSArray+MASAdditions.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/Masonry/NSArray+MASAdditions.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/Masonry/NSArray+MASShorthandAdditions.h"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/Masonry/NSLayoutConstraint+MASDebugAdditions.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/Masonry/NSLayoutConstraint+MASDebugAdditions.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/Masonry/View+MASAdditions.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/Masonry/View+MASAdditions.m"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/Masonry/View+MASShorthandAdditions.h"/>
+
+        <header-file src="src/ios/plugins/PickerViewLib/Masonry/ViewController+MASAdditions.h"/>
+        <source-file src="src/ios/plugins/PickerViewLib/Masonry/ViewController+MASAdditions.m"/>
+
+        <header-file src="src/ios/plugins/CDXDatePicker.h"/>
+        <source-file src="src/ios/plugins/CDXDatePicker.m"/>
+
+    </platform>
+</plugin>

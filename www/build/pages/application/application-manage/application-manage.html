@@ -1,0 +1,48 @@
+<ion-view view-title="功能管理" class="application-manage">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon ion-ios-arrow-back" ng-click="goBack()">
+        <!--<span class="back-button-text">返回</span>-->
+      </button>
+    </div>
+    <h1 class="title">添加首页功能</h1>
+    <div class="buttons">
+        <button class="button button-icon" ng-click="data.showReorder = !data.showReorder">
+            排序
+        </button>
+      </div>
+  </ion-header-bar>
+  <ion-content class="application-manage-content">
+   <!--  <div class="company-advisory-list">
+     <div class="item company-advisory-item" ng-click="applicationChoose(application)" ng-repeat="application in manageAppList track by $index">
+       <div class="row company-advisory-row">
+         <img class="company-advisory-img" src="{{application.appImg}}"/>
+         <div class="company-advisory-name">{{application.appName}}</div>
+         <div>
+           <icon class="ion-plus-round company-advisory-icon" ng-if="application.appFlag == 'N'"></icon>
+           <img ion-img-cache ng-src="build/img/application-manage/checked.png" class="company-advisory-icon" ng-if="application.appFlag == 'Y'"/>
+         </div>
+       </div>
+       <div class="application-manage-line"></div>
+     </div>
+   </div> -->
+    <ion-list show-reorder="data.showReorder" class="company-advisory-list">
+      <ion-item class="company-advisory-item" ng-click="applicationChoose(application)" ng-repeat="application in manageAppList track by $index">
+       <div class="row company-advisory-row">
+         <img class="company-advisory-img" src="{{application.appImg}}" />
+         <div class="company-advisory-name">{{application.appName}}</div>
+         <div>
+           <!-- <icon class="ion-plus-round company-advisory-icon" ng-if="application.appFlag == 'N'"></icon> -->
+           <img ion-img-cache ng-src="build/img/application-manage/checked.png" class="company-advisory-icon" ng-if="application.appFlag == 'Y'"/>
+         </div>
+       </div>
+       <div class="application-manage-line"></div>
+
+     <ion-reorder-button class="ion-navicon" ng-if="application.appFlag=='Y'" on-reorder="moveItem(application, $fromIndex,$toIndex)"></ion-reorder-button>
+   </ion-item>
+
+ </ion-list>
+
+  </ion-content>
+</ion-view>
+

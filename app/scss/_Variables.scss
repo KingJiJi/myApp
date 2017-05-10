@@ -1,0 +1,487 @@
+/**
+* 基础字体大小
+*/
+$font-size-small: 14px !default;
+$font-size: 15px !default;
+$font-size-big: 17px !default;
+$color-base: white !default;
+//下面是列表的常用色
+//突出色
+$color-text-key: #24559C !default;
+//主色
+$color-text-main: #9B9B9B !default;
+//副色
+$color-text-assistant: #4A4A4A !default;
+
+$global-background: #f8f8f8 !default;
+
+/**
+* 背景色
+*/
+.hrms-pancel-corlor {
+  background: #f8f8f8;
+  .bar-logo {
+    text-align: center;
+    width: 100%;
+  }
+  .bar-logo-img {
+    width: 84px;
+    height: 19px;
+    margin-top: 10px;
+  }
+}
+
+/*
+* 导航栏 bar
+*/
+
+//背景
+.bar {
+  &.bar-stable {
+    border-color: #b2b2b2;
+    //background-color: #f8f8f8;
+    //background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
+    color: $color-base;
+    background-color: #385198;
+    //background-image: url("../img/NaviBar@3x.png");
+    //background-size: cover;
+  }
+  &.bar-modal {
+    height: 40px;
+    background-color: #283161;
+    font-size: 16/17*$font-size-big;
+  }
+}
+
+//标题
+.bar {
+  &.bar-stable {
+    .title {
+      color: $color-base;
+      font-size: $font-size-big;
+      left: 0px !important;
+      right: 0px !important;
+    }
+  }
+}
+
+//导航栏按钮
+.bar {
+  .buttons {
+    .button {
+      color: $color-base;
+      font-size: $font-size-big;
+    }
+  }
+}
+
+//导航栏返回按钮文字位置微调整
+.back-button-text {
+  padding-left: 2px;
+  padding-top: 1px;
+}
+
+//导航栏右侧按钮字体调整
+.bar-right-button {
+  font-size: 16/17*$font-size-big;
+  padding-right: 5px;
+}
+
+//自定义按钮点击的样式
+.button.activated {
+  opacity: 0.6;
+  transform: scale(0.95, 0.95);
+  -webkit-transform: scale(0.95, 0.95);
+}
+
+.loading-hand {
+  background: url('./../img/loading3.gif');
+  background-size: 70px 70px;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 70px;
+  width: 100%;
+  margin-top: 5%;
+  position: fixed;
+  z-index: 1000;
+}
+
+.nodata-img-hand {
+  background: url('./../img/no_datas@3x.png');
+  background-size: 190px 190px;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 190px;
+  width: 100%;
+  margin-top: 23%;
+  position: fixed;
+  z-index: 1000;
+}
+
+.nodata-text {
+  color: $color-text-main;
+  font-size: $font-size-small;
+  text-align: center;
+  margin-top: 65%;
+  z-index: 1000;
+  position: relative;
+}
+
+.no-data-shelter {
+  position: absolute;
+  top: 185px;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 250px;
+}
+
+.no-data-no-space {
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+
+.no-data-image {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 140px;
+}
+
+.no-data-no-space-label-row {
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.no-data-label {
+  font-size: 1.125rem;
+  color: #385198;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.content-bg {
+  background: #ECECEC;
+}
+
+.f16 {
+  font-size: 16px !important;
+}
+
+.button.f16, i.f16, a.f16, i.icon.f16 {
+  font-size: 16px !important;
+}
+
+.none-bg {
+  background: transparent;
+}
+
+.ft20, input.ft20 {
+  font-size: 20px !important;
+}
+
+.pd-15 {
+  padding: 15px;
+}
+
+.mt-1 {
+  margin-top: 1px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.pd-0 {
+  padding: 0px !important;
+}
+
+.pr-0 {
+  padding-right: 0px !important;
+}
+
+.pr-15 {
+  padding-right: 15px !important;
+}
+
+.pr-20 {
+  padding-right: 20px !important;
+}
+
+.pl-5 {
+  padding-left: 5px !important;
+}
+
+.pl-10 {
+  padding-left: 10px !important;
+}
+
+.pt-10 {
+  padding-top: 10px !important;
+}
+
+.pb-10 {
+  padding-bottom: 10px !important;
+}
+
+.pd-none {
+  padding: 0px !important;
+}
+
+.right-border-bg {
+  border-right: 1px solid #ececec;
+}
+
+.border-none {
+  border: none !important;
+}
+
+.price-bg, input.price-bg {
+  background: #E6EDF5;
+}
+
+.price-color, input.price-color {
+  color: #374F9A !important;
+}
+
+.transparent-bg {
+  background: transparent !important;
+}
+
+.color7d, .color-left {
+  font-family: 'PingFangSC-Regular';
+  font-size: 16px;
+  color: #7D7D7D;
+  /*letter-spacing: 0px;
+  line-height: 16px;*/
+}
+
+input.color40, a.color40, select.color40, .color-right {
+  font-family: 'PingFangSC-Regular';
+  font-size: 16px;
+  color: #404040 !important;
+  /*letter-spacing: 0px;
+  line-height: 16px;*/
+}
+
+.select-no-triangle {
+  border: none !important;
+  width: 100% !important;
+  -webkit-appearance: none !important;
+}
+
+input.height-16 {
+  height: 16px;
+}
+
+.input-icon-label {
+  position: relative !important;
+}
+
+.input-icon {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  right: 0px;
+  top: 15px;
+}
+
+.cux-confirm-style {
+  .popup-head {
+    border-bottom: none;
+    padding: 15px 10px 0px 15px;
+    .popup-title {
+      font-family: PingFangSC-Medium;
+      font-size: 16px;
+      color: #000000;
+      line-height: 16px;
+    }
+    .warningIcon {
+      height: 20px;
+      width: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    .warningTitle {
+      vertical-align: middle;
+    }
+  }
+  .popup-body {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #030303;
+    line-height: 20px;
+    margin: 0px 10px;
+    padding: 10px 0px;
+    text-align: center;
+  }
+  .popup-buttons {
+    padding: 0px;
+    min-height: 44px;
+    border-top: 1px solid #c3c3c3;
+    position: relative;
+  }
+  .popup-buttons::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    width: 1px;
+    height: 44px;
+    background-color: #c3c3c3;
+  }
+  .button-cux-popup-cancel {
+    background-color: transparent;
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #FF9393;
+    line-height: 16px;
+    border: none;
+    border-radius: 0px;
+    width: 50%;
+    height: 44px;
+    min-height: 36px;
+    margin-right: 0px;
+  }
+  .button-cux-popup-confirm {
+    background-color: transparent;
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #374F9A;
+    line-height: 16px;
+    border: none;
+    border-radius: 10px;
+    width: 50%;
+    height: 44px;
+    min-height: 36px;
+  }
+}
+.popup-container .popup{
+  width: 250px;
+  max-width: 100%;
+  max-height: 90%;
+  background: rgba(252,252,252,1);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-radius: 12px;
+}
+.fuk-popup-style{
+  .popup-head {
+    border-bottom: none;
+    padding: 15px 10px 0px 15px;
+    .popup-title {
+      font-family: PingFangSC-Medium;
+      font-size: 16px;
+      color: #000000;
+      line-height: 16px;
+    }
+    .warningIcon{
+      height: 20px;
+      width: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    .warningTitle{
+      vertical-align: middle;
+      color:#030303;
+      font-size: 17px;
+    }
+  }
+  .popup-body {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #030303;
+    line-height: 20px;
+    margin: 0px 10px;
+    padding: 10px 0px;
+    text-align: center;
+  }
+  .popup-buttons {
+    padding: 0px;
+    min-height: 44px;
+    border-top: 1px solid #c3c3c3;
+    position: relative;
+  }
+
+  .button-cux-popup-confirm {
+    background-color: transparent;
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #374F9A;
+    line-height: 16px;
+    border: none;
+    border-radius: 10px;
+    width: 50%;
+    height: 44px;
+    min-height: 36px;
+  }
+}
+.fck-popup-style{
+  .popup-head {
+    border-bottom: none;
+    padding: 15px 10px 0px 15px;
+    .popup-title {
+      font-family: PingFangSC-Medium;
+      font-size: 16px;
+      color: #000000;
+      line-height: 16px;
+    }
+    .warningIcon{
+      height: 20px;
+      width: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    .warningTitle{
+      vertical-align: middle;
+      color:#030303;
+      font-size: 17px;
+    }
+  }
+  .popup-body {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #030303;
+    line-height: 20px;
+    margin: 0px 10px;
+    padding: 10px 0px;
+    text-align: left;
+  }
+  .popup-buttons {
+    padding: 0px;
+    min-height: 44px;
+    border-top: 1px solid #c3c3c3;
+    position: relative;
+  }
+
+  .button-cux-popup-confirm {
+    background-color: transparent;
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #374F9A;
+    line-height: 16px;
+    border: none;
+    border-radius: 10px;
+    width: 50%;
+    height: 44px;
+    min-height: 36px;
+  }
+}

@@ -1,0 +1,50 @@
+<ion-view view-title="登录" class="login">
+  <ion-content class="content-style" has-bouncing="false" scrollbar-y="false" >
+    <img style="border-radius: 50%" ng-src="build/img/login/login-logo1.png" id="mainLogo" class="login-logo" />
+    <div class="list" id="loginAnimation" style="margin-top: 5%" >
+      <div class="login-item">
+        <div class="row loginUser-row">
+          <div class="login-col">
+            <img src="build/img/login/login-username.png" class="loginUser-img"/>
+            <div style="color: #3c3f49; left: 10px; position: relative;font-size: medium; font-family: 微软雅黑">账户</div>
+          </div>
+          <div class="login-input-col">
+            <input id="usernameFocu" type="text" style="ime-mode: disabled" maxlength="30" placeholder="" ng-model="loginInfo.username" ng-change="usernameChange()" ng-focus="usernameFocus()" ng-blur="usernameBlur()" ng-keyup="valueFilter($event)" ng-keydown="myKeyup($event)" class="login-input"/>
+          </div>
+          <button class="button button-block clear-button" ng-click="clearUsername()" ng-show="showUserClearButton">
+            <img src="build/img/login/login-clean.png" class="clear-image"/>
+          </button>
+        </div>
+        <div class="login-line" style="margin-top: -8px;"></div>
+        <div class="row loginPw-row">
+          <div class="login-col">
+            <img src="build/img/login/login-password.png" class="loginPw-img"/>
+            <div style="color: #3c3f49; left: 10px; position: relative; font-size: medium; font-family: 微软雅黑">密码</div>
+          </div>
+          <div class="login-input-col" style="margin-top: 0px">
+            <input id="passwordFocu" type="password" maxlength="30" placeholder="" ng-model="loginInfo.password" ng-change="passwordChange()"  ng-focus="passwordFocus()" ng-blur="passwordBlur()" ng-keyup="valuePasswordFilter($event)" ng-keydown="myKeyup($event)"  class="login-input"/>
+          </div>
+          <button class="button button-block clear-button" style="margin-top: 4px;" ng-click="clearPassword()" ng-show="showPasswordClearButton" >
+            <img src="build/img/login/login-clean.png" class="clear-image"/>
+          </button>
+        </div>
+        <div class="login-line" style="margin-top: 11px"></div>
+      </div>
+      <!--<div class="login-savePw" ng-click="savePassword()">-->
+      <!--<img ion-img-cache ng-src="{{passwordChecked}}" class="login-savePw-img"/>-->
+      <!--<span>记住密码</span>-->
+      <!--</div>-->
+      <!--<div class="item login-checkbox-item">-->
+      <!--<img ion-img-cache ng-src="{{passwordChecked}}" class="login-checkbox-icon"/>-->
+      <!--<button class="button button-block remember-password-button"  ng-click="savePassword()">记住密码-->
+      <!--</button>-->
+      <!--</div>-->
+
+      <div class="button login-button" ng-click="login()">登录</div>
+      <div class="item login-checkbox-item">
+        <button class="button button-block remember-password-button"  ng-click="forgetPassword()">忘记密码？
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

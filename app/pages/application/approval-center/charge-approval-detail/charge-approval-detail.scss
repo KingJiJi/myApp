@@ -1,0 +1,47 @@
+.chargeApproval {
+  .approval-list-detail-item {
+    padding: 0px;
+    border: none;
+    .item-img {
+      width: 45px;
+      height: 45px;
+      margin-top: 12px;
+      margin-left: 10px
+    }
+    .item-col {
+      margin: 0px;
+      padding: 0 25% 0 0
+    }
+    .item-col-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 14px
+    }
+    .approval-status-img {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 12px;
+      right: 27px
+    }
+    .approval-status-text {
+      position: absolute;
+      top: 48px;
+      right: 12px
+    }
+  }
+  .headInformation{
+    .headTitle{
+      text-align: right;
+    }
+    .headValue{
+
+    }
+  }
+  .lineInformation{
+    margin: 2px 15px;
+    border: 1px solid;
+  }
+
+}

@@ -1,0 +1,22 @@
+<ion-view view-title="申请中心" class="apply-center-manage">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon ion-ios-arrow-back" ng-click="$ionicGoBack()">
+        <!--<span class="back-button-text">返回</span>-->
+      </button>
+    </div>
+    <h1 class="title" ng-bind="title"></h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list class="apply-center-list">
+      <div class="item apply-center-item" ng-repeat="item in applyCenterList" ng-click="goToApplication(item, $event)">
+        <div class="row apply-center-row">
+          <img ion-img-cache class="apply-center-img" ng-src="{{item.iconUrl}}" />
+          <div class="apply-center-title">{{item.functionName}}</div>
+        </div>
+        <div class="apply-center-line" ng-if="lastLineHide($index, applyCenterList)"></div>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>
+

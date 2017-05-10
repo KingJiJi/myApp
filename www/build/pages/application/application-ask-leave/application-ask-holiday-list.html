@@ -1,0 +1,111 @@
+<ion-view view-title="请假申请" class="ask-holiday-content">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div ng-click="goBack()" class="button button-clear" style="color: #fff">
+      <i class="icon ion-ios-arrow-back"></i>
+    </div>
+    <h1 class="title">请假申请</h1>
+    <div class="button createHoliday" ng-click="newHoliday()">新建</div>
+  </ion-header-bar>
+
+
+  <ion-content delegate-handle="holidayListHandle">
+    <ion-refresher  on-refresh="refresh()" pulling-text="正在刷新数据..." pulling-icon="ion-ios-loop">
+    </ion-refresher>
+    <div ng-if="noApprovalFlag">
+      <div class="no-data-shelter">
+        <div class="row no-data-no-space">
+          <img src="build/img/application/no-data.png" class="no-data-image">
+        </div>
+        <div class="row no-data-no-space-label-row">
+          <label class="no-data-label">{{'暂无申请'}}</label>
+        </div>
+      </div>
+    </div>
+    <ion-list>
+      <div class="item holiday-info-item">
+        <div class="row holiday-info-balance">假期结余</div>
+        <div class="row">
+          <div class="col col-25">
+            <div class="row">
+              <div class="col holiday-info-detail">
+                <span class="holiday-info-days text-color1">{{holidayInfo.lastYearDays}}</span>
+                <span class="holiday-info-unit text-color1">天</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col holiday-info-title">上年年假</div>
+            </div>
+          </div>
+          <div class="col col-25">
+            <div class="row">
+              <div class="col holiday-info-detail">
+                <span class="holiday-info-days text-color2">{{holidayInfo.thisYearDays}}</span>
+                <span class="holiday-info-unit text-color2">天</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col holiday-info-title">本年年假</div>
+            </div>
+          </div>
+          <div class="col col-20">
+            <div class="row">
+              <div class="col holiday-info-detail">
+                <span class="holiday-info-days text-color3">{{holidayInfo.usedPaidSickLeave}}</span>
+                <span class="holiday-info-unit text-color3">天</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col holiday-info-title">带薪病假</div>
+            </div>
+          </div>
+          <div class="col col-30">
+            <div class="row">
+              <div class="col holiday-info-detail">
+                <span class="holiday-info-days text-color4">{{holidayInfo.compensatedLeave}}</span>
+                <span class="holiday-info-unit text-color4">小时</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col holiday-info-title">调休假</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-list>
+
+    <ion-list>
+      <ion-item class="fake-leave-apply-item" ng-repeat="item in requestHolidayList" ng-click="toHolidayDetail(item.REL_NUMBER)">
+        <div class="row">
+          <div class="col title-col">{{'请假申请'}}{{'('+item.REL_NUMBER+')'}}</div>
+        </div>
+        <div class="row padding-row">
+          <div class="col col-66">
+            <div class="row info-row" ng-if="item.AWART == '1000'">{{'请假申请'}}-{{'年假'}}-{{item.ABWTG+'天'}}</div>
+            <div class="row info-row" ng-if="item.AWART == '1010'">{{'请假申请'}}-{{'病假'}}-{{item.ABWTG+'天'}}</div>
+            <div class="row info-row" ng-if="item.AWART == '1020'">{{'请假申请'}}-{{'事假'}}-{{item.ABWTG+'天'}}</div>
+            <div class="row info-row" ng-if="item.AWART == '1030'">{{'请假申请'}}-{{'婚假'}}-{{item.ABWTG+'天'}}</div>
+            <div class="row info-row" ng-if="item.AWART == '1040'">{{'请假申请'}}-{{'丧假'}}-{{item.ABWTG+'天'}}</div>
+            <div class="row info-row" ng-if="item.AWART == '1050'">{{'请假申请'}}-{{'产假'}}-{{item.ABWTG+'天'}}</div>
+            <div class="row info-row" ng-if="item.AWART == '1060'">{{'请假申请'}}-{{'哺乳假'}}-{{item.ABWTG+'天'}}</div>
+            <div class="row info-row" ng-if="item.AWART == '1070'">{{'请假申请'}}-{{'陪产假'}}-{{item.ABWTG+'天'}}</div>
+            <div class="row info-row" ng-if="item.AWART == '1080'">{{'请假申请'}}-{{'调休假'}}-{{item.ABWTG+'天'}}</div>
+            <div class="row info-row" ng-if="item.AWART == '1099'">{{'请假申请'}}-{{'其他(工伤丶探亲等)'}}-{{item.ABWTG+'天'}}</div>
+            <div class="row date-row">{{item.CREATE_DATE}}&nbsp;&nbsp;&nbsp;{{item.CREATE_TIME}}</div>
+          </div>
+          <div class="col col-34 status-col">
+            <span class="status-span submit" ng-if="item.REL_STATUS == 'P'">{{'已提交'}}</span>
+            <span class="status-span cancel" ng-if="item.REL_STATUS == 'C'">{{'已撤销'}}</span>
+            <span class="status-span save" ng-if="item.REL_STATUS == 'N'">{{'已创建'}}</span>
+            <span class="status-span unapprove" ng-if="item.REL_STATUS == 'A'">{{'审批中'}}</span>
+            <span class="status-span approve" ng-if="item.REL_STATUS == 'E'">{{'已同意'}}</span>
+            <span class="status-span reject" ng-if="item.REL_STATUS == 'R'">{{'已拒绝'}}</span>
+          </div>
+        </div>
+        <img ng-src="build/img/contact/arrow.png" class="arrow-img"/>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll ng-if="loadMoreDataFlag" on-infinite="loadMoreData()"  immediate-check="false"
+                         distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

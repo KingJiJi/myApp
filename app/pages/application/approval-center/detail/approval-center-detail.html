@@ -1,0 +1,249 @@
+<ion-view view-title="待办事项明细" class="workflow-detail">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-arrow-back" ng-click="$ionicGoBack()">
+      </button>
+    </div>
+    <h1 class="title">录用审批明细</h1>
+  </ion-header-bar>
+  <ion-content>
+    <!--<div class="row" ng-if="approvalStatus == 'Processed' && status == 'A'">-->
+    <!--<img class="workflow-detail-img" ng-src="build/img/application/approval-center-detail/approvalDetailAgree.png" />-->
+    <!--<span class="workflow-detail-text">审批中</span>-->
+    <!--</div>-->
+    <!--<div class="row"  ng-if="approvalStatus == 'Processed' && status == 'R'">-->
+    <!--<img class="workflow-detail-img"  ng-src="build/img/application/approval-center-detail/approvalDetailRefuse.png" />-->
+    <!--<span class="workflow-detail-text">审批拒绝</span>-->
+    <!--</div>-->
+    <!--<div class="row"  ng-if="approvalStatus == 'Processed' && status == 'E'">-->
+    <!--<img class="workflow-detail-img"  ng-src="build/img/application/approval-center-detail/approvalDetailAgree.png" />-->
+    <!--<span class="workflow-detail-text">审批通过</span>-->
+    <!--</div>-->
+    <ion-list>
+      <ion-item class="approval-list-detail-item">
+        <div class="row">
+          <img ng-src="build/img/application/approval-center-detail/approvalIcon.png" class="item-img"/>
+          <div class="col item-col">
+            <div class="row">
+              <div class="col item-col-text">
+               {{approvalList.typeValue}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-col-text">
+                {{approvalList.submit}}：{{approvalList.submitPerson}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div ng-if="approvalDetailStatus == 'N' && approvalStatus != 'Untreated'">
+          <img ng-src="build/img/application/approval-center-detail/approvalDetailCreat.png" class="approval-status-img"/>
+          <div class="approval-status-text">审批创建</div>
+        </div>
+        <div ng-if="approvalDetailStatus == 'P' && approvalStatus != 'Untreated'">
+          <img ng-src="build/img/application/approval-center-detail/approvalDetailCommit.png" class="approval-status-img"/>
+          <div class="approval-status-text">审批提交</div>
+        </div>
+        <div ng-if="approvalDetailStatus == 'A' && approvalStatus != 'Untreated'">
+          <img ng-src="build/img/application/approval-center-detail/approvalDetailing.png" class="approval-status-img"/>
+          <div style="right: 18px" class="approval-status-text">审批中</div>
+        </div>
+        <div ng-if="approvalDetailStatus == 'E' && approvalStatus != 'Untreated'">
+          <img ng-src="build/img/application/approval-center-detail/approvalDetailAgree.png" class="approval-status-img"/>
+          <div class="approval-status-text">审批通过</div>
+        </div>
+        <div ng-if="approvalDetailStatus == 'R' && approvalStatus != 'Untreated'">
+          <img ng-src="build/img/application/approval-center-detail/approvalDetailRefuse.png" class="approval-status-img"/>
+          <div class="approval-status-text">审批拒绝</div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <div class="basicInfo">员工基本信息</div>
+    <!--<ion-item class="employee-common-item item">-->
+    <!--<div class="row employee-item-row">-->
+    <!--<div class="col col-33 ">{{"张三"}}</div>-->
+    <!--<div class="col col-67 col-center-value">{{"男"}}</div>-->
+    <!--</div>-->
+    <!--</ion-item>-->
+    <!--<ion-item class="employee-common-item item">-->
+    <!--<div class="row employee-item-row">-->
+    <!--<div class="col col-33 ">{{"身份证"}}</div>-->
+    <!--<div class="col col-67 col-center-value">{{"421281199310190516"}}</div>-->
+    <!--</div>-->
+    <!--</ion-item>-->
+
+    <ion-list>
+      <ion-item class="employee-icon-item item" ng-repeat="item in detailList4">
+        <hms-workflow-detail4
+          detail-icon1='item.iconLeft'
+          detail-left='item.itemLeft'
+          detail-left-value='item.itemLeftValue'
+          detail-icon2='item.iconRight'
+          detail-right='item.itemRight'
+          detail-right-value='item.itemRightValue'
+          >
+        </hms-workflow-detail4>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item class="item"
+                style="background-color: #ffffff; margin: 0px; padding: 0px;border: none; border-bottom: 1px solid #e8e8e8;">
+        <div class="row" style="padding: 5px 0 5px 0; margin: 0px;">
+          <div class="row ">
+            <div class="col col-10" style="margin-top: -10px;">
+              <div style="margin-left: 7px; height: 24px; width: 24px; margin-top: 11px;">
+                <img src="build/img/application/approval-center-detail/company.png"
+                     style=" width: 20px; height: 20px; margin-top: 4px;">
+              </div>
+            </div>
+            <div class="col col-90" style="margin-left: 10px;">
+              <div class="row" style="padding: 0px">
+                {{icnumTpye}}
+              </div>
+              <div class="row"
+                   style="color: #9B9B9B; margin-top: 5px; word-break: break-all; white-space: normal; padding: 0px">
+                {{icnum}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+
+    <ion-list>
+      <ion-item class="employee-icon-item item" ng-repeat="item in detailList1">
+        <hms-workflow-detail1
+          detail-icon1='item.iconLeft'
+          detail-left='item.itemLeft'
+          detail-left-value='item.itemLeftValue'
+          detail-icon2='item.iconRight'
+          detail-right='item.itemRight'
+          detail-right-value='item.itemRightValue'
+          >
+        </hms-workflow-detail1>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item class="item"
+                style="background-color: #ffffff; margin: 0px; padding: 0px;border: none; border-bottom: 1px solid #e8e8e8;">
+        <div class="row" style="padding: 5px 0 5px 0; margin: 0px;">
+          <!--<div class="col col-50 ">-->
+          <div class="row ">
+            <div class="col col-10" style="margin-top: -10px;">
+              <div style="margin-left: 7px; height: 24px; width: 24px; margin-top: 11px;">
+                <img src="build/img/application/approval-center-detail/company.png"
+                     style=" width: 20px; height: 20px; margin-top: 4px;">
+              </div>
+            </div>
+            <div class="col col-90" style="margin-left: 10px;">
+              <div class="row" style="padding: 0px">
+                {{"合同签署公司"}}
+              </div>
+              <div class="row"
+                   style="color: #9B9B9B; margin-top: 5px; word-break: break-all; white-space: normal; padding: 0px">
+                {{contractCompant}}
+              </div>
+            </div>
+          </div>
+          <!--</div>-->
+          <!--<div class="col col-50">-->
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <div class="basicInfo">试用期约定</div>
+    <ion-list>
+      <ion-item class="employee-icon-item item" ng-repeat="item in detailList2">
+        <hms-workflow-detail2
+          detail-icon1='item.iconLeft'
+          detail-left='item.itemLeft'
+          detail-left-value='item.itemLeftValue'
+          detail-icon2='item.iconRight'
+          detail-right='item.itemRight'
+          detail-right-value='item.itemRightValue'
+          >
+        </hms-workflow-detail2>
+      </ion-item>
+    </ion-list>
+    <div class="basicInfo">转正后约定</div>
+    <ion-list>
+      <ion-item class="employee-icon-item item" ng-repeat="item in detailList3">
+        <hms-workflow-detail3
+          detail-icon1='item.iconLeft'
+          detail-left='item.itemLeft'
+          detail-left-value='item.itemLeftValue'
+          detail-icon2='item.iconRight'
+          detail-right='item.itemRight'
+          detail-right-value='item.itemRightValue'
+          >
+        </hms-workflow-detail3>
+      </ion-item>
+    </ion-list>
+
+    <div class="basicInfo" ng-if="approvalStatus == 'Untreated'">审批意见</div>
+    <div class="row" ng-if="approvalStatus == 'Untreated'">
+      <textarea class="textArea" ng-model="approval.remarks">
+
+      </textarea>
+    </div>
+    <div class="row no-padding button-row" ng-if="approvalStatus == 'Untreated'">
+      <div class="row-child1">
+        <button class="button reject-button" ng-click="approvalCommitConfirm('REJECT')">拒绝</button>
+      </div>
+      <div class="row-child2">
+        <button class="button approval-button" ng-click="approvalCommitConfirm('APPROVE')">同意</button>
+      </div>
+    </div>
+    <div class="basicInfo">单据跟踪</div>
+    <ion-list>
+      <ion-item ng-repeat="item in rel_history | orderBy:item.REL_DATE" class="message-list-item">
+        <div class="row testRow" style="height: 100%;">
+          <div class="col" style="padding-left: 40px;">
+            <div class="red-line"
+              ng-if="$index == 0"></div>
+            <div class="white-line"
+                 ng-if="$index != 0"></div>
+            <div class="row message-item-time" ng-if="item.REL_DATE">
+              <div class=" message-date">{{item.REL_DATE}}&nbsp;&nbsp;{{item.REL_TIME}}
+              </div>
+            </div>
+            <div class="row message-item">
+              <div class="message-div">
+                <div class="message-content">
+                  {{item.REL_ENAME}}&nbsp;&nbsp;({{(item.REL_PLSTX)}})
+                </div>
+              </div>
+            </div>
+            <div class="row message-item">
+              <div class="message-div">
+                <div class="approve-remark">
+                  {{item.REMARKS}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-20 align-center unapprove" style="font-size: 15px;" ng-if="item.REL_ACTION ==''">
+            {{'待审批'}}
+          </div>
+          <div class="col col-20 align-center submit" style="font-size: 15px;" ng-if="item.REL_ACTION =='SUBMIT'">
+            {{'提交'}}
+          </div>
+          <div class="col col-20 align-center reject" style="font-size: 15px;" ng-if="item.REL_ACTION =='REJECT'">
+            {{'拒绝'}}
+          </div>
+          <div class="col col-20 align-center unapprove" style="font-size: 15px;" ng-if="item.REL_ACTION =='APPROVE'">
+            {{'通过'}}
+          </div>
+          <div class="col col-20 align-center approve" style="font-size: 15px;" ng-if="item.REL_ACTION =='RETURN'">
+            {{'退回'}}
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <div class="white-area"></div>
+  </ion-content>
+
+</ion-view>

@@ -1,0 +1,731 @@
+<ion-view view-title="工资单详情" class="payroll-detail">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon ion-ios-arrow-back" ng-click="$ionicGoBack()">
+      </button>
+    </div>
+    <h1 class="title">工资单详情</h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list ng-if="payRollDetail.PAYTY == 'A'">
+      <div class="item no-padding no-border payroll-item">
+        <div class="row padding-row">
+          <div class="col text-color">实发年终奖</div>
+          <div class="col right-col text-color">{{SFGZ.toFixed(2)}}</div>
+        </div>
+      </div>
+      <div class="item-line"></div>
+      <div class="item no-padding no-border">
+        <div class="row padding-row">
+          <div class="col text-color">年终奖个人所得税</div>
+          <div class="col right-col text-color">{{NZJGRSDS.toFixed(2)}}</div>
+        </div>
+      </div>
+    </ion-list>
+    <ion-list ng-if="payRollDetail.PAYTY == ''">
+      <div class="item no-padding no-border payroll-item">
+        <div class="row padding-row">
+          <div class="col text-color">实发工资</div>
+          <div class="col right-col text-color">{{SFGZ.toFixed(2)}}</div>
+        </div>
+      </div>
+      <!--<div class="item-line"></div>-->
+      <!--<div class="item no-padding no-border">-->
+      <!--<div class="row padding-row">-->
+      <!--<div class="col text-color">个人所得税</div>-->
+      <!--<div class="col right-col text-color">{{GRSDS.toFixed(2)}}</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="item-line"></div>-->
+      <!--<div class="item no-padding no-border">-->
+      <!--<div class="row padding-row">-->
+      <!--<div class="col text-color">上月结算</div>-->
+      <!--<div class="col right-col text-color">{{SYJS.toFixed(2)}}</div>-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <div class="item no-padding no-border payroll-item" ng-click="showDetail()">
+        <div class="row padding-row">
+          <div class="col text-color1">固定工资合计</div>
+          <div class="col right-col text-color">
+            <span class="right-span">{{JBGZHJ.toFixed(2)}}</span>
+          </div>
+        </div>
+        <img ng-if="arrowPath" ng-src="build/img/payroll/Path@3x.png" class="arrow-img"/>
+        <img ng-if="!arrowPath" ng-src="build/img/payroll/Path 2@3x.png" class="arrow-img"/>
+      </div>
+      <div ng-if="!arrowPath" class="item-border">
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/basic-salary@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">基本工资</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{JBGZ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/adjust-basic-salary@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">调整后基本工资</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{TZHJBGZ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/position-bonus@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">岗位津贴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{GWJT.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/position-bonus@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">调整后岗位津贴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{TZHGWJT.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item no-padding no-border payroll-detail-item" ng-click="showDetail1()">
+        <div class="row padding-row">
+          <div class="col text-color1">税前收入与扣减合计</div>
+          <div class="col right-col text-color">
+            <span class="right-span">{{SQSRYKJHJ.toFixed(2)}}</span>
+          </div>
+        </div>
+        <img ng-if="arrowPath1" ng-src="build/img/payroll/Path@3x.png" class="arrow-img"/>
+        <img ng-if="!arrowPath1" ng-src="build/img/payroll/Path 2@3x.png" class="arrow-img"/>
+      </div>
+      <div ng-if="!arrowPath1" class="item-border">
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/airport@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">机场补贴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{JCBZ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/launch@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">餐费补贴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{mealAllowance.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/communication@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">通讯补贴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{TXBZ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/nightwork@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">夜班补贴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{YBBZ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/overtime@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">超工时补贴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{CSGBZ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/high-temperature.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">高温补贴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{GWBZ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/traffic@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">交通补贴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{JTBT.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/other@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">其他补贴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{QTBT.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/before@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">税前调整</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{SQTZ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/store@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">门店奖金</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{MDJJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/sale@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">销售奖金</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{XSJJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/rating@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">绩效奖金</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{JXJJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/other-prize@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">其他奖金</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{QTJJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <!--<div class="item no-padding no-border">-->
+        <!--<div class="row padding-row">-->
+        <!--<img class="img-icon" ng-src="build/img/payroll/annual-bonus@3x.png"/>-->
+
+        <!--<div class="col text-size">-->
+        <!--<span class="left-span">年终奖</span>-->
+        <!--</div>-->
+        <!--<div class="col right-col text-color1">-->
+        <!--<span>{{payRollDetail.item.ZZ560}}</span>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="item-line"></div>-->
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/withhold@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">补扣款</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{BKK.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/overtime-bonus@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">加班费</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{overTimePay.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/sick-leave@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">病假扣款</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{BJKK.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/casual-leave@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">事假扣款</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{SJKK.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/chanjia@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">产假扣款</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{CJKK.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item no-padding no-border payroll-detail-item" ng-click="showDetail2()">
+        <div class="row padding-row">
+          <div class="col text-color1">社保/公积金个人合计</div>
+          <div class="col right-col text-color">
+            <span class="right-span">{{SBGJJHJ.toFixed(2)}}</span>
+          </div>
+        </div>
+        <img ng-if="arrowPath2" ng-src="build/img/payroll/Path@3x.png" class="arrow-img"/>
+        <img ng-if="!arrowPath2" ng-src="build/img/payroll/Path 2@3x.png" class="arrow-img"/>
+      </div>
+      <div ng-if="!arrowPath2" class="item-border">
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/housing-fund@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">住房公积金个人实缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{ZFGJJYGSJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/supply-housing-fund@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">住房公积金个人补缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{ZFGJJYGBJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/endowment-insurance@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">养老保险个人实缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{YLBXGRSJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/unemployment-insurance@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">失业保险个人实缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{SYBXGRSJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/medical-insurance@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">医疗保险个人实缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{YILBXGRSJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/medical@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">大额医疗个人实缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{DEYLYGSJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/comprehensive-insurance@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">综合保险个人实缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{ZHBXGRSJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/supply-housing-fund@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">社会保险个人补缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{SHBXYGBJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/shebaotiaozheng-geren@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">社保调整(个人)</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{SBTZGR.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/shebaotiaozheng-qiye@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">社保调整(企业)</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{SBTZQY.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/zhufang-qiyeshijiao@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">住房公积金企业实缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{ZFGJJQYSJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/zhufang-qiyebujiao@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">住房公积金企业补缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{ZFGJJQYBJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/daeyiliao@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">大额医疗企业实缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{DEYLQYJN.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/zonghebaoxian-qiyeshijiao@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">综合保险企业实缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{ZHBXQYJN.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/yanglao-qiye@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">养老保险企业实缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{YLBXQYSJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/shiyebaoxian-qiyeshijiao@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">失业保险企业实缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{SYBXQYSJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/yilaobaoxian-qiyeshijiao@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">医疗保险企业实缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{YILBXQYSJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/gongshang@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">工伤保险企业实缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{GSBXQYSJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/shengyu@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">生育保险企业实缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{SYUBXQYSJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/shebaobujiao@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">社会保险企业补缴</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{SHBXQYBJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item no-padding no-border payroll-detail-item" ng-click="showDetail5()">
+        <div class="row padding-row">
+          <div class="col text-color1">个人所得税</div>
+          <div class="col right-col text-color">
+            <span class="right-span">{{GRSDS.toFixed(2)}}</span>
+          </div>
+        </div>
+        <img ng-if="arrowPath5" ng-src="build/img/payroll/Path@3x.png" class="arrow-img"/>
+        <img ng-if="!arrowPath5" ng-src="build/img/payroll/Path 2@3x.png" class="arrow-img"/>
+      </div>
+      <div ng-if="!arrowPath5" class="item-border">
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/gerensuode@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">个人所得税</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{GRSDS.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item no-padding no-border payroll-detail-item" ng-click="showDetail3()">
+        <div class="row padding-row">
+          <div class="col text-color1">税后调整合计</div>
+          <div class="col right-col text-color">
+            <span class="right-span">{{SHKCJLJHJ.toFixed(2)}}</span>
+          </div>
+        </div>
+        <img ng-if="arrowPath3" ng-src="build/img/payroll/Path@3x.png" class="arrow-img"/>
+        <img ng-if="!arrowPath3" ng-src="build/img/payroll/Path 2@3x.png" class="arrow-img"/>
+      </div>
+      <div ng-if="!arrowPath3" class="item-border">
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/repayment@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">税后调整</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{SHTZ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-line"></div>
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/consideration-money@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">经济补偿金</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{JJBCJ.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item no-padding no-border payroll-detail-item" ng-click="showDetail4()">
+        <div class="row padding-row">
+          <div class="col text-color1">上月结算</div>
+          <div class="col right-col text-color">
+            <span class="right-span">{{SYJS.toFixed(2)}}</span>
+          </div>
+        </div>
+        <img ng-if="arrowPath4" ng-src="build/img/payroll/Path@3x.png" class="arrow-img"/>
+        <img ng-if="!arrowPath4" ng-src="build/img/payroll/Path 2@3x.png" class="arrow-img"/>
+      </div>
+      <div ng-if="!arrowPath4" class="item-border">
+        <div class="item no-padding no-border">
+          <div class="row padding-row">
+            <img class="img-icon" ng-src="build/img/payroll/shangyuejiesuan@3x.png"/>
+
+            <div class="col text-size">
+              <span class="left-span">上月结算</span>
+            </div>
+            <div class="col right-col text-color1">
+              <span>{{SYJS.toFixed(2)}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

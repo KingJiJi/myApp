@@ -1,0 +1,44 @@
+<ion-view view-title="工资单列表" class="payroll-list">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon ion-ios-arrow-back" ng-click="$ionicGoBack()">
+      </button>
+    </div>
+    <h1 class="title">工资单列表</h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-refresher on-refresh="refresh()" pulling-text="正在刷新数据..." pulling-icon="ion-ios-loop">
+    </ion-refresher>
+    <div ng-if="noPayRollFlag">
+      <div class="no-data-shelter">
+        <div class="row no-data-no-space">
+          <img src="build/img/application/no-data.png" class="no-data-image">
+        </div>
+        <div class="row no-data-no-space-label-row">
+          <label class="no-data-label">{{'暂无工资信息'}}</label>
+        </div>
+      </div>
+    </div>
+    <ion-list>
+      <div class="item payroll-item" ng-repeat="item in payRollInquireList" ng-click="goToPayrollDetail(item)">
+        <div class="row">
+          <div class="col col-40">
+            <span>{{item.INPER.substr(0,4)}}年{{item.INPER.substr(item.INPER.length-2)}}月</span>
+          </div>
+          <div class="col col-20 text-center">
+            <span ng-if="item.PAYTY == ''">{{'月工资'}}</span>
+            <span ng-if="item.PAYTY == 'A'" class="text-color">{{'年终奖'}}</span>
+
+          </div>
+          <div class="col col-40 text-right">
+            <span class="payroll-money">¥{{item.ZZ560}}</span>
+          </div>
+          <img ng-src="build/img/contact/arrow.png" class="arrow-img"/>
+        </div>
+      </div>
+    </ion-list>
+    <ion-infinite-scroll ng-if="loadMoreDataFlag" on-infinite="loadMoreData()" immediate-check="false"
+                         distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

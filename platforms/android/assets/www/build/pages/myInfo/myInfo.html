@@ -1,0 +1,79 @@
+<ion-view view-title="我的" class="my-info">
+  <div id="portrait-image" class="shrink-image"
+       style="background: url('build/img/myInfo/myInfo-background.png');background-size: cover;background-position: center;background-repeat: no-repeat;">
+  </div>
+
+  <ion-content class="content-style" has-bouncing="false"  style="bottom:48px;">
+    <hms-loading ng-if="showLoading" style="padding-top: 110px"></hms-loading>
+    <ion-item class="header-item">
+      <div class="header-item-image-row">
+        <img  ng-src="{{employee.avatar}}" class="header-image" ng-click="showBigImage(employee.avatar)"/>
+        <div class="user-name" ng-bind="employee.emp_name"></div>
+      </div>
+
+    </ion-item>
+
+    <div class="colorful-part">
+      <ion-item class="login-item" ng-click="goInfoDetail(employee.avatar)">
+        <div class="row login-item-row">
+          <div class="login-icon-shelter">
+            <img src="build/img/myInfo/my-info1.png" class="login-icon"/>
+          </div>
+          <label class="login-label">个人资料</label>
+          <img src="build/img/myInfo/arrow-gray1.png" class="arrow-icon"/>
+        </div>
+      </ion-item>
+    </div>
+    <div class="common-part">
+      <ion-item class="login-item" ng-hide="true">
+        <div class="row login-item-row">
+          <div class="login-icon-shelter">
+            <img src="build/img/myInfo/system-help.png" class="feedback-icon"/>
+          </div>
+          <label class="login-label">系统帮助</label>
+          <img src="build/img/contact/arrow-gray1.png" class="arrow-icon"/>
+        </div>
+        <div class="my-info-line"></div>
+      </ion-item>
+      <ion-item class="certificate-item" ng-click="goFeedBack()">
+        <div class="row feedback-item-row">
+          <div class="login-icon-shelter">
+            <img src="build/img/myInfo/feed-back1.png" class="feedback-icon"/>
+          </div>
+          <label class="login-label">意见反馈收集</label>
+          <img src="build/img/myInfo/arrow-gray1.png" class="arrow-icon"/>
+        </div>
+        <div class="my-info-line"></div>
+      </ion-item>
+      <ion-item class="certificate-item" ng-click="checkVersion()">
+        <div class="row feedback-item-row">
+          <div class="login-icon-shelter">
+            <img src="build/img/myInfo/update1.png" class="feedback-icon"/>
+          </div>
+          <label class="login-label">检查新版本</label>
+        </div>
+        <label class="version-label" ng-bind="currentVersion"></label>
+        <img src="build/img/myInfo/arrow-gray1.png" class="arrow-icon"/>
+        <div class="my-info-line"></div>
+      </ion-item>
+      <ion-item class="certificate-item" ng-click="goAboutUs()">
+        <div class="row feedback-item-row">
+          <div class="login-icon-shelter">
+            <img src="build/img/myInfo/aboutUs-logo.png" class="feedback-icon"/>
+          </div>
+          <label class="login-label">关于我们</label>
+        </div>
+        <label class="version-label"></label>
+        <img src="build/img/myInfo/arrow-gray1.png" class="arrow-icon"/>
+      </ion-item>
+    </div>
+
+    <button class="button button-block logout-button" ng-click="logout()">注销登录</button>
+    <!--<div class="wrapScan">-->
+      <!--<img src="build/img/myInfo/scan.png" class="scanPic">-->
+    <!--</div>-->
+    <!--<div style="text-align: center">-->
+      <!--<label class="scan-label">扫二维码，快速下载U+ APP</label>-->
+    <!--</div>-->
+  </ion-content>
+</ion-view>

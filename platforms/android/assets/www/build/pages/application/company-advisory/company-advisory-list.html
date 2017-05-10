@@ -1,0 +1,51 @@
+<ion-view view-title="公司资讯" class="company-advisory">
+    <ion-header-bar align-title="center" class="bar-stable">
+        <div class="buttons">
+            <button class="button button-icon ion-ios-arrow-back" ng-click="goBack()">
+                <span class="back-button-text">返回</span>
+            </button>
+        </div>
+        <h1 class="title">资讯活动</h1>
+    </ion-header-bar>
+    <ion-content class="company-advisory-content">
+        <ion-refresher on-refresh="doRefresh()" pulling-text="正在刷新数据..." pulling-icon="ion-ios-loop"></ion-refresher>
+        <div class="item company-advisory-item" ng-repeat="item in companyAdvisoryList"
+             ng-click="goAdvisoryDetail(item.pageHrefURL)">
+            <div class="row company-advisory-nomargin">
+                <div class="col col-40 company-advisory-img-col">
+                    <img ion-img-cache class="company-advisory-img" ng-src="{{item.logoImgURL}}"/>
+                </div>
+                <div class="col col-60 company-advisory-title-col">
+                    <div class="row company-advisory-title-row">
+                        <div class="col company-advisory-title">
+                            <div style="white-space: normal; word-break: break-all; line-height: 18px;text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">
+                                {{item.title}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row company-advisory-row-summary">
+                        <div class="company-advisory-summary">
+                            <div style="white-space: normal; word-break: break-all; line-height: 18px;text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">
+                                {{item.summary}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row company-advisory-row-time">
+                        <div class="col col-60">
+                        </div>
+                        <div class="col company-advisory-time">
+                            {{(item.publishTime).substring(0, 10)}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ion-infinite-scroll
+                ng-if="moreDataCanBeLoaded"
+                distance="1%"
+                on-infinite="loadMore()"
+                immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>
+

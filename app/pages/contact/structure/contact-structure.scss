@@ -1,0 +1,169 @@
+$contactDivLineColor: #f2f2f2 !default;
+$contactItemLineColor: #e8e8e8 !default;
+$bgColor: #fafafa !default;
+$contactContent: #24559C !default;
+
+.contact-structure {
+  .title-right{
+    color: white;
+    font-size: 17px;
+    position: absolute;
+    right: 12px;
+    background-color: transparent;
+  }
+  .bar-stable .button:hover{
+    color: white;
+  }
+  .bar-stable .button.activated{
+    background-color: transparent;
+  }
+  .bar {
+    &.bar-stable {
+      .title {
+        left: 70px !important;
+        right: 70px !important;
+      }
+    }
+  }
+  .title-contact {
+  }
+  background-color: $bgColor;
+  .title-filter {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .children-dept {
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 1px solid $contactDivLineColor;
+    border-bottom: 1px solid $contactDivLineColor;
+    .dept-item {
+      opacity: 1;
+      margin: 0px;
+      padding: 0px;
+      border: none;
+      height: 46px;
+      border-bottom: 1px solid $contactItemLineColor;
+      //margin-left: 30px;
+      .contact-item-logo {
+        width: 35px;
+        height: 35px;
+        line-height: 38px;
+        text-align: center;
+        float: left;
+        border-radius: 22.5px;
+        font-size: 16px;
+        /* margin-top: 5px; */
+        align-self: center;
+      }
+      .dept-item-row {
+        padding: 0 0 0 5px;
+        margin: 0px;
+        height: 100%;
+        .dept-label {
+          font-size: 0.875rem;
+          color: #4a4a4a;
+          margin-top: 13px;
+          margin-left: 10px;
+        }
+        .dept-label-number {
+          position: absolute;
+          right: 30px;
+          margin-top: 14px;
+        }
+      }
+
+      .arrow-icon {
+        position: absolute;
+        top: 18px;
+        right: 15px;
+        width: 6px;
+        height: 12px;
+      }
+    }
+    .dept-item-end {
+      border-bottom: none;
+    }
+  }
+  .dept-scroll-contact {
+    width: 100%;
+    .row-scroll-contact {
+      width: 100%;
+    }
+    .dept-stack {
+      display: flex;
+      display: -webkit-flex;
+      padding: 0px 5px 0px 5px;
+      color: $contactContent;
+      .dept-stack-name {
+        padding-right: 10px;
+      }
+      .end-dept-stack-name {
+        color: #444;
+      }
+    }
+  }
+
+  .no-padding {
+    padding: 0px;
+    margin: 0px;
+  }
+  /*
+* 通用input搜索框样式
+*/
+  .search-contact-input {
+    padding-left: 6.6%;
+    padding-right: 3.6%;
+    .text-input {
+      height: 22px;
+      border-radius: 40px;
+      border: 1px solid rgba(151, 151, 151, 0.15);
+      width: 87.6%;
+      font-size: $font-size-small;
+      background-color: $color-base !important;
+      background-image: url('./../img/contact/search.png');
+      @include image-background(no-repeat, 11px 13px, 9px 7px);
+      padding-left: 25px;
+    }
+  }
+  .col-15 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 15%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 15%;
+    -ms-flex: 0 0 15%;
+    flex: 0 0 15%;
+    max-width: 15%;
+  }
+  .col-85 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 85%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 85%;
+    -ms-flex: 0 0 85%;
+    flex: 0 0 85%;
+    max-width: 85%;
+  }
+  .col-40 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 40%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 40%;
+    -ms-flex: 0 0 40%;
+    flex: 0 0 40%;
+    max-width: 40%;
+  }
+  .col-45 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 45%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 45%;
+    -ms-flex: 0 0 45%;
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}

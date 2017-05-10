@@ -1,0 +1,132 @@
+@mixin no-margin{
+  margin: 0;
+}
+@mixin no-padding{
+  padding: 0;
+}
+.ask-holiday-content {
+  background-color: #f7f7f8;
+  .createHoliday{
+    background: transparent;
+    color:white;
+    font-size: 15px;
+    font-weight:bold;
+  }
+  .time-off-days{
+    height: 100px;
+    background: white;
+    margin-top: 10px;
+  }
+  .bar-stable{
+    .button.activated{
+      background-color: transparent;
+    }
+  }
+  .holiday-info-item {
+    padding: 0;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    .holiday-info-balance {
+      padding: 10px 10px 0 10px;
+      font-size: 13px;
+      color: #9B9B9B;
+    }
+    .holiday-info-detail {
+      text-align: center;
+    }
+    .holiday-info-days {
+      font-size: 30px;
+      margin-left: 5px;
+    }
+    .holiday-info-unit {
+      font-size: 12px;
+      margin-left: -5px;
+    }
+    .holiday-info-title {
+      text-align: center;
+      font-size: 13px;
+      color: #4A4A4A;
+    }
+    .text-color1 {
+      color: #4FAAFF;
+    }
+    .text-color2 {
+      color: #76D9AB;
+    }
+    .text-color3 {
+      color: #FF8923;
+    }
+    .text-color4 {
+      color: #EB7876;
+    }
+  }
+  .leaveInfo{
+    font-size: 0.875rem;
+    color: #9b9b9b;
+  }
+  .fake-leave-apply-item {
+    background: white;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 0;
+    display: block;
+    &.activated {
+      background: #f8f8f8;
+    }
+  }
+  .padding-row {
+    padding: 5px 0 5px 0;
+  }
+  .title-col {
+    border-bottom: 1px solid #E8E8E8;
+    padding: 5px 0 10px 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #374F9A;
+  }
+  .info-row {
+    font-size: 15px;
+    color: black;
+  }
+  .date-row {
+    font-size: 15px;
+    margin-top: 0px;
+    color: #9b9b9b;
+  }
+  .status-col {
+    text-align: right;
+    align-self: center;
+  }
+  .status-span {
+    margin-right: 33px;
+    font-size: 14px;
+    color: #9b9b9b;
+  }
+  .arrow-img {
+    position: absolute;
+    top: 68px;
+    width: 22px;
+    right: 8px;
+  }
+  .submit{
+    color: #FF8923;
+  }
+  .cancel{
+    color: #9B9B9B;
+  }
+  .approve{
+    color: #76D9AB;
+  }
+  .unapprove{
+    color: #4FAAFF;
+  }
+  .reject{
+    color: #E70B18;
+  }
+  .save{
+    color: #EB7876;
+  }
+
+}

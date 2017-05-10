@@ -1,0 +1,142 @@
+<ion-view view-title="新增销假申请" class="fake-leave-apply-add">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon ion-ios-arrow-back" ng-click="$ionicGoBack()">
+      </button>
+    </div>
+    <h1 class="title">销假申请</h1>
+
+    <div class="buttons" ng-click="fakeLeaveCommitConfirm()">
+      <button class="button button-icon">
+        提交
+      </button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item class="fake-leave-apply-detail-item">
+        <div class="row">
+          <img ng-src="build/img/notice.png" class="item-img" ng-click="goToPolicyDetail(holidayinfo.AWART)"/>
+          <div class="col item-col">
+            <div class="row">
+              <div class="col item-col-text">
+                <span class="text-color">请假类别：</span>&nbsp;&nbsp;
+                <span ng-if="holidayinfo.AWART == '1000'">{{"年假"}}</span>
+                <span ng-if="holidayinfo.AWART == '1010'">{{"病假"}}</span>
+                <span ng-if="holidayinfo.AWART == '1020'">{{"事假"}}</span>
+                <span ng-if="holidayinfo.AWART == '1030'">{{"婚假"}}</span>
+                <span ng-if="holidayinfo.AWART == '1040'">{{"丧假"}}</span>
+                <span ng-if="holidayinfo.AWART == '1050'">{{"产假"}}</span>
+                <span ng-if="holidayinfo.AWART == '1060'">{{"哺乳假"}}</span>
+                <span ng-if="holidayinfo.AWART == '1070'">{{"陪产假"}}</span>
+                <span ng-if="holidayinfo.AWART == '1080'">{{"调休假"}}</span>
+                <span ng-if="holidayinfo.AWART == '1099'">{{"其他(工伤丶探亲等)"}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <div class="list employee-info-list">
+      <ion-item class="leave-info-item" style="background: #E6EDF5">
+        <div class="row leave-info-row">
+          <div class="col no-padding text-color">请假时长</div>
+          <div class="col no-padding leave-info-date">
+            <span style="font-size: 18px; color: #374F9A">{{holidayinfo.ABWTG}}</span>
+            <span style="color: #374F9A; font-size: 13px">天</span>
+          </div>
+        </div>
+      </ion-item>
+      <ion-item class="leave-info-item-detail">
+        <div class="row leave-info-row">
+          <div class="col no-padding text-color">开始时间</div>
+          <div class="col no-padding leave-info-date">{{holidayinfo.BEGDA}}&nbsp;
+            <span ng-if="holidayinfo.BEGTIME == 'AM'">{{'上午'}}</span>
+            <span ng-if="holidayinfo.BEGTIME == 'PM'">{{'下午'}}</span>
+          </div>
+        </div>
+        <div class="employee-info-line"></div>
+        <div class="row leave-info-row">
+          <div class="col no-padding text-color">结束时间</div>
+          <div class="col no-padding leave-info-date">{{holidayinfo.ENDDA}}&nbsp;
+            <span ng-if="holidayinfo.ENDTIME == 'AM'">{{'上午'}}</span>
+            <span ng-if="holidayinfo.ENDTIME == 'PM'">{{'下午'}}</span>
+          </div>
+        </div>
+        <div class="employee-info-line"></div>
+        <!--<div class="row leave-info-row">-->
+          <!--<div class="col no-padding text-color">请假事由</div>-->
+          <!--<div class="col no-padding leave-info-date"></div>-->
+        <!--</div>-->
+        <!--<div class="row leave-info-row" style="padding-top: 0; white-space: normal">-->
+          <!--<div class="col no-padding">{{holidayinfo.REMARK}}</div>-->
+        <!--</div>-->
+      </ion-item>
+      <!--销假事由-->
+      <div class="specificReason">
+        <div class="typeTitle">销假事由:</div>
+        <div class="row">
+          <textarea class="reasonArea" ng-click="hideScroll()" ng-blur="usernameBlur()" placeholder="请输入具体事由" ng-model='reasonInfo.reason'></textarea>
+          <!--<input type="text" class="input" ng-model="reasonInfo.reason" placeholder="请输入具体事由">-->
+        </div>
+      </div>
+      <ion-item class="leave-info-item">
+        <div class="row leave-info-row" style="color: #374F9A">
+          <div class="col no-padding">共销假时长</div>
+          <div class="col no-padding leave-info-date">
+            <span style="font-size: 18px; color: #374F9A">{{fakeLeaveAllDate.toFixed(1)}}</span>
+            <span style="font-size: 13px; color: #374F9A">天</span>
+          </div>
+        </div>
+      </ion-item>
+      <div ng-repeat="item in fakeLeaveAddDays">
+        <ion-item class="leave-info-item-detail">
+          <div class="row leave-info-row">
+            <div class="col no-padding text-color">开始时间</div>
+          </div>
+          <div class="row leave-info-row" style="padding-top: 0" ng-click="clickStatus || chooseBeginTimes($index,item.beginTime);" ng-disabled="clickStatus">
+            <div class="col no-padding">
+              <span ng-bind="item.beginTime"></span>
+              <!--<span ng-if="item.fakeLeaveSectionStartTime == 'AM'">上午</span>-->
+              <!--<span ng-if="item.fakeLeaveSectionStartTime == 'PM'">下午</span>-->
+            </div>
+          </div>
+          <div class="employee-info-line"></div>
+          <div class="row leave-info-row">
+            <div class="col no-padding text-color">结束时间</div>
+            <div class="col no-padding leave-info-date"></div>
+          </div>
+          <div class="row leave-info-row" style="padding-top: 0"  ng-click="endClickStatus || chooseEndDates($index,item.endTime);" ng-disabled="endClickStatus">
+            <div class="col no-padding">
+              <span ng-bind="item.endTime"></span>
+              <!--<span ng-if="item.fakeLeaveSectionEndTime == 'AM'">上午</span>-->
+              <!--<span ng-if="item.fakeLeaveSectionEndTime == 'PM'">下午</span>-->
+            </div>
+          </div>
+        </ion-item>
+        <ion-item class="leave-info-item">
+          <div class="row leave-info-row">
+            <div class="col no-padding text-color">时长</div>
+            <div class="col no-padding leave-info-date">
+              <span style="font-size: 18px;">{{item.fakeLeaveSectionDays}}</span>
+              <span style="font-size: 13px; margin-right: 25px">天</span>
+            </div>
+            <img class="leave-info-remove" ion-img-cache ng-src="build/img/application/remove.png" ng-click="delFakeLeaveDays($index)" />
+          </div>
+        </ion-item>
+      </div>
+      <ion-item class="leave-info-item-detail" ng-click="addPeriod()">
+        <div class="row leave-info-row">
+          <div class="col no-padding add-fake-leave-period">
+            <span>
+               <img ng-src="build/img/add.png" class="add-img">
+            </span>
+            <span class="add-text">
+              添加时间段
+            </span>
+          </div>
+        </div>
+      </ion-item>
+    </div>
+  </ion-content>
+ </ion-view>

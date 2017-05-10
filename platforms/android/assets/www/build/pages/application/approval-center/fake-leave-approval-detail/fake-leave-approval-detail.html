@@ -1,0 +1,290 @@
+<ion-view view-title="销假审批明细" class="fake-leave-approval-detail">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon ion-ios-arrow-back" ng-click="$ionicGoBack()">
+      </button>
+    </div>
+    <h1 class="title">销假申请</h1>
+    <div class="button cancelHoliday" ng-click="cancelFakeHolidayConfirm()" ng-if="(fakeLeaveDetail.ET_ZHRWF_021.item.REL_STATUS == 'N' || fakeLeaveDetail.ET_ZHRWF_021.item.REL_STATUS == 'P') && approvalStatus == 'mineApproval'">撤回</div>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item class="fake-leave-apply-detail-item">
+        <div class="row">
+          <img ng-src="build/img/application/approval-center-detail/approvalIcon.png" class="item-img"/>
+
+          <div class="col item-col">
+            <div class="row">
+              <div class="col item-col-text">
+                {{"销假申请"}}({{fakeLeaveDetail.ET_ZHRWF_021.item.REL_NUMBER}})
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-col-text">
+                提交人：{{fakeLeaveDetail.ET_ZHRWF_021.item.ENAME}}
+              </div>
+            </div>
+          </div>
+          <div ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.REL_STATUS == 'C' && approvalStatus != 'Untreated'">
+            <img ng-src="build/img/application/revoke.png"
+                 class="approval-status-img"/>
+
+            <div class="approval-status-text" style="right: 28px!important;">已撤销</div>
+          </div>
+          <div ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.REL_STATUS == 'N' && approvalStatus != 'Untreated'">
+            <img ng-src="build/img/application/approval-center-detail/approvalDetailCreat.png"
+                 class="approval-status-img"/>
+
+            <div class="approval-status-text">审批创建</div>
+          </div>
+          <div ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.REL_STATUS == 'P' && approvalStatus != 'Untreated'">
+            <img ng-src="build/img/application/approval-center-detail/approvalDetailCommit.png"
+                 class="approval-status-img"/>
+
+            <div class="approval-status-text">审批提交</div>
+          </div>
+          <div ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.REL_STATUS == 'A' && approvalStatus != 'Untreated'">
+            <img ng-src="build/img/application/approval-center-detail/approvalDetailing.png"
+                 class="approval-status-img"/>
+
+            <div class="approval-status-text" style="right: 28px!important;">审批中</div>
+          </div>
+          <div ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.REL_STATUS == 'R' && approvalStatus != 'Untreated'">
+            <img ng-src="build/img/application/approval-center-detail/approvalDetailRefuse.png"
+                 class="approval-status-img"/>
+
+            <div class="approval-status-text">审批拒绝</div>
+          </div>
+          <div ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.REL_STATUS == 'E' && approvalStatus != 'Untreated'">
+            <img ng-src="build/img/application/approval-center-detail/approvalDetailAgree.png"
+                 class="approval-status-img"/>
+
+            <div class="approval-status-text">审批通过</div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <div class="list employee-info-list" style="margin-top: 10px">
+      <ion-item class="employee-info-item">
+        <div class="row no-padding">
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/sector.png" class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">所在版块</div>
+                <div class="row employee-info-company-row">{{fakeLeaveDetail.ET_ZHRWF_021.item.NAME1}}</div>
+              </div>
+            </div>
+            <div class="employee-info-line-y"></div>
+          </div>
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/department.png" class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">所在部门</div>
+                <div class="row employee-info-company-row">{{fakeLeaveDetail.ET_ZHRWF_021.item.ORGTX}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+      <div class="employee-info-line"></div>
+      <ion-item class="employee-info-item">
+        <div class="row no-padding">
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/position.png" class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">职位</div>
+                <div class="row employee-info-company-row">{{fakeLeaveDetail.ET_ZHRWF_021.item.PLSTX}}</div>
+              </div>
+            </div>
+            <div class="employee-info-line-y"></div>
+          </div>
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/leave-category@3x.png"
+                     class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">请假类别</div>
+                <div class="row employee-info-company-row" ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.AWART == '1000'">
+                  {{'年假'}}
+                </div>
+                <div class="row employee-info-company-row" ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.AWART == '1010'">
+                  {{'病假'}}
+                </div>
+                <div class="row employee-info-company-row" ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.AWART == '1020'">
+                  {{'事假'}}
+                </div>
+                <div class="row employee-info-company-row" ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.AWART == '1030'">
+                  {{'婚假'}}
+                </div>
+                <div class="row employee-info-company-row" ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.AWART == '1040'">
+                  {{'丧假'}}
+                </div>
+                <div class="row employee-info-company-row" ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.AWART == '1050'">
+                  {{'产假'}}
+                </div>
+                <div class="row employee-info-company-row" ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.AWART == '1060'">
+                  {{'哺乳假'}}
+                </div>
+                <div class="row employee-info-company-row" ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.AWART == '1070'">
+                  {{'陪产假'}}
+                </div>
+                <div class="row employee-info-company-row" ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.AWART == '1080'">
+                  {{'调休假'}}
+                </div>
+                <div class="row employee-info-company-row" ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.AWART == '1099'">
+                  {{'其他(工伤丶探亲等)'}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+      <div class="employee-info-line"></div>
+      <ion-item class="employee-info-item">
+        <div class="row no-padding">
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/time@3x.png" class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">入职时间</div>
+                <div class="row employee-info-company-row">{{fakeLeaveDetail.ET_ZHRWF_021.item.ZRZRQ}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-50"></div>
+        </div>
+      </ion-item>
+      <ion-item class="leave-info-item" style="background: #E6EDF5;">
+        <div class="row leave-info-row">
+          <div class="col no-padding text-color">请假时长</div>
+          <div class="col no-padding leave-info-date">
+            <span style="font-size: 18px; color: #374F9A">{{fakeLeaveDetail.ET_ZHRWF_021.item.ABWTG}}</span>
+            <span style="font-size: 13px; color: #374F9A">天</span>
+          </div>
+        </div>
+      </ion-item>
+      <ion-item class="leave-info-item-detail">
+        <div class="row leave-info-row">
+          <div class="col no-padding text-color">开始时间</div>
+          <div class="col no-padding leave-info-date">
+            <span>{{fakeLeaveDetail.ET_ZHRWF_021.item.BEGDA}}</span>
+            <span ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.ZBEGAP == 'AM'">上午</span>
+            <span ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.ZBEGAP == 'PM'">下午</span>
+          </div>
+        </div>
+        <div class="employee-info-line"></div>
+        <div class="row leave-info-row">
+          <div class="col no-padding text-color">结束时间</div>
+          <div class="col no-padding leave-info-date">
+            <span>{{fakeLeaveDetail.ET_ZHRWF_021.item.ENDDA}}</span>
+            <span ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.ZENDAP == 'AM'">上午</span>
+            <span ng-if="fakeLeaveDetail.ET_ZHRWF_021.item.ZENDAP == 'PM'">下午</span>
+          </div>
+        </div>
+        <div class="employee-info-line"></div>
+        <div class="row leave-info-row">
+          <div class="col no-padding text-color">销假事由</div>
+          <div class="col no-padding leave-info-date"></div>
+        </div>
+        <div class="row leave-info-row" style="padding-top: 0;white-space: normal">
+          <div class="col no-padding" ng-bind="fakeLeaveDetail.ET_ZHRWF_021.item.ZJTSY"></div>
+          <!--<textarea class="reasonArea">{{fakeLeaveDetail.ET_ZHRWF_021.item.ZJTSY}}</textarea>-->
+        </div>
+      </ion-item>
+      <ion-item class="leave-info-item">
+        <div class="row leave-info-row" style="color: #374F9A">
+          <div class="col no-padding">共销假时长</div>
+          <div class="col no-padding leave-info-date">
+            <span style="font-size: 18px; color: #374F9A">{{holidayAllDate.toFixed(1)}}</span>
+            <span style="font-size: 13px; color: #374F9A">天</span>
+          </div>
+        </div>
+      </ion-item>
+      <div ng-repeat="item in fakeLeaveTime">
+        <ion-item class="leave-info-item-detail">
+          <div class="row leave-info-row">
+            <div class="col no-padding text-color">开始时间</div>
+          </div>
+          <div class="row leave-info-row" style="padding-top: 0">
+            <div class="col no-padding">
+              <span>{{item.BEGDA}}&nbsp;</span>
+              <span ng-if="item.ZBEGAP == 'AM'">上午</span>
+              <span ng-if="item.ZBEGAP == 'PM'">下午</span>
+            </div>
+          </div>
+          <div class="employee-info-line"></div>
+          <div class="row leave-info-row">
+            <div class="col no-padding text-color">结束时间</div>
+            <div class="col no-padding leave-info-date"></div>
+          </div>
+          <div class="row leave-info-row" style="padding-top: 0">
+            <div class="col no-padding">
+              <span>{{item.ENDDA}}&nbsp;</span>
+              <span ng-if="item.ZENDAP == 'AM'">上午</span>
+              <span ng-if="item.ZENDAP == 'PM'">下午</span>
+            </div>
+          </div>
+        </ion-item>
+        <ion-item class="leave-info-item">
+          <div class="row leave-info-row">
+            <div class="col no-padding text-color">时长</div>
+            <div class="col no-padding leave-info-date">
+              <span style="font-size: 18px;">{{item.ABWTG}}</span>
+              <span style="font-size: 13px;">天</span>
+            </div>
+          </div>
+        </ion-item>
+      </div>
+      <ion-item class="leave-track-item">
+        <div class="row leave-track-row">
+          <div class="col no-padding text-color">审批记录</div>
+        </div>
+      </ion-item>
+      <ion-list>
+        <ion-item ng-repeat="items in fakeLeaveHistory" class="fake-leave-track-item">
+          <hms-approval-history
+            approval-time='items.fakeLeaveTrackDate'
+            approver='items.fakeLeaveTrackEmp'
+            approver-position='items.fakeLeaveTrackPosition'
+            approval-status='items.fakeLeaveTrackStatus'
+            approval-remark='items.fakeLeaveTrackRemark'
+            approval-annex=''
+            index='$index'
+            length="fakeLeaveHistory.length">
+          </hms-approval-history>
+        </ion-item>
+      </ion-list>
+      <ion-item class="leave-track-item no-border" ng-if="approvalStatus == 'Untreated'">
+        <div class="row leave-track-row">
+          <div class="col no-padding text-color">审批意见</div>
+        </div>
+      </ion-item>
+      <textarea class="textArea" placeholder="请输入审批意见" ng-model="approval.remarks"
+                ng-if="approvalStatus == 'Untreated'">
+
+      </textarea>
+      <div class="row button-row" ng-if="approvalStatus == 'Untreated'">
+        <div class="row-child1">
+          <button class="button reject-button" ng-click="approvalCommitConfirm('REJECT')">拒绝</button>
+        </div>
+        <div class="row-child2">
+          <button class="button approval-button" ng-click="approvalCommitConfirm('APPROVE')">同意</button>
+        </div>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

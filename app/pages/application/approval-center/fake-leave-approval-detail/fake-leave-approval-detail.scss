@@ -1,0 +1,262 @@
+.fake-leave-approval-detail {
+  background: #fafafa;
+  .no-border {
+    border: none!important;
+  }
+  .bar-stable {
+    .button.activated {
+      background-color: transparent;
+    }
+  }
+  .cancelHoliday {
+    background: transparent;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .fake-leave-apply-detail-item {
+    padding: 0px;
+    border: none;
+    margin-top: 10px;
+
+    .item-img {
+      width: 45px;
+      height: 45px;
+      margin-top: 12px;
+      margin-left: 10px
+    }
+    .item-col {
+      margin: 0 0 0 5px;
+      padding: 0 20% 0 0;
+    }
+    .item-col-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 15px;
+      color: #8A98C4;
+    }
+    .approval-status-img {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 12px;
+      right: 35px
+    }
+    .approval-status-text {
+      position: absolute;
+      top: 48px;
+      right: 20px;
+      font-size: 15px;
+    }
+  }
+  .employee-info-list {
+    margin-top: 10px;
+    .employee-info-item {
+      border: none;
+      padding: 0;
+      margin: 0;
+      font-size: 15px;
+    }
+    .no-padding {
+      padding: 0;
+      margin: 0;
+    }
+    .employee-info-icon {
+      width: 22px;
+    }
+    .employee-info-icon-row {
+      padding: 0 5px 0 5px;
+    }
+    .employee-info-icon-col {
+      align-self: center;
+    }
+    .employee-info-company-row {
+      margin-top: 0px;
+      color: #9b9b9b;
+    }
+    .employee-info-line {
+      height: 1px;
+      background-color: #EAE3E3;
+      margin-left: 15px;
+    }
+    .employee-info-line-y {
+      content: '';
+      width: 1px;
+      right: 50%;
+      top: 15%;
+      height: 70%;
+      position: absolute;
+      background-color: #EAE3E3;
+    }
+    .leave-info-item {
+      padding: 0;
+      font-size: 15px;
+      border: none;
+      background-color: #F8F8F8;
+    }
+    .leave-info-row {
+      padding: 15px;
+    }
+    .leave-info-date {
+      text-align: right;
+      margin-right: 5px
+    }
+    .leave-info-item-detail{
+      padding: 0;
+      font-size: 15px;
+      border: none;
+      background-color: white;
+    }
+    .reasonArea{
+      width: 98%;
+      //margin-left: 2%;
+      height: 75px;
+      line-height: normal;
+      resize: none;
+      //border: 1px solid #ddd;
+      background-color: white;
+      font-size: 1em;
+    }
+    .leave-track-item {
+      padding: 0;
+      font-size: 15px;
+      background-color: #F8F8F8;
+      border: none;
+      border-top: 1px solid #EAE3E3;
+      .leave-track-row {
+        padding: 10px 15px 10px 15px;
+      }
+    }
+    .fake-leave-track-item {
+      //height:67px;
+      padding: 0 0 10px 0;
+      margin: 0;
+      border: none;
+      .item-content {
+        padding: 0;
+        margin: 0;
+        border: none;
+        height: 100%;
+      }
+      .row{
+        padding: 0;
+        margin: 0;
+        .col{
+          margin: 0;
+          .red-line{
+            width: 16px;
+            height: 16px;
+            border-radius: 8px;
+            background-color: #E70B18;
+            position: absolute;
+            top: 17px;
+            left: 20px;
+            border: 2px solid white;
+          }
+          .white-line{
+            width: 16px;
+            height: 16px;
+            border-radius: 8px;
+            background-color: #EAE3E3;
+            position: absolute;
+            top: 17px;
+            left: 20px;
+            border: 2px solid white;
+          }
+        }
+      }
+      .testRow:after{
+        content:'';
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        background-color: #EAE3E3;
+        //top:-15px;
+        left: 28px;
+        z-index: -10;
+      }
+      .message-item-time{
+        font-size: 0.9rem;
+        .message-date {
+          padding: 0px;
+          color: #9B9B9B;
+          height: 16px;
+          line-height: 16px;
+          margin-top: 8px;
+          margin-left: 5px;
+        }
+      }
+      .message-item {
+        padding: 0px;
+        position: relative;
+        //white-space: normal;
+        //word-break: break-all;
+        font-size: 0.9rem;
+        margin-top: 2px;
+        //margin-bottom: 10px !important;
+        .message-div{
+          margin-left: 5px;
+        }
+        .message-content{
+          line-height: 18px;
+          color:#464c66;
+        }
+        .approve-remark{
+          line-height: 18px;
+          color: #9B9B9B;
+          padding-top: 0;
+          white-space: normal;
+        }
+      }
+      .align-center{
+        align-self: center;
+        text-align: right;
+        padding-right: 15px;
+        font-size: 15px;
+        color: #FA9A58;
+      }
+    }
+  }
+  .text-color {
+    color: #7D7D7D;
+  }
+  .textArea {
+    width: 96%;
+    margin-left: 2%;
+    height: 75px;
+    line-height: normal;
+    resize: none;
+    border: none;
+    background-color: white;
+    font-size: 1em;
+    padding: 7px;
+  }
+  .button-row {
+    margin-top: 25px;
+    margin-bottom: 50px;
+  }
+  .row-child1 {
+    width: 42%;
+    margin-left: 4%;
+  }
+  .row-child2 {
+    width: 42%;
+    margin-left: 8%;
+  }
+  .reject-button {
+    width: 100%;
+    height: 30px;
+    color: black;
+    font-size: 17px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+  }
+  .approval-button {
+    width: 100%;
+    height: 30px;
+    color: white;
+    font-size: 17px;
+    background-color: #385198
+  }
+}

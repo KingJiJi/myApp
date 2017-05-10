@@ -1,0 +1,30 @@
+{
+  "baseConfig": {
+    "debug": true,
+    "isMobilePlatform": false,
+    "clearTable": true,
+    "nativeScreenFlag": false,
+    "appStoreFlag": false,
+    "loginPath": "http://54.223.65.89/web-shenzhou-0.1/api?sysName=SAP&apiName=",
+    "queryPath": "http://wechat.hand-china.com/hrmsv2/v2/api",
+    "baseUrl":"http://54.223.64.193/web-shenzhou-0.1/",
+    "sapUrl":"http://54.223.64.193/web-shenzhou-0.1/api?sysName=SAP&apiName=",
+    "mainImgPath":"http://w3cmstest.ucarinc.com/portalcms/api/",
+    "pkgIdentifier": "",
+    "imgUploadUrl":"http://54.223.64.193/web-shenzhou-0.1/appApi/uploadHrFtp",
+    "imgDownloadUrl":"http://54.223.64.193/web-shenzhou-0.1/appApi/downloadHRFtp?savePath=",
+    "dbName": "makeNote.db",
+    "dbLocation": 0,
+    "scanPic":"dev.png",
+    "appRootPath": "",
+    "serverPath": "http://10.211.96.173:8080/bts",
+    "appRootFile": "helloCordova",
+    "appUpId": "com.hand.china.hrms2.research",
+    "version": {
+      "currentVersion": "1.2.3",
+      "currentversionName": "当前版本1.2.3",
+      "currentSubVersion": "1",
+      "versionType": "开发版"
+    }
+  }
+}

@@ -1,0 +1,333 @@
+@mixin key {
+  font-size: 1rem;
+  color: #7D7D7D;
+}
+
+@mixin value {
+
+}
+
+%no-padding{
+  padding: 0;
+}
+.no-padding{
+  @extend %no-padding;
+}
+.begin-time-line {
+  height: 1px;
+  background-color: #EAE3E3;
+  margin-left: 15px;
+}
+.holiday-detail-content {
+  .list{
+    margin-bottom: 0;
+  }
+  background-color: #f7f7f8;
+  .cancelHoliday {
+    background: transparent;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .bar-stable {
+    .button.activated {
+      background-color: transparent;
+    }
+  }
+
+  //请假头
+  .holiday-head {
+    padding: 0px;
+    border: none;
+    margin-top: 10px;
+    .iconLeft {
+      width: 20px;
+      height: 20px;
+      margin-top: 10px;
+      margin-left: 10px
+    }
+    .item-col {
+      margin: 0 0 0 5px;
+      padding: 0 20% 0 0;
+    }
+    .type {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 1rem;
+      color: #9B9B9B;
+    }
+    .typeValue {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 1rem;
+      //padding-left: -40;
+      margin-left: -32%;
+      color: #404040;
+    }
+    .otherValue{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 0.8rem;
+      margin-left: -33%;
+      margin-top: 1px;
+      color: #404040;
+    }
+    .iconRight {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 12px;
+      right: 90px;
+    }
+    .result {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      font-size: 15px;
+      color: #404040;
+    }
+  }
+
+  //请假时长
+  .holiday-time {
+    background: #E6EDF5;
+    padding: 0;
+    font-size: 15px;
+    border: none;
+    .totalTime{
+      @include key;
+    }
+    .holiday-time-row {
+      padding: 15px;
+    }
+    .holiday-time-date {
+      text-align: right;
+      margin-right: 5px
+    }
+    .dayValue{
+      font-size: 1.4rem;
+      color:#2c4a96;
+      margin-left: 67%;
+    }
+    .dayUnit{
+      font-size: 1rem;
+      color:#2c4a96;
+    }
+
+  }
+
+  .leave-info-item-detail{
+    padding: 0;
+    font-size: 15px;
+    border: none;
+    background-color: white;
+    .leave-info-row {
+      padding: 15px;
+    }
+    .text-color {
+      color: #7D7D7D;
+    }
+    .leave-info-date {
+      text-align: right;
+      margin-right: 5px
+    }
+    .time-line {
+      height: 1px;
+      background-color: #EAE3E3;
+      margin-left: 15px;
+    }
+  }
+  .approvalTrace {
+    font-size: 1rem;
+    color: #9b9b9b;
+    margin: 10px 0 0 10px;
+    padding-bottom: 6px;
+  }
+
+  //图片附件
+  .pics-area {
+    //@include holidayItem;
+    //height:120px;
+    //margin-top: 0;
+    //margin-bottom: 5%;
+    background: white;
+    .typeTitle {
+      @include leftTitle;
+      padding-bottom: 6px;
+    }
+  }
+
+  //单据跟踪
+  .big {
+    //margin-top: 10px;
+    //position: relative;
+  }
+  .message-list-item {
+    //height:67px;
+    @extend %no-padding;
+    @extend %no-margin;
+    border: none;
+    .item-content {
+      @extend %no-padding;
+      @extend %no-margin;
+      border: none;
+      height: 100%;
+    }
+    .row {
+      @extend %no-margin;
+      @extend %no-padding;
+      .col {
+        @extend %no-margin;
+        .red-line {
+          width: 16px;
+          height: 16px;
+          border-radius: 8px;
+          background-color: #E70B18;
+          position: absolute;
+          top: 17px;
+          left: 20px;
+          border: 2px solid white;
+        }
+        .white-line {
+          width: 16px;
+          height: 16px;
+          border-radius: 8px;
+          background-color: #EAE3E3;
+          position: absolute;
+          top: 17px;
+          left: 20px;
+          border: 2px solid white;
+        }
+      }
+    }
+    .testRow:after {
+      content: '';
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      background-color: #EAE3E3;
+      //top:-15px;
+      left: 28px;
+      z-index: -10;
+    }
+  }
+
+  .message-item {
+    @extend %no-padding;
+    //height: 100% !important;
+    position: relative;
+    white-space: normal;
+    word-break: break-all;
+    font-size: 0.9rem;
+    margin-top: 8px !important;
+    margin-bottom: 10px !important;
+    .message-div {
+      margin-left: 5px;
+    }
+    .message-content {
+      line-height: 18px;
+      color: #464c66;
+    }
+    .approve-remark {
+      line-height: 18px;
+      color: #9B9B9B;
+      padding-top: 0;
+      white-space: normal;
+    }
+  }
+  .message-item-time {
+    font-size: 0.9rem;
+    .message-date {
+      @extend %no-padding;
+      //font-size: 11px;
+      color: #9B9B9B;
+      height: 16px;
+      line-height: 16px;
+      margin-top: 8px;
+      margin-left: 5px;
+    }
+  }
+
+  .submit {
+    @include status-color('已提交');
+  }
+  .approve {
+    @include status-color('同意');
+  }
+  .unapprove {
+    @include status-color('待审批');
+  }
+  .reject {
+    @include status-color('拒绝');
+  }
+  .save {
+    @include status-color('保存');
+  }
+  .cancel{
+    @include status-color('撤回');
+  }
+  .align-center {
+    @extend %detail-align-center;
+  }
+
+  .bigImage{
+    animation: scaleImg .5s ease-out;
+    transition: all .5s ease-out;
+  }
+  .myBackdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.8);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: .1s opacity linear;
+    transition: .1s opacity linear
+  }
+  .myBackdrop.active{
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @-webkit-keyframes scaleImg {
+    0%{
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -ms-transform: scale(0);
+      -o-transform: scale(0);
+      transform: scale(0);
+    }
+    100%{
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -ms-transform: scale(1);
+      -o-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  @keyframes scaleImg {
+    0%{
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -ms-transform: scale(0);
+      -o-transform: scale(0);
+      transform: scale(0);
+    }
+    100%{
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -ms-transform: scale(1);
+      -o-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+
+}
+
+

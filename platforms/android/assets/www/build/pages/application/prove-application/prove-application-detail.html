@@ -1,0 +1,31 @@
+<ion-view view-title="证明申请" class="prove-application-detail">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon ion-ios-arrow-back" ng-click="goBack()">
+        <span class="back-button-text">返回</span>
+      </button>
+    </div>
+    <h1 class="title">证明申请</h1>
+    <div class="button submitHoliday" ng-click="proveCommit()">提交</div>
+  </ion-header-bar>
+  <ion-content has-bouncing="false" overflow-scroll="false">
+    <div class="proveType">
+      <div class="typeTitle">证明类型</div>
+      <div class="chooseProveType" ng-click="chooseProveType()" ng-if="chooseTypeFlag ==false">请选择证明申请类型
+        <img src="build/img/arrow.png" class="arrowRight">
+      </div>
+
+      <div class="choosedProveType" ng-click="chooseProveType()" ng-if="chooseTypeFlag ==true" ng-bind="typeValue">
+      </div>
+
+    </div>
+    <div class="proveReason">
+      <div class="typeTitle">申请原因:</div>
+      <div class="row">
+        <textarea class="reasonArea"  placeholder="请输入申请开具证明原因" ng-model='proveApplication.reason'></textarea>
+      </div>
+    </div>
+    <div class="prove-remark">{{"注:如果需要自行提供模板，请提交申请后及时联系相关HR"}}</div>
+  </ion-content>
+</ion-view>
+

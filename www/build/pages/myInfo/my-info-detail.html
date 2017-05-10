@@ -1,0 +1,150 @@
+<ion-view view-title="个人信息" class="my-info-detail">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon ion-ios-arrow-back" ng-click="goBack()">
+
+      </button>
+    </div>
+    <h1 class="title">个人信息</h1>
+  </ion-header-bar>
+  <ion-content class="content-style">
+   <ion-item class="info-card-item1" style="margin-top: 0px">
+     <div class="row card-row-with-bottom">
+       <div class="col col-25 normal-col">
+         <div class="left-label">头像</div>
+       </div>
+       <div class="col col-50 normal-col">
+         <div class="right-label"></div>
+       </div>
+       <div class="col col-25 normal-col imgRight">
+         <!--<img ion-img-cache ng-src="{{employeeImg}}" class="portrait-icon"/>-->
+         <img ion-img-cache ng-src="{{employeeInfo.avatar}}" class="portrait-icon"/>
+
+       </div>
+     </div>
+     <div class="row card-row-with-bottom">
+       <div class="col col-25 normal-col">
+         <div class="left-label">姓名</div>
+       </div>
+       <div class="col col-75 normal-col">
+         <div class="right-label" ng-bind="employeeInfo.emp_name"></div>
+       </div>
+     </div>
+     <div class="row card-row-with-bottom" ng-click="goChangeInfo('phoneNumber')">
+       <div class="col col-25 normal-col">
+         <div class="left-label">手机</div>
+       </div>
+       <div class="col col-50 normal-col">
+         <div class="right-label" ng-bind="employeeInfo.slefMobil"></div>
+       </div>
+       <div class="col col-25 normal-col imgRight">
+         <img ion-img-cache ng-src="build/img/contact/arrow.png" class="myInfo-icon"/>
+       </div>
+     </div>
+     <div class="row card-row-with-bottom">
+       <div class="col col-25 normal-col">
+         <div class="left-label">座机</div>
+       </div>
+       <div class="col col-75 normal-col">
+         <div class="right-label" ng-bind="employeeInfo.workMobil"></div>
+       </div>
+     </div>
+     <div class="row card-row-with-bottom">
+       <div class="col col-25 normal-col">
+         <div class="left-label">邮箱</div>
+       </div>
+       <div class="col col-50 normal-col">
+         <div class="right-label" ng-bind="employeeInfo.workEmail"></div>
+       </div>
+     </div>
+     <div class="row card-row-with-bottom">
+       <div class="col col-25 normal-col">
+         <div class="left-label">生日</div>
+       </div>
+       <div class="col col-75 normal-col">
+         <div class="right-label" ng-bind="employeeInfo.birthday"></div>
+       </div>
+     </div>
+     <div class="row card-row-with-bottom">
+       <div class="col col-25 normal-col">
+         <div class="left-label">证件</div>
+       </div>
+       <div class="col col-75 normal-col">
+         <div class="right-label" ng-bind="employeeInfo.idCardNum"></div>
+       </div>
+     </div>
+     <div class="row card-row-with-bottom">
+       <div class="col col-25 normal-col">
+         <div class="left-label">城市</div>
+       </div>
+       <div class="col col-75 normal-col">
+         <div class="right-label" ng-bind="employeeInfo.city"></div>
+       </div>
+     </div>
+     <div class="row card-row-with-bottom" style="border: none"  ng-click="goChangeInfo('address')">
+       <div class="col col-25 normal-col">
+         <div class="left-label">住址</div>
+       </div>
+       <div class="col col-50 normal-col">
+         <div class="right-label" style="word-break: break-all; white-space: normal; margin-right: 10px" ng-bind="employeeInfo.address"></div>
+       </div>
+       <div class="col col-25 normal-col imgRight">
+         <img ion-img-cache ng-src="build/img/contact/arrow.png" class="myInfo-icon"/>
+       </div>
+     </div>
+   </ion-item>
+    <!--<div class="portrait-shelter">-->
+      <!--<img ion-img-cache ng-src="build/img/application/banner@3x.png" class="portrait-icon"/>-->
+    <!--</div>-->
+
+    <ion-item class="info-card-item1">
+      <div class="row card-row-with-bottom">
+        <div class="col col-25 normal-col">
+          <div class="left-label">工号</div>
+        </div>
+        <div class="col col-75 normal-col">
+          <div class="right-label" ng-bind="employeeInfo.emp_code"></div>
+        </div>
+      </div>
+      <div class="row card-row-with-bottom">
+        <div class="col col-25 normal-col">
+          <div class="left-label">部门</div>
+        </div>
+        <div class="col col-75 normal-col">
+          <div class="right-label" ng-bind="employeeInfo.rootUnitName"></div>
+        </div>
+      </div>
+      <div class="row card-row-with-bottom">
+        <div class="col col-25 normal-col">
+          <div class="left-label">职位</div>
+        </div>
+        <div class="col col-75 normal-col">
+          <div class="right-label" ng-bind="employeeInfo.position_name"></div>
+        </div>
+      </div>
+      <div class="row card-row-with-bottom">
+        <div class="col col-25 normal-col">
+          <div class="left-label">职级</div>
+        </div>
+        <div class="col col-75 normal-col">
+          <div class="right-label" ng-bind="employeeInfo.position_rank"></div>
+        </div>
+      </div>
+      <!--<div class="row card-row-with-bottom" style="border: none" ng-click="goChangeInfo('station')">-->
+      <div class="row card-row-with-bottom" style="border: none" ng-click="goChangeInfo('password')">
+        <div class="col col-25 normal-col">
+          <!--<div class="left-label">工位</div>-->
+          <div class="left-label">密码</div>
+        </div>
+        <div class="col col-50 normal-col">
+          <!--<div class="right-label" style="word-break: break-all; white-space: normal; margin-right: 10px;" ng-bind="employeeInfo.workStation"></div>-->
+          <div class="right-label" style="word-break: break-all; white-space: normal; margin-right: 10px;" ng-bind="employeeInfo.PASSWORD"></div>
+        </div>
+        <div class="col col-25 normal-col imgRight">
+          <img ion-img-cache ng-src="build/img/contact/arrow.png" class="myInfo-icon" />
+        </div>
+      </div>
+    </ion-item>
+
+  </ion-content>
+</ion-view>

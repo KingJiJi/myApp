@@ -1,0 +1,262 @@
+$font-color: #9B9B9B;
+
+.workflow-detail {
+  .no-padding {
+    padding: 0px;
+  }
+  background-color: #f7f7f8;
+  .workflow-detail-img {
+    width: 30px;
+    height: 31px;
+    margin-top: 10px;
+    margin-left: 35%;
+  }
+  .workflow-detail-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-left: 10px;
+  }
+  .basicInfo {
+    font-size: 0.875rem;
+    color: #9b9b9b;
+    margin: 10px 0 0 10px;
+    padding-bottom: 6px;
+  }
+  .employee-common-item {
+    background-color: #ffffff;
+    margin: 0px;
+    padding: 5px 0 5px 0;
+    //height: 36px;
+    border: none;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .employee-item-row {
+    padding: 5px;
+    margin: 0px;
+    //height: 30px;
+    color: $font-color;
+    .col-center {
+      font-size: 0.9rem;
+      color: $font-color;
+    }
+    .col-center-value {
+      font-size: 0.9rem;
+      color: $font-color;
+      text-align: right;
+    }
+    .remark {
+      margin-left: 10px;
+      color: black;
+      align-items: center;
+      display: flex;
+      white-space: normal;
+      word-break: break-all;
+    }
+  }
+  .employee-icon-item {
+    background-color: #ffffff;
+    margin: 0px;
+    padding: 0px;
+    //height: 70px;
+    border: none;
+    border-bottom: 1px solid #e8e8e8;
+    .employee-icon-row {
+      padding: 0px;
+      margin: 0px;
+      //height: 70px;
+    }
+    .border-right {
+      border-right: 1px solid #ddd;
+    }
+    .icon-shelter {
+      height: 24px;
+      width: 24px;
+      margin-top: 11px;
+    }
+    .info-icon {
+      width: 20px;
+      height: 20px;
+      margin-top: 4px;
+    }
+    .content-detail {
+      color: $font-color;
+    }
+    .right-item {
+      margin-left: 0px;
+    }
+    .right-bottom-item {
+      margin-top: 5px;
+      white-space: normal;
+      word-break: break-all;
+    }
+  }
+  .textArea {
+    width: 98%;
+    margin-left: 1%;
+    height: 75px;
+    line-height: normal;
+    resize: none;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-size: 1em;
+
+  }
+  .button-row {
+    margin-top: 15px;
+  }
+  .row-child1 {
+    width: 42%;
+    margin-left: 4%;
+  }
+  .row-child2 {
+    width: 42%;
+    margin-left: 8%;
+  }
+  .reject-button {
+    width: 100%;
+    height: 30px;
+    color: black;
+    font-size: 17px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+  }
+  .approval-button {
+    width: 100%;
+    height: 30px;
+    color: white;
+    font-size: 17px;
+    background-color: #385198
+  }
+  .approval-list-detail-item {
+    padding: 0px;
+    border: none;
+    .item-img {
+      width: 45px;
+      height: 45px;
+      margin-top: 12px;
+      margin-left: 10px
+    }
+    .item-col{
+      margin: 0px; padding: 0 35% 0 0
+    }
+    .item-col-text{
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px
+    }
+    .approval-status-img{
+      width: 30px; height: 30px; position: absolute; top: 12px; right: 27px
+    }
+    .approval-status-text{
+      position: absolute; top: 48px; right: 12px
+    }
+  }
+  .message-list-item {
+    //height:67px;
+    @extend %no-padding;
+    @extend %no-margin;
+    border: none;
+    .item-content {
+      @extend %no-padding;
+      @extend %no-margin;
+      border: none;
+      height: 100%;
+    }
+    .row{
+      @extend %no-margin;
+      @extend %no-padding;
+      .col{
+        @extend %no-margin;
+        .red-line{
+          width: 16px;
+          height: 16px;
+          border-radius: 8px;
+          background-color: #E70B18;
+          position: absolute;
+          top: 17px;
+          left: 20px;
+          border: 2px solid white;
+        }
+        .white-line{
+          width: 16px;
+          height: 16px;
+          border-radius: 8px;
+          background-color: #EAE3E3;
+          position: absolute;
+          top: 17px;
+          left: 20px;
+          border: 2px solid white;
+        }
+      }
+    }
+    .testRow:after{
+      content:'';
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      background-color: #EAE3E3;
+      //top:-15px;
+      left: 28px;
+      z-index: -10;
+    }
+  }
+  .message-item {
+    @extend %no-padding;
+    //height: 100% !important;
+    position: relative;
+    white-space: normal;
+    word-break: break-all;
+    font-size: 0.9rem;
+    margin-top: 8px !important;
+    margin-bottom: 10px !important;
+    .message-div{
+      margin-left: 5px;
+    }
+    .message-content{
+      line-height: 18px;
+      color:#464c66;
+    }
+    .approve-remark{
+      line-height: 18px;
+      color: #9B9B9B;
+      padding-top: 0;
+      white-space: normal;
+    }
+  }
+  .message-item-time{
+    font-size: 0.9rem;
+    .message-date {
+      @extend %no-padding;
+      //font-size: 11px;
+      color: #9B9B9B;
+      height: 16px;
+      line-height: 16px;
+      margin-top: 8px;
+      margin-left: 5px;
+    }
+  }
+  .white-area{
+    background: white;
+    width: 100%;
+    height:20px;
+    position: absolute;
+    border:none;
+  }
+  .submit{
+    @include status-color('已提交');
+  }
+  .approve{
+    @include status-color('同意');
+  }
+  .unapprove{
+    @include status-color('待审批');
+  }
+  .reject{
+    @include status-color('拒绝');
+  }
+  .save{
+    @include status-color('保存');
+  }
+  .align-center{
+    @extend %detail-align-center;
+  }
+}

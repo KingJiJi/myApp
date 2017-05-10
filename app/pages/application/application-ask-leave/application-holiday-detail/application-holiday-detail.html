@@ -1,0 +1,187 @@
+<ion-view view-title="请假申请" class="holiday-detail-content">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div ng-click="goBack()" class="button button-clear" style="color: #fff">
+      <i class="icon ion-ios-arrow-back"></i>
+    </div>
+    <h1 class="title">请假申请</h1>
+    <div class="button cancelHoliday" ng-click="cancelHoliday()" ng-if="holidayDetail.approvalDetailStatus == 'N' || holidayDetail.approvalDetailStatus == 'P'">撤回</div>
+  </ion-header-bar>
+
+
+  <ion-content has-bouncing="false" overflow-scroll="false">
+    <!--请假明细头-->
+    <ion-list class="holiday-head">
+      <div class="row">
+        <img class="iconLeft" ng-src="build/img/application/why.png" ng-click="toHolidayPolicy(holidayDetail.holidayType)">
+        <div class="col item-col">
+          <div class="row">
+            <div class="col type">
+             {{'请假类别:'}}
+            </div>
+            <div class="col typeValue" ng-if="holidayDetail.holidayType == '1000'">{{'年假'}}</div>
+            <div class="col typeValue" ng-if="holidayDetail.holidayType == '1010'">{{'病假'}}</div>
+            <div class="col typeValue" ng-if="holidayDetail.holidayType == '1020'">{{'事假'}}</div>
+            <div class="col typeValue" ng-if="holidayDetail.holidayType == '1030'">{{'婚假'}}</div>
+            <div class="col typeValue" ng-if="holidayDetail.holidayType == '1040'">{{'丧假'}}</div>
+            <div class="col typeValue" ng-if="holidayDetail.holidayType == '1050'">{{'产假'}}</div>
+            <div class="col typeValue" ng-if="holidayDetail.holidayType == '1060'">{{'哺乳假'}}</div>
+            <div class="col typeValue" ng-if="holidayDetail.holidayType == '1070'">{{'陪产假'}}</div>
+            <div class="col typeValue" ng-if="holidayDetail.holidayType == '1080'">{{'调休假'}}</div>
+            <div class="col otherValue" ng-if="holidayDetail.holidayType == '1099'">{{'其他(工伤、探亲等)'}}</div>
+          </div>
+        </div>
+        <div ng-if="holidayDetail.approvalDetailStatus == 'N'">
+          <img class="iconRight" ng-src="build/img/application/approval-center-detail/approvalDetailCreat.png">
+          <div class="result">审批创建</div>
+        </div>
+        <div ng-if="holidayDetail.approvalDetailStatus == 'P'">
+          <img class="iconRight" ng-src="build/img/application/approval-center-detail/approvalDetailCommit.png">
+          <div class="result">审批提交</div>
+        </div>
+        <div ng-if="holidayDetail.approvalDetailStatus == 'A'">
+          <img class="iconRight" ng-src="build/img/application/approval-center-detail/approvalDetailing.png">
+          <div class="result">审批中</div>
+        </div>
+        <div ng-if="holidayDetail.approvalDetailStatus == 'E'">
+          <img class="iconRight" ng-src="build/img/application/approval-center-detail/approvalDetailAgree.png">
+          <div class="result">审批通过</div>
+        </div>
+        <div ng-if="holidayDetail.approvalDetailStatus == 'R'">
+          <img class="iconRight" ng-src="build/img/application/approval-center-detail/approvalDetailRefuse.png">
+          <div class="result">审批拒绝</div>
+        </div>
+        <div ng-if="holidayDetail.approvalDetailStatus == 'C'">
+          <img class="iconRight" ng-src="build/img/application/revoke.png">
+          <div class="result">已撤销</div>
+        </div>
+      </div>
+    </ion-list>
+
+    <!--请假时长-->
+    <div class="list">
+      <ion-item class="holiday-time">
+        <div class="row holiday-time-row">
+          <div class="col no-padding totalTime">请假时长</div>
+          <div class="col no-padding holiday-time-date">
+            <span class="dayValue">{{holidayDetail.holidayDays}}</span>
+            <span class="dayUnit">天</span>
+          </div>
+        </div>
+      </ion-item>
+    </div>
+
+
+
+    <ion-item class="leave-info-item-detail">
+      <div class="row leave-info-row">
+        <div class="col no-padding text-color">开始时间</div>
+        <div class="col no-padding leave-info-date"  ng-if="holidayDetail.beginFlag == 'AM'" ng-bind="holidayDetail.beginDate+'&nbsp;&nbsp;&nbsp;'+'上午'"></div>
+        <div class="col no-padding leave-info-date"  ng-if="holidayDetail.beginFlag == 'PM'" ng-bind="holidayDetail.beginDate+'&nbsp;&nbsp;&nbsp;'+'下午'"></div>
+      </div>
+      <div class="time-line"></div>
+      <div class="row leave-info-row">
+        <div class="col no-padding text-color">结束时间</div>
+        <div class="col no-padding leave-info-date" ng-if="holidayDetail.endFlag == 'AM'"  ng-bind="holidayDetail.endDate+'&nbsp;&nbsp;&nbsp;'+'上午'"></div>
+        <div class="col no-padding leave-info-date" ng-if="holidayDetail.endFlag == 'PM'"  ng-bind="holidayDetail.endDate+'&nbsp;&nbsp;&nbsp;'+'下午'"></div>
+      </div>
+      <div class="time-line"></div>
+      <div class="row leave-info-row">
+        <div class="col no-padding text-color">请假事由</div>
+        <div class="col no-padding leave-info-date"></div>
+      </div>
+      <div class="row leave-info-row" style="padding-top: 0;white-space: normal">
+        <div class="col no-padding" ng-bind="holidayDetail.reason"></div>
+      </div>
+    </ion-item>
+
+    <!--附件-->
+    <!--<ion-item class="attachItem row-wrap">-->
+    <div class="pics-area row-wrap" ng-if='picsArr.length>0'>
+      <div class="typeTitle">附件:</div>
+      <div style="margin: 0 5px;min-height: 80px;background-color: white;">
+        <img ng-repeat="photo in picsArr"
+             style="width: 65px; height: 65px; border: 1px solid #F0F0F0; margin-left: 6px"
+             ion-img-cache
+             hao-img-load
+             load-src-str="{{photo}}"
+             default-src="build/img/head_2.gif"
+             ng-click="openImg(photo)"
+             alt="">
+      </div>
+    </div>
+    <!--</ion-item>-->
+    <!--单据跟踪-->
+    <div class="big">
+      <div class="approvalTrace">单据跟踪</div>
+
+      <ion-list>
+        <ion-item ng-repeat="item in rel_history | orderBy:item.REL_DATE" class="message-list-item">
+          <div class="row testRow" style="height: 100%;">
+            <div class="col" style="padding-left: 40px;">
+              <div class="red-line"
+                   ng-if="$index == 0"></div>
+              <div class="white-line"
+                   ng-if="$index != 0"></div>
+              <div class="row message-item-time" ng-if="item.REL_DATE">
+                <div class=" message-date">{{item.REL_DATE}}&nbsp;&nbsp;{{item.REL_TIME}}
+                </div>
+              </div>
+              <div class="row message-item">
+                <div class="message-div">
+                  <div class="message-content">
+                    {{item.REL_ENAME}}&nbsp;&nbsp;({{(item.REL_PLSTX)}})
+                  </div>
+                </div>
+              </div>
+              <div class="row message-item">
+                <div class="message-div">
+                  <div class="approve-remark">
+                    {{item.REMARKS}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col col-20 align-center unapprove" style="font-size: 15px;" ng-if="item.REL_ACTION ==''">
+              {{'待审批'}}
+            </div>
+            <div class="col col-20 align-center submit" style="font-size: 15px;" ng-if="item.REL_ACTION =='SUBMIT'">
+              {{'提交'}}
+            </div>
+            <div class="col col-20 align-center save" style="font-size: 15px;" ng-if="item.REL_ACTION =='SAVE'">
+              {{'保存'}}
+            </div>
+            <div class="col col-20 align-center reject" style="font-size: 15px;" ng-if="item.REL_ACTION =='REJECT'">
+              {{'拒绝'}}
+            </div>
+            <div class="col col-20 align-center approve" style="font-size: 15px;" ng-if="item.REL_ACTION =='APPROVE'">
+              {{'同意'}}
+            </div>
+            <div class="col col-20 align-center return" style="font-size: 15px;" ng-if="item.REL_ACTION =='RETURN'">
+              {{'退回'}}
+            </div>
+            <div class="col col-20 align-center cancel" style="font-size: 15px;" ng-if="item.REL_ACTION =='CANCEL'">
+              {{'撤回'}}
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>
+  <div class="myBackdrop" ng-class="{'active': showMyBackdrop}" ng-click="hideImgPropur();"></div>
+  <div style="position: fixed;width: 100%;height: auto;z-index: 12;top: 50%;left: 0;transform: translateY(-50%);" ng-if="showImg">
+    <!--<img ng-src="{{ imgUrl }}" style="width: 100%;height: 100%;">-->
+    <ion-scroll overflow-scroll='false' direction="xy" scrollbar-x="false" scrollbar-y="false"
+                zooming="true" min-zoom="1" style="width: 100%; height: 100%"
+                delegate-handle="scrollHandle{{$index}}"> <!--ng-src="{{ imgUrl }}"-->
+      <img class="bigImage"
+           ion-img-cache
+           hao-img-load
+           load-src-str="{{ imgUrl }}"
+           default-src="build/img/head_2.gif"
+           style="width: 100%"
+           ng-click="hideImgPropur();"
+           alt="">
+      <!--<div class="bigImage" style="background-image: url({{imgUrl}});width: 100%;background-size: cover;" ng-style="photoHight" ng-click="hideImgPropur();"></div>-->
+    </ion-scroll>
+  </div>
+</ion-view>

@@ -1,0 +1,120 @@
+.payroll-detail {
+  background: #F8F8F8;
+  .no-padding {
+    padding: 0;
+  }
+  .no-border {
+    border: none;
+  }
+  .item-border {
+    border-top: 1px solid #ECECEC;
+    margin-top: 2px;
+  }
+  .padding-row {
+    padding: 12px;
+  }
+  .text-color {
+    color: #374F9A;
+  }
+  .text-color1 {
+    color: #9B9B9B;
+  }
+  .text-size {
+    font-size: 15px;
+  }
+  .right-col {
+    text-align: right;
+  }
+  .payroll-item {
+    margin-top: 10px;
+  }
+  .payroll-detail-item {
+    margin-top: 5px;
+  }
+  .right-span {
+    margin-right: 20px;
+  }
+  .left-span {
+    margin-left: 25px;
+  }
+  .arrow-img {
+    width: 12px;
+    position: absolute;
+    right: 15px;
+    top: 25px;
+  }
+  .img-icon {
+    width: 18px;
+    position: absolute;
+    top: 20px;
+    left: 17px;
+  }
+  .item-line {
+    height: 1px;
+    border: 1px solid #ECECEC;
+    margin-left: 15px;
+    margin-top: 1px;
+  }
+}
+
+.payroll-list {
+  .payroll-item {
+    padding: 10px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-right {
+    text-align: right;
+  }
+  .arrow-img {
+    width: 20px;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+  }
+  .text-color {
+    color: #374F9A;
+  }
+  .payroll-money {
+    margin-right: 15px;
+    color: #374F9A;
+  }
+  .no-data-shelter{
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 250px;
+  }
+  .no-data-no-space{
+    padding:0px;
+    margin: 0px;
+    text-align: center;
+  }
+  .no-data-image{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 140px;
+  }
+  .no-data-no-space-label-row{
+    padding:0px;
+    margin: 0px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .no-data-label{
+    font-size: 1.125rem;
+    color: #385198;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+}

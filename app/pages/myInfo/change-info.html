@@ -1,0 +1,32 @@
+<ion-view view-title="个人信息" class="change-info">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon ion-ios-arrow-back" ng-click="goBack()">
+      </button>
+    </div>
+    <h1 class="title" ng-bind="title"></h1>
+  </ion-header-bar>
+  <ion-content>
+    <div class="titleWrap">
+      <div class="notification" ng-if="titleFlag == 'phone'">
+        {{'请输入新手机号码'}}
+      </div>
+      <!--<div class="notification" ng-if="titleFlag == 'station'">-->
+      <div class="notification" ng-if="titleFlag == 'password'">
+        <!--{{ '请输入新工位'}}-->
+        {{'请输入新密码'}}
+      </div>
+      <div class="notification" ng-if="titleFlag == 'address'">
+        {{'请输入新地址'}}
+      </div>
+    </div>
+    <div class="changeInput">
+      <input  type="text" class="input" ng-change="showClearIcon()" ng-model="changeInfo.changePhone" ng-if="titleFlag == 'phone'">
+      <!--<input  type="text" class="input" ng-change="showClearIcon()" ng-model="changeInfo.changeStation" ng-if="titleFlag == 'station'">-->
+      <input  type="text" class="input" ng-change="showClearIcon()" ng-model="changeInfo.changePwd" ng-if="titleFlag == 'password'">
+      <input  type="text" class="input" ng-change="showClearIcon()" ng-model="changeInfo.changeAddress" ng-if="titleFlag == 'address'">
+      <img src="build/img/myInfo/clear.png" class="clearIcon" ng-show="showClearIconFlag" ng-click="clearInput()">
+    </div>
+    <button class="button button-block submit-change" ng-click="submitChangeInfo()">完成</button>
+  </ion-content>
+</ion-view>

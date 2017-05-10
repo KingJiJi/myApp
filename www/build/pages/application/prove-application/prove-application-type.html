@@ -1,0 +1,22 @@
+<ion-view view-title="证明申请" class="prove-application-type">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon ion-ios-arrow-back" ng-click="goBack()">
+        <span class="back-button-text">返回</span>
+      </button>
+    </div>
+    <h1 class="title">证明类型</h1>
+  </ion-header-bar>
+  <ion-content has-bouncing="false" overflow-scroll="false">
+    <ion-list class="typeList">
+      <ion-item class="proveItem" ng-repeat="item in proveTypeList" ng-click="chooseProveType(item)">
+        <div class="row type-item-row">
+          <img class="type-icon" ng-src="{{item.src}}">
+          <label class="type-name" ng-bind="item.name"></label>
+        </div>
+        <div class="prove-type-line" ng-if="lastLineHide($index, proveTypeList)"></div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+

@@ -1,0 +1,85 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-actionsheet": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "XWALK_VERSION": "21+",
+            "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+            "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+            "XWALK_MODE": "embedded",
+            "XWALK_MULTIPLEAPK": "true",
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-datepicker": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-encryption": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-hand-datePicker": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-image-picker": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-themeablebrowser": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "jpush-phonegap-plugin": {
+            "API_KEY": "8d3ac0df337a81defc7b4997",
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ucarinc.uhometest"
+        }
+    }
+}

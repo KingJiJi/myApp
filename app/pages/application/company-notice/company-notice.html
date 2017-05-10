@@ -1,0 +1,34 @@
+<ion-view view-title="公司通知" class="company-notice">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon ion-ios-arrow-back" ng-click="goBack()">
+        <span class="back-button-text">返回</span>
+      </button>
+    </div>
+    <h1 class="title">公司通知</h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-refresher on-refresh="doRefresh()" pulling-text="正在刷新数据..." pulling-icon="ion-ios-loop"></ion-refresher>
+      <div class="item company-notice-item"ng-repeat="item in companyNoticeList" ng-click="goNoticeDetail(item.pageHrefURL)">
+          <div class="row company-notice-title">
+            {{item.title}}
+          </div>
+        <div class="row company-notice-time">
+          {{item.publishTime.substring(0,19)}}
+        </div>
+        <div class="row company-notice-img">
+          <img ion-img-cache ng-src="{{item.logoImgURL}}" style="height: 200px; width: 100%">
+        </div>
+        <div class="row company-notice-summary">
+          {{item.summary}}
+        </div>
+      </div>
+    <ion-infinite-scroll
+      ng-if="moreDataCanBeLoaded"
+      distance="1%"
+      on-infinite="loadMore()"
+      immediate-check="false">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>
+

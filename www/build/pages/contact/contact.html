@@ -1,0 +1,71 @@
+<ion-view view-title="通讯录" class="contact">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div ng-click="goBack()" class="button button-clear" style="color: #fff">
+      <i class="icon ion-ios-arrow-back"></i>
+      <span class="back-button-text">返回</span>
+    </div>
+    <h1 class="title" ng-if="!showTopInput">通讯录</h1>
+
+    <div class="row no-padding search-contact-input" ng-if="showTopInput">
+      <input type="search" class="text-input" placeholder="搜索" ng-readonly="true"
+             ng-click="goInputSearch()"/>
+    </div>
+  </ion-header-bar>
+  <ion-content class="contact-content" on-scroll="watchScroll()">
+    <div class="row search-contact-input input-height">
+      <input type="search" class="text-input" placeholder="请输入姓名/电话/邮箱" ng-readonly="true"
+             ng-click="goInputSearch()"/>
+    </div>
+    <div class="org-structure">
+      <div class="contact-item row no-padding" ng-click="goStructure()">
+        <div class="col col-15 item-logo">
+          <img class="contact-item-logo" src="build/img/contact/youche1.jpeg"/>
+        </div>
+        <div class="col col-75 item-name">
+          神州优车集团
+        </div>
+        <div class="item-line"></div>
+        <div class="item-arrow"></div>
+      </div>
+      <!--<div class="contact-item row no-padding" ng-click="goStructure('current')">-->
+      <!--<div class="col col-15 item-logo">-->
+      <!--<img class="contact-item-logo" src="build/img/contact/line@3x.png"/>-->
+      <!--</div>-->
+      <!--&lt;!&ndash;<ion-spinner icon="ios-small" style="align-self: center;padding-left: 30%;"&ndash;&gt;-->
+      <!--&lt;!&ndash;ng-if="structureName === ''"></ion-spinner>&ndash;&gt;-->
+      <!--<div class="col col-75 item-name" ng-bind="structureName">-->
+      <!--</div>-->
+      <!--<div class="item-arrow"></div>-->
+      <!--</div>-->
+    </div>
+    <div class="custom-link-man" ng-if="customContactsInfo.length !== 0">
+      近期联系人
+    </div>
+    <ion-list>
+
+      <ion-item class="contact-item-history row no-padding"
+                ng-repeat="i in customContactsInfo track by $index"
+                ng-click="goDetailInfo(i.employeeNumber)"
+      >
+        <div class="row no-padding no-margin">
+          <div class="col col-15 item-logo">
+            <img ion-img-cache class="contact-item-logo" ng-cloak ng-src="{{i.imgUrl | filterImg}}"/>
+          </div>
+          <div class="col col-75 item-name" ng-bind="i.name">
+          </div>
+          <div class="item-line"></div>
+          <div class="tel-img" ng-click="telNumber($event,i.tel)"></div>
+        </div>
+        <ion-option-button class="button-assertive"
+                           ng-click="deleteCommonLinkMan(i)" style="margin:0;padding: 0">
+          <div class="delete-button">
+            <div class="delete-item">
+              <i class="delete-icon ion-ios-trash-outline"></i>
+            </div>
+            <div class="delete-text">删除</div>
+          </div>
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

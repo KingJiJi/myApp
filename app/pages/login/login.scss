@@ -1,0 +1,183 @@
+.login {
+  background: url("../img/login/login-background.png") no-repeat center center fixed;
+  background-size: cover;
+  //animation: backgroundTransition 4s linear;
+  //-webkit-animation: backgroundTransition 4s linear;
+  .content-style {
+    background-color: transparent;
+  }
+  .login-logo {
+    transition:all .3s ease-in .1s;
+    -webkit-transition: all .3s ease-in .1s;
+    margin-top: 35%;
+    transform: translateY(80px);
+    -webkit-transform: translateY(80px);
+    width: 50%;
+    margin-left: 25%;
+  }
+  .login-img {
+    width: 66%;
+    margin-left: 17%;
+    margin-top: 35%
+  }
+  .login-item {
+    width: 86%;
+    margin-left: 7%;
+    margin-top: 10%;
+  }
+  .loginUser-row {
+    padding: 0;
+    margin: 0;
+    height: 44px;
+  }
+  .login-col {
+    width: 60px;
+  }
+  .loginUser-img {
+    width: 20px;
+    height: 19px;
+    margin-left: 2px;
+    float: left;
+  }
+  .login-input-col {
+    width: 60%;
+    //margin-top: -10px;
+    margin-left: 30px;
+  }
+  .login-input {
+    width: 100%;
+    font-size: 20px;
+    background-color: transparent;
+    color: midnightblue;
+    margin-top: -8px;
+    margin-left: 10px;
+  }
+  .login-line {
+    height: 1px;
+    width: 98%;
+    margin-left: 1%;
+    background-color: #3c3f49;
+    margin-top: 8px;
+  }
+  .loginPw-row {
+    margin-top: 30px;
+    padding: 0;
+  }
+  .loginPw-img {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    margin-left: 3px;
+    float: left;
+  }
+  .login-savePw {
+    text-align: right;
+    margin-right: 10%;
+    margin-top: 10px;
+  }
+  .login-savePw-img {
+    width: 20px;
+  }
+  .login-button {
+    //background-image: url("../img/login/login-botton.png");
+    //background-size: 100% 100%;
+    background-color: steelblue;
+    width: 86%;
+    margin-left: 7%;
+    margin-top: 30px;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    font-family: 微软雅黑;
+    font-size: large;
+  }
+  .login-checkbox-item{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    height: 30px;
+    width: 82.6%;
+    margin-left: 8.7%;
+    margin-top: 5px;
+    background-color: transparent;
+  }
+  .login-checkbox-icon{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 8px;
+    right: 75px;
+  }
+  .remember-password-button{
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    right: 7px;
+    top: 0px;
+    min-height: 20px;
+    line-height: 20px;
+    width: 70px;
+    border: none;
+    padding-top: 7px;
+    padding-bottom: 10px;
+    background-color: transparent;
+    padding-left: 6px;
+    font-size: 0.8rem;
+    color: #3c3f49;
+    font-family: 微软雅黑;
+  }
+  .clear-button{
+    position: absolute;
+    min-height: 34px;
+    line-height: 34px;
+    height: 34px;
+    max-width: 40px;
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    background-color: transparent;
+    right: 7%;
+    margin-top: 3px;
+  }
+  .clear-image{
+    width: 28px;
+    height: 28px;
+    padding-left: 10px;
+    padding-top: 0px;
+    padding-bottom:10px;
+  }
+
+
+  #loginAnimation{
+    display: none;
+  }
+}
+
+@keyframes backgroundTransition {
+  from {
+    background-size: 110% 110%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+@-webkit-keyframes backgroundTransition {
+  from {
+    background-size: 110% 110%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
+@-webkit-keyframes slideIn{
+  0%{left: 1500px;}
+  50%{left: 100px;}
+  100%{left: 0;}
+}
+
+@-webkit-keyframes slideOut{
+  0%{left: 0;}
+  50%{left: 100px;}
+  100%{left: 1500px; visibility: hidden;}
+}

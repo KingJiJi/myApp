@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-encryption" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+   <name>Encryption</name>
+	<description>Cordova plugin for encrypting and decrypting data</description>
+	<author>Liuyongjia and Huangjie</author>
+	<keywords> cordova,encrypt </keywords>
+	<js-module name="Encryption" src="www/Encryption.js">
+		<clobbers target="Encryption" />
+	</js-module>
+    <platform name="android">
+    	  <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Encryption">      
+        <param name="android-package" value="org.apache.cordova.entryption.EncryptionPlugin" />
+ 
+            </feature>
+        </config-file>
+        
+    	  <source-file src="src/android/Base64Decoder.java" target-dir="src/org/apache/cordova/entryption" />
+          <source-file src="src/android/Base64Encoder.java" target-dir="src/org/apache/cordova/entryption" />
+    	  <source-file src="src/android/DataEncryption.java" target-dir="src/org/apache/cordova/entryption" />
+    	  <source-file src="src/android/EncryptionPlugin.java" target-dir="src/org/apache/cordova/entryption" />
+    	       
+   
+    </platform>
+    
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Encryption">
+                <param name="ios-package" value="Encryption"/>
+            </feature>
+        </config-file>
+        
+        <config-file target="*-Info.plist"  parent="CFBundleDevelopmentRegion">
+            <string>zh_CN</string>
+            
+        </config-file>
+        
+        <header-file src="src/ios/NSData+AES256.h"/>
+        <source-file src="src/ios/NSData+AES256.m"/>
+        <header-file src="src/ios/NSString+ZCUtility.h"/>
+        <source-file src="src/ios/NSString+ZCUtility.m"/>
+        <header-file src="src/ios/Encryption.h"/>
+        <source-file src="src/ios/Encryption.m"/>
+        
+    </platform>
+</plugin>

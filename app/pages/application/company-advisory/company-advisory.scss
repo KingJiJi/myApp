@@ -1,0 +1,73 @@
+.company-advisory {
+  .company-advisory-content{
+    background-color: $global-background;
+  }
+  .company-advisory-nomargin {
+    margin: 0;
+    padding: 0;
+  }
+  .company-advisory-item{
+    margin: 0;
+    padding: 0;
+    border-bottom: none;
+  }
+  .company-advisory-img-col {
+    padding: 0;
+    margin: 0;
+  }
+  .company-advisory-img {
+    width: 88%;
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-bottom: 5px;
+  }
+  .company-advisory-title-row{
+    padding: 0;
+    margin: 0;
+    width: 80%;
+    height: 40px;
+  }
+  .company-advisory-title-col {
+    padding: 0;
+    margin: 0;
+  }
+  .company-advisory-title {
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 0.9rem;
+    display: block;
+    //white-space: nowrap;
+    //overflow: hidden;
+    //text-overflow: ellipsis;
+  }
+  .company-advisory-time {
+    padding: 0;
+    margin: 0;
+    color: #9B9B9B;
+    font-size: 0.9rem;
+    text-align: right;
+  }
+  .company-advisory-row-summary {
+    padding: 0;
+    margin: 0;
+    width: 95%;
+    height: 40px;
+  }
+  .company-advisory-summary {
+    margin-top: 5px;
+    margin-left: 10px;
+    color: #9B9B9B;
+    font-size: 0.9rem;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .company-advisory-row-time {
+    padding: 0;
+    margin: 0;
+    width: 95%;
+  }
+}

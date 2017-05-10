@@ -1,0 +1,67 @@
+.application-manage{
+  .application-manage-content{
+    background-color: $global-background;
+  }
+  .company-advisory-list{
+    width: 100%;
+    background-color: #ffffff;
+    margin-top: 12px;
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+    position: absolute;
+  }
+  .company-advisory-item{
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: 46px;
+    //border-bottom: 1px solid #e8e8e8;
+    margin-left: 20px;
+  }
+  .item-complex .item-content{
+    padding: 0;
+  }
+  .company-advisory-row{
+    padding: 2px 0 6px 0;
+    margin: 0;
+    height: 100%
+  }
+  .company-advisory-img{
+    width:30px;
+    height: 30px;
+    margin-top: 8px
+  }
+  .company-advisory-name{
+    margin-top: 13px;
+    margin-left: 15px;
+    color: #9B9B9B;
+    font-size: 0.875rem;
+  }
+  .company-advisory-icon{
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    width: 20px;
+  }
+  .application-manage-line{
+    margin-top: -1px;
+    width: 100%;
+    height: 1px;
+    background-color: #f0f0f0;
+    margin-left: 45px;
+  }
+  .title-right{
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    right: 12px;
+    margin-top: 1px;
+    background-color: transparent;
+  }
+  .bar-stable .button:hover{
+    color: white;
+  }
+  .bar-stable .button.activated{
+    background-color: transparent;
+  }
+}

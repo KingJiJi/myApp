@@ -1,0 +1,155 @@
+$tab-item-size: 24px;
+$tab-item-small-size: 21px;
+
+ion-tabs.tabs-color-active-positive .tab-item.tab-item-active,
+ion-tabs.tabs-color-active-positive .tab-item.active,
+ion-tabs.tabs-color-active-positive .tab-item.activated {
+  color: #1D4D95;
+}
+
+.tabs-icon-left {
+  .message-on {
+    background-image: url("../img/tabs/notice-checked.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: $tab-item-size;
+    width:35px;
+    margin-left: 15px;
+    margin-top: 13px !important;
+  }
+
+  .message-off {
+    background-image: url("../img/tabs/notice-check.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: $tab-item-size;
+    width:35px;
+    margin-left: 15px;
+    margin-top: 13px !important;
+  }
+  .tab-item{
+    margin-top: 8px;
+  }
+  .tab-item.activated {
+    .message-off {
+      background-image: url("../img/tabs/notice-check.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: $tab-item-size;
+    }
+    .application-off {
+      background-image: url("../img/tabs/home.png");
+      background-repeat: no-repeat;
+      background-position: center 16%;
+      background-size: 47px;
+      width: 55px;
+      height: 64px;
+    }
+    .mine-off {
+      background-image: url("../img/tabs/mine-check.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: $tab-item-size;
+    }
+    .contact-off {
+      background-image: url("../img/tabs/contact-g@3x.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: $tab-item-size;
+    }
+  }
+
+  .application-on {
+    background-image: url("../img/tabs/home.png");
+    background-repeat: no-repeat;
+    background-position: center 16%;
+    background-size: 47px;
+    width: 55px;
+    height: 64px;
+  }
+
+  .application-off {
+    background-image: url("../img/tabs/home.png");
+    background-repeat: no-repeat;
+    background-position: center 16%;
+    background-size: 47px;
+    width: 55px;
+    height: 64px;
+  }
+  .contact-on {
+    background-image: url("../img/tabs/contact-b@3x.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: $tab-item-size;
+  }
+
+  .contact-off {
+    background-image: url("../img/tabs/contact-g@3x.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: $tab-item-size;
+  }
+  .mine-on {
+    background-image: url("../img/tabs/mine-checked.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: $tab-item-size;
+    width:35px;
+    margin-top: 12px !important;
+    margin-left: -30px;
+  }
+
+  .mine-off {
+    background-image: url("../img/tabs/mine-check.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: $tab-item-size;
+    width:35px;
+    margin-top: 12px !important;
+    margin-left: -30px;
+  }
+  .tab-label{
+    font-size: 0.875rem;
+    color: #4a4a4a;
+    margin-left: 11px;
+    margin-top: 13px;
+  }
+  .tab-title{
+    font-size: 0.875rem;
+    color: white;
+    margin-top: 4px !important;
+  }
+  .message-count{
+      display: block;
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      margin-top: 5px;
+      line-height: 18px;
+      font-size: 11px;
+      border-radius: 9px;
+      background: #ff3b30;
+      color: white;
+      text-align: center;
+      top: -9px;
+      right: -9px
+
+  }
+}
+.tabs{
+  background-image: url("../img/tabs/tools-background_1.png") !important;
+  //background-color: #0B1731;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height:64px;
+  .tab-item .badge{
+    right:1px;
+  }
+  .badge.badge-assertive, .tabs .tab-item .badge.badge-assertive {
+    background-color: #f73f1d !important;
+    color: #fff;
+  }
+}
+

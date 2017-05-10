@@ -1,0 +1,84 @@
+<ion-view view-title="新建假期申请" class="new-holiday-content">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div ng-click="goBack()" class="button button-clear" style="color: #fff">
+      <i class="icon ion-ios-arrow-back"></i>
+    </div>
+    <h1 class="title">新建假期申请</h1>
+    <div class="button submitHoliday" ng-click="commitHolidayInfo()">提交</div>
+  </ion-header-bar>
+
+
+  <ion-content  has-bouncing="false" overflow-scroll="false">
+    <!--请假类型-->
+    <div class="holidayType">
+        <div class="typeTitle">请假类型</div>
+        <div class="chooseHolidayType" ng-click="chooseHolidayType()" ng-if="chooseTypeFlag ==false">请选择请假类型
+          <img src="build/img/arrow.png" class="arrowRight">
+        </div>
+
+      <div class="choosedHolidayType" ng-click="chooseHolidayType()" ng-if="chooseTypeFlag ==true" ng-bind="typeValue">
+      </div>
+
+    </div>
+    <!--请假时长-->
+    <!--<div class="holidayTime">-->
+      <!--<div class="totalTimeTitle">请假时长</div>-->
+      <!--&lt;!&ndash;<div class="totalDay">0</div>&ndash;&gt;-->
+      <!--<div class="totalDay" ng-bind="newHolidayData.days"></div>-->
+      <!--<div class="totalDayUnit">天</div>-->
+    <!--</div>-->
+
+    <div class="list">
+      <ion-item class="holiday-time">
+        <div class="row holiday-time-row">
+          <div class="col no-padding totalTime">请假时长</div>
+          <div class="col no-padding holiday-time-date">
+            <span class="dayValue" ng-bind="newHolidayData.days"></span>
+            <span class="dayUnit">天</span>
+          </div>
+        </div>
+      </ion-item>
+    </div>
+    <!--开始时间-->
+    <div class="beginTime">
+      <div class="typeTitle">开始时间</div>
+      <div class="chooseBeginTime" ng-click="chooseBeginTime()" ng-if="beginFlag">请选择开始时间</div>
+      <div class="chooseBeginTimeTitle" ng-click="chooseBeginTime()" ng-if="!beginFlag" ng-bind="newHolidayData.beginDate"></div>
+    </div>
+    <!--结束时间-->
+    <div class="endTime">
+      <div class="typeTitle">结束时间</div>
+      <div class="chooseEndTime" ng-if="endFlag" ng-click="chooseEndDate()">请选择结束时间</div>
+      <div class="chooseEndTimeTitle" ng-click="chooseEndDate()" ng-if="!endFlag" ng-bind="newHolidayData.endDate"></div>
+    </div>
+    <!--具体事由-->
+    <div class="specificReason">
+      <div class="typeTitle">请假事由:</div>
+      <div class="row">
+        <textarea class="reasonArea"  placeholder="请输入具体事由" ng-model='newHolidayData.reason'></textarea>
+      </div>
+    </div>
+
+    <!--图片上传-->
+      <div class="uploadPics" ng-click='cancelDelete()' ng-if="showUploadPic">
+      <div class="typeTitle">图片:</div>
+      <div  style="margin: 0 5px;min-height: 80px;background-color: white">
+        <div  ng-repeat="photo in imgArr track by $index"  style="float: left;display: block;position: relative;" >
+          <img ng-src="build/img/delete.png"  ng-if="showDelete == true" class="delete"  ng-click="deleteImage($event,$index)">
+          <img ng-class="{'true':'shake-little','false':''}[showDelete == true]"
+            ng-src="{{photo}}" on-tap="showBigPicture($index);" on-hold="delImage($index)"
+            style="width: 65px; height: 65px; border: 1px solid #F0F0F0; margin-right: 5px;margin-top: 10px;">
+        </div>
+
+        <img ng-src="build/img/application/holiday-type/addphoto.png" style="width: 65px; height: 65px; margin-left: 0px;float: left;margin-top: 10px;"
+             ng-click="getPicture()" ng-hide="imgArr.length ===3">
+
+        <div class="photo_tip">
+          <span>*</span>
+          <span>提示:图片长按可删除</span>
+        </div>
+      </div>
+    </div>
+    <!--<div class="row blankArea"></div>-->
+  </ion-content>
+</ion-view>

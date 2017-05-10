@@ -1,0 +1,123 @@
+.prove-application-type {
+  background-color: #f7f7f8;
+  .typeList{
+    width: 100%;
+    background-color: #ffffff;
+    margin-top: 12px;
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+    position: absolute;
+    .proveItem{
+      margin: 0;
+      padding: 0;
+      border: none;
+      height: 55px;
+      margin-left: 20px;
+      .type-item-row{
+        padding: 2px 0 6px 0;
+        margin: 0;
+        height: 100%;
+        .type-icon{
+          width:30px;
+          height: 30px;
+          margin-top: 8px
+        }
+        .type-name{
+          margin-top: 13px;
+          margin-left: 15px;
+          color: #404040;
+          font-size: 1rem;
+        }
+      }
+      .prove-type-line{
+        margin-top: -1px;
+        width: 100%;
+        height: 1px;
+        background-color: #f0f0f0;
+        margin-left: 45px;
+      }
+    }
+  }
+}
+
+.prove-application-detail {
+  background-color: #f7f7f8;
+  .submitHoliday{
+    background: transparent;
+    color:white;
+    font-size: 15px;
+    font-weight:bold;
+  }
+  .bar-stable .button.activated{
+    background-color: transparent;
+  }
+  .bar-stable .button:hover{
+    color: white;
+  }
+
+  .proveType{
+    background: white;
+    margin-top: 10px;
+    width: 100%;
+    height:70px;
+    .typeTitle{
+      color:#7D7D7D;
+      font-size: 1rem;
+      padding: 10px 0 0 10px;
+    }
+    .chooseProveType{
+      text-align: right;
+      font-size: 1rem;
+      color:#404040;
+      margin-right: 30px;
+    }
+    .choosedProveType{
+      text-align: right;
+      font-size: 1rem;
+      margin-right: 5%;
+    }
+    .arrow{
+      font-family:"iconfont";
+      float: right;
+      width: 19px;
+      height: 13px;
+    }
+    .icon-arrow:before{
+      content:'\e600';
+    }
+    .arrowRight{
+      position: absolute;
+      right:10px;
+      width: 19px;
+      height: 19px;
+    }
+  }
+  //申请原因
+  .proveReason{
+    background: white;
+    margin-top: 10px;
+    width: 100%;
+    height:160px;
+    border-bottom: solid 1px #EAE3E3;
+    .typeTitle{
+      color:#7D7D7D;
+      font-size: 1rem;
+      padding: 10px 0 0 10px;
+    }
+    .reasonArea{
+      width: 98%;
+      margin-left: 1%;
+      height: 120px;
+      line-height: normal;
+      resize: none;
+      background-color: white;
+      font-size: 1em;
+    }
+  }
+  .prove-remark {
+    margin-left: 10px;
+    font-size: 0.5rem;
+    margin-top: 10px;
+    white-space: normal;
+  }
+}

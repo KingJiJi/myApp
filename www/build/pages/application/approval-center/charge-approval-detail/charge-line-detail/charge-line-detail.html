@@ -1,0 +1,48 @@
+<ion-view view-title="公司资讯" class="company-advisory">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon ion-ios-arrow-back" ng-click="$ionicGoBack();">
+        <span class="back-button-text">返回</span>
+      </button>
+    </div>
+    <h1 class="title">费用明细</h1>
+  </ion-header-bar>
+  <ion-content>
+    <div class="approval-head">
+      <hms-charge-line ng-repeat="item in approvalHeads"
+                       col-left="40"
+                       col-right="60"
+                       charge-line-key="item.title"
+                       charge-line-value="item.desc">
+
+      </hms-charge-line>
+      <!--<div class="row" ng-repeat="item in approvalHeads">
+        <div class="col col-40" style="text-align: right">
+          <span>{{ item.title }}</span>&nbsp;:
+        </div>
+        <div class="col col-60" style="text-align: left">
+          <span>{{ item.desc }}</span>
+        </div>
+      </div>-->
+      <div class="row">
+        <div class="col col-33" style="text-align: right">
+          <span>附件</span>:
+        </div>
+        <div class="col col-66">
+          <span ng-repeat="item in imgFiles">
+            <img src="{{ item.url }}" style="width: 30%;" alt="" ng-if="item.type == 'IMG'">
+            <a href="{{ item.url }}" ng-if="item.type == 'FILE'" style="display: block">{{ item.name }}</a>
+          </span>
+        </div>
+      </div>
+      <div class="row" ng-if="detail == 'Y'">
+        <div class="col col-40" style="text-align: right">
+          <span>明细</span>:
+        </div>
+        <div class="col col-60">
+          <a href="javascript:void(0);">点击查看明细</a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

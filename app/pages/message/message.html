@@ -1,0 +1,78 @@
+<ion-view view-title="消息" class="message-list">
+  <ion-header-bar align-title="center"
+                  ng-class="{'bar-stable blur-back':pictureAppearance,'bar-stable clear-back':!pictureAppearance}">
+    <h1 class="title">消息</h1>
+    <!--<h1 class="title-right" ng-click="readAll()">全部已读</h1>-->
+    <div class="button title-right" ng-click="readAll()">全部已读</div>
+  </ion-header-bar>
+  <ion-content ng-class="{'messages blur-back':pictureAppearance,'messages clear-back':!pictureAppearance}">
+    <div ng-if="noMessageFlag">
+      <div class="no-data-shelter">
+        <div class="row no-data-no-space">
+          <img src="build/img/application/no-data.png" class="no-data-image">
+        </div>
+        <div class="row no-data-no-space-label-row">
+          <label class="no-data-label">{{'暂无消息'}}</label>
+        </div>
+      </div>
+    </div>
+    <ion-list style="margin-top: 20px;">
+      <ion-item ng-repeat="message in messageList track by $index" class="message-list-item"
+                ng-click="readMessage($index)">
+        <div class="row" style="height: 100%;">
+          <!--<div class="col col-10" style="height: 100%;">-->
+          <!--<div  style="height: 55%;width: 20px;border-right: 1px solid #EAE3E3 !important;margin-top: 70%;">-->
+          <!--<div-->
+          <!--class="red-line"-->
+          <!--ng-if="message.checkFlag ==false"></div>-->
+          <!--<div class="white-line"-->
+          <!--ng-if="message.checkFlag == true"></div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <div class="col" style="padding-left: 40px;">
+            <div
+              class="red-line"
+              ng-if="message.checkFlag == 'N'"></div>
+            <div class="white-line"
+                 ng-if="message.checkFlag == 'Y'"></div>
+            <div class="row message-item-time" style="margin-top: 5px;">
+              <div class=" message-date" ng-bind="message.sendTime">
+              </div>
+            </div>
+            <div class="row message-item">
+              <div class="message-div">
+                <div class="message-content" ng-if="message.checkFlag == 'N'"
+                     ng-bind="message.msgContent">
+                </div>
+                <div class="read-message-content" ng-if="message.checkFlag == 'Y'"
+                     ng-bind="message.msgContent">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--<div class="col col-10 align-center" ng-if="message.checkFlag == 'Y'">-->
+            <!--<img class="arrowImg" src="build/img/contact/arrow.png"/>-->
+            <!--&lt;!&ndash;<i class="arrowImg icon-arrow-read"></i>&ndash;&gt;-->
+          <!--</div>-->
+          <!--<div class="col col-10 align-center" ng-if="message.checkFlag == 'N'">-->
+            <!--<img class="arrowImg" src="build/img/contact/unreadArrow.png"/>-->
+            <!--&lt;!&ndash;<i class="arrowImg icon-arrow-unread"></i>&ndash;&gt;-->
+          <!--</div>-->
+        </div>
+
+        <div class="bottom-line"></div>
+        <ion-option-button class="button-assertive"
+                           ng-click="deleteMessage(message)" style="margin:0;padding: 0">
+          <div class="delete-button">
+            <div class="delete-item">
+              <i class="delete-icon ion-ios-trash-outline"></i>
+            </div>
+            <div class="delete-text">删除</div>
+          </div>
+        </ion-option-button>
+      </ion-item>
+
+    </ion-list>
+
+  </ion-content>
+</ion-view>

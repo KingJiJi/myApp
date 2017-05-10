@@ -1,0 +1,52 @@
+<ion-view view-title="内聘平台" class="platform-employed">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon ion-ios-arrow-back" ng-click="goBack()">
+        <span class="back-button-text">返回</span>
+      </button>
+    </div>
+    <h1 class="title">内聘平台</h1>
+  </ion-header-bar>
+  <ion-content class="platform-employed-content">
+    <ion-refresher on-refresh="doRefresh()" pulling-text="正在刷新数据..." pulling-icon="ion-ios-loop"></ion-refresher>
+    <div class="item platform-employed-item" ng-repeat="item in platformEmployedList"
+         ng-click="goEmployedListDetail(item.pageHrefURL)">
+      <div class="row platform-employed-nomargin">
+        <!--<div class="col col-40 platform-employed-img-col">-->
+          <!--&lt;!&ndash;<img ion-img-cache class="platform-employed-img" ng-src="{{item.logoImgURL}}"/>&ndash;&gt;-->
+          <!--<div class="platform-employed-img"></div>-->
+        <!--</div>-->
+        <div class="col col-70 platform-employed-title-col">
+          <div class="row platform-employed-title-row">
+            <div class="col platform-employed-title">
+              <div style="white-space: normal; word-break: break-all; line-height: 18px;text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">
+                {{item.title}}
+              </div>
+            </div>
+          </div>
+          <div class="row platform-employed-row-summary">
+            <div class="platform-employed-summary">
+              <div style="white-space: normal; word-break: break-all; line-height: 18px;text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">
+                {{item.summary}}
+              </div>
+            </div>
+          </div>
+          <div class="row platform-employed-row-time">
+            <div class="col col-60">
+            </div>
+            <div class="col platform-employed-time">
+              {{(item.publishTime).substring(0, 10)}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ion-infinite-scroll
+            ng-if="moreDataCanBeLoaded"
+            distance="1%"
+            on-infinite="loadMore()"
+            immediate-check="false">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>
+

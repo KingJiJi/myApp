@@ -1,0 +1,71 @@
+<ion-view view-title="待办事项" class="workflow">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-arrow-back" ng-click="$ionicGoBack()">
+        <!--<span class="back-text">返回</span>-->
+      </button>
+    </div>
+    <div class="title">
+      <div class="workflow-filter" ng-if="UpFlag == 'HomePage'">
+        <a class="to-do-list" ng-click="fetchTodoList()"
+           ng-class="{true: 'selected', false: 'no-selected'}[listStatus.todo.selected]">
+          待处理
+        </a>
+        <a class="done-list" ng-click="fetchDoneList()"
+           ng-class="{true: 'selected', false: 'no-selected'}[listStatus.done.selected]">
+          已处理
+        </a>
+        <!--<a class="mine-list" ng-click="fetchMineList()"-->
+           <!--ng-class="{true: 'selected', false: 'no-selected'}[listStatus.mine.selected]">-->
+          <!--我的申请-->
+        <!--</a>-->
+      </div>
+      <div ng-if="UpFlag == 'applyCenter'">我的申请</div>
+    </div>
+
+  </ion-header-bar>
+  <ion-content delegate-handle="workflowListHandle">
+    <ion-refresher ng-if="!fetchDataFlag" on-refresh="refresh()" pulling-text="正在刷新数据..." pulling-icon="ion-ios-loop">
+    </ion-refresher>
+    <div class="hms-hide-content" ng-if="fetchDataFlag">
+      <hms-loading></hms-loading>
+    </div>
+    <div ng-if="noApprovalFlag">
+      <div class="no-data-shelter">
+        <div class="row no-data-no-space">
+          <img src="build/img/application/no-data.png" class="no-data-image">
+        </div>
+        <div class="row no-data-no-space-label-row" ng-if="listStatus.todo.selected == true || listStatus.done.selected == true">
+          <label class="no-data-label">{{'暂无审批'}}</label>
+        </div>
+        <div class="row no-data-no-space-label-row" ng-if="listStatus.mine.selected == true ">
+          <label class="no-data-label">{{'暂无申请'}}</label>
+        </div>
+      </div>
+    </div>
+    <ion-list can-swipe="listStatus.todo.selected">
+      <ion-item class="workflow-list" ng-repeat="item in list" ng-click="goCenterDetail(item)">
+        <hms-workflow-list
+                           workflow-title='item.title1'
+                           workflow-icon='item.icon'
+                           workflow-type-value='item.typeValue'
+                           workflow-submit='item.submit'
+                           workflow-submit-person='item.submitPerson'
+                           workflow-node='item.sendTime'
+                           workflow-node-value='item.sendTimeValue'>
+        </hms-workflow-list>
+        <img class="workflow-img" ng-src="build/img/application/approval-center-detail/approvalCreat.png" ng-if="item.status == 'N' && approvalStatus == 'mineApproval'"/>
+        <img class="workflow-img" ng-src="build/img/application/approval-center-detail/approvalCommit.png" ng-if="item.status == 'P' && approvalStatus == 'mineApproval'"/>
+        <img class="workflow-img" ng-src="build/img/application/approval-center-detail/approvalRevoke.png" ng-if="item.status == 'C' && (approvalStatus == 'Processed' || approvalStatus == 'mineApproval')"/>
+        <img class="workflow-img" ng-src="build/img/application/approval-center-detail/approvaling.png" ng-if="item.status == 'A' && (approvalStatus == 'Processed' || approvalStatus == 'mineApproval')"/>
+        <img class="workflow-img" ng-src="build/img/application/approval-center-detail/approvalRefuse.png" ng-if="item.status == 'R' && (approvalStatus == 'Processed' || approvalStatus == 'mineApproval')"/>
+        <img class="workflow-img" ng-src="build/img/application/approval-center-detail/approvalAgree.png" ng-if="item.status == 'E' && (approvalStatus == 'Processed' || approvalStatus == 'mineApproval')"/>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll ng-if="loadMoreDataFlag" on-infinite="loadMoreData()"  immediate-check="false"
+                         distance="1%">
+    </ion-infinite-scroll>
+
+  </ion-content>
+
+</ion-view>

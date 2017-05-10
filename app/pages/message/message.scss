@@ -1,0 +1,366 @@
+
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1477482376_11175.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1477482376_11175.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1477482376_11175.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1477482376_11175.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1477482376_11175.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.message-list {
+  background-color: #f7f7f8;
+  .blur-back{
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+  }
+  .clear-back{
+
+  }
+  .title-right{
+    color: $color-base;
+    font-size: 15px;
+    position: absolute;
+    right: 12px;
+    margin-top: 1px;
+    background-color: transparent;
+  }
+  .bar-stable{
+    .button{
+      &:hover{
+        color:$color-base;
+      }
+    }
+  }
+  .align-center{
+    @extend %align-center;
+  }
+  .bar-stable{
+    .button.activated{
+      background-color: transparent;
+    }
+  }
+  .messages {
+    &.has-employee-list {
+      background: rgba(255, 255, 255, 0.5) !important;
+      -ms-filter: blur(25px);
+      filter: blur(25px) brightness(1);
+      -webkit-filter: blur(25px) brightness(1);
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+
+    .time-line{
+      margin-left: 10%;
+      width: 20%;
+      height: 100%;
+      border-right: 1px solid #E8E8E8;
+    }
+    .message-area{
+      width: 80%;
+    }
+    .message-list-item {
+      //height:67px;
+      @extend %no-padding;
+      @extend %no-margin;
+      border: none;
+      .item-content {
+        @extend %no-padding;
+        @extend %no-margin;
+        border: none;
+        height: 100%;
+      }
+      .row{
+        @extend %no-margin;
+        @extend %no-padding;
+        .col{
+          @extend %no-margin;
+          @extend %no-padding;
+          .red-line{
+            width: 12px;
+            height: 12px;
+            border-radius: 6px;
+            background-color: #E70B18;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+          }
+          .white-line{
+            width: 12px;
+            height: 12px;
+            border-radius: 6px;
+            background-color: #EAE3E3;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+          }
+        }
+      }
+    }
+
+    .message-item-time{
+      font-size: 0.9rem;
+      .message-date {
+        @extend %no-padding;
+        font-size: 11px;
+        color: #9B9B9B;
+        height: 16px;
+        line-height: 16px;
+        margin-top: 3px;
+      }
+    }
+    .message-item {
+      @extend %no-padding;
+      //height: 100% !important;
+      position: relative;
+      white-space: normal;
+      word-break: break-all;
+      font-size: 0.9rem;
+      margin-top: 8px !important;
+      margin-bottom: 10px !important;
+      .message-div{
+        margin-left: -15px;
+        border-left: 1px solid #EAE3E3;
+        padding-top: 10px;
+        padding-left: 14px;
+        padding-bottom: 10px;
+      }
+      .message-content{
+        line-height: 18px;
+        color:#464c66;
+      }
+      .read-message-content{
+        line-height: 18px;
+        color:#9b9b9b;
+      }
+    }
+    .message-title{
+      font-size: 15px;
+      color: #4A4A4A;
+      line-height: 21px;
+    }
+  }
+  .arrowImg{
+    float: right;
+    width: 21px;
+    height: 21px;
+    margin-left: 10px;
+  }
+  .icon-arrow-read:before{
+    content:'\e600';
+  }
+  .icon-arrow-unread:before{
+    content:'\e601';
+  }
+  .title-right{
+    color: $color-base;
+    font-size: 15px;
+    position: absolute;
+    right: 12px;
+  }
+  .no-data-shelter{
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 250px;
+  }
+  .no-data-no-space{
+    @extend %no-padding;
+    @extend %no-margin;
+    text-align: center;
+  }
+  .no-data-image{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 140px;
+  }
+  .no-data-no-space-label-row{
+    @extend %no-padding;
+    @extend %no-margin;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .no-data-label{
+    font-size: 1.125rem;
+    color: #385198;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+
+
+  .delete-button {
+    width: 100%;
+    height: 55px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    .delete-item {
+      height: 35px;
+      line-height: 35px;
+      .delete-icon {
+        font-size: 26px;
+      }
+    }
+    .delete-text {
+      height: 20px;
+      line-height: 20px;
+      font-size: 12px
+    }
+  }
+  .bottom-line{
+    margin-top: -1px;
+    width: 100%;
+    height: 1px;
+    background-color: #EAE3E3;
+    margin-left: 35px;
+  }
+  .animated.modal.bounceIn.ng-leave {
+    -webkit-animation-name:bounceOut;
+    animation-name:bounceOut;
+  }
+  .animated.modal.bounceInDown.ng-leave {
+    -webkit-animation-name:bounceOutUp;
+    animation-name:bounceOutUp;
+  }
+  .animated.modal.bounceInLeft.ng-leave {
+    -webkit-animation-name:bounceOutLeft;
+    animation-name:bounceOutLeft;
+  }
+  .animated.modal.bounceInRight.ng-leave {
+    -webkit-animation-name:bounceOutRight;
+    animation-name:bounceOutRight;
+  }
+  .animated.modal.bounceInUp.ng-leave {
+    -webkit-animation-name:bounceOutDown;
+    animation-name:bounceOutDown;
+  }
+
+  .animated.modal.bounceOut.ng-leave {
+    -webkit-animation-name:bounceOut;
+    animation-name:bounceOut;
+  }
+
+  .animated.modal.fadeIn.ng-leave {
+    -webkit-animation-name:fadeOut;
+    animation-name:fadeOut;
+  }
+  .animated.modal.fadeInDown.ng-leave {
+    -webkit-animation-name:fadeOutDown;
+    animation-name:fadeOutDown;
+  }
+  .animated.modal.fadeInDownBig.ng-leave {
+    -webkit-animation-name:fadeOutDownBig;
+    animation-name:fadeOutDownBig;
+  }
+  .animated.modal.fadeInLeft.ng-leave {
+    -webkit-animation-name:fadeOutLeft;
+    animation-name:fadeOutLeft;
+  }
+  .animated.modal.fadeInLeftBig.ng-leave {
+    -webkit-animation-name:fadeOutLeftBig;
+    animation-name:fadeOutLeftBig;
+  }
+  .animated.modal.fadeInRight.ng-leave {
+    -webkit-animation-name:fadeOutRight;
+    animation-name:fadeOutRight;
+  }
+  .animated.modal.fadeInRightBig.ng-leave {
+    -webkit-animation-name:fadeOutRightBig;
+    animation-name:fadeOutRightBig;
+  }
+  .animated.modal.fadeInUp.ng-leave {
+    -webkit-animation-name:fadeOutUp;
+    animation-name:fadeOutUp;
+  }
+  .animated.modal.fadeInUpBig.ng-leave {
+    -webkit-animation-name:fadeOutUpBig;
+    animation-name:fadeOutUpBig;
+  }
+
+  .animated.modal.flipInX.ng-leave {
+    -webkit-animation-name:flipOutX;
+    animation-name:flipOutX;
+  }
+  .animated.modal.flipInY.ng-leave {
+    -webkit-animation-name:flipOutY;
+    animation-name:flipOutY;
+  }
+
+  .animated.modal.lightSpeedIn.ng-leave {
+    -webkit-animation-name:lightSpeedOut;
+    animation-name:lightSpeedOut;
+  }
+
+  .animated.modal.rotateIn.ng-leave {
+    -webkit-animation-name:rotateOut;
+    animation-name:rotateOut;
+  }
+  .animated.modal.rotateInDownLeft.ng-leave {
+    -webkit-animation-name:rotateOutDownLeft;
+    animation-name:rotateOutDownLeft;
+  }
+  .animated.modal.rotateInDownRight.ng-leave {
+    -webkit-animation-name:rotateOutDownRight;
+    animation-name:rotateOutDownRight;
+  }
+  .animated.modal.rotateInUpLeft.ng-leave {
+    -webkit-animation-name:rotateOutUpLeft;
+    animation-name:rotateOutUpLeft;
+  }
+  .animated.modal.rotateInUpRight.ng-leave {
+    -webkit-animation-name:rotateOutUpRight;
+    animation-name:rotateOutUpRight;
+  }
+
+  .animated.modal.slideInUp.ng-leave {
+    -webkit-animation-name:slideOutDown;
+    animation-name:slideOutDown;
+  }
+  .animated.modal.slideInDown.ng-leave {
+    -webkit-animation-name:slideOutUp;
+    animation-name:slideOutUp;
+  }
+  .animated.modal.slideInLeft.ng-leave {
+    -webkit-animation-name:slideOutLeft;
+    animation-name:slideOutLeft;
+  }
+  .animated.modal.slideInRight.ng-leave {
+    -webkit-animation-name:slideOutRight;
+    animation-name:slideOutRight;
+  }
+
+  .animated.modal.zoomIn.ng-leave {
+    -webkit-animation-name:zoomOut;
+    animation-name:zoomOut;
+  }
+  .animated.modal.zoomInDown.ng-leave {
+    -webkit-animation-name:zoomOutDown;
+    animation-name:zoomOutDown;
+  }
+  .animated.modal.zoomInLeft.ng-leave {
+    -webkit-animation-name:zoomOutLeft;
+    animation-name:zoomOutLeft;
+  }
+  .animated.modal.zoomInRight.ng-leave {
+    -webkit-animation-name:zoomOutRight;
+    animation-name:zoomOutRight;
+  }
+  .animated.modal.zoomInUp.ng-leave {
+    -webkit-animation-name:zoomOutUp;
+    animation-name:zoomOutUp;
+  }
+
+  .animated.modal.rollIn.ng-leave {
+    -webkit-animation-name:rollOut;
+    animation-name:rollOut;
+  }
+
+}

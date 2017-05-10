@@ -1,0 +1,44 @@
+<ion-view view-title="应用" class="hrms-pancel-corlor">
+  <ion-content class="mainApplication" has-bouncing="false" overflow-scroll="false">
+    <div ng-style="picHeight" style="width: 100%;height: 200px" ng-if="noNetFlag == 'success' ">
+      <ion-slide-box  on-slide-changed="slideHasChanged($index)" does-continue="true"  show-pager="true" auto-play="true" slide-interval="3000" >
+        <ion-slide ng-repeat="img in mainImgList1" ng-if="mainImgList.length>0">
+          <img ion-img-cache ng-src="{{img.imgURL}}" style="width: 100%;height: 200px" ng-style="picHeight"
+               ng-click="goMainImgUrl(img.imgHrefURL)">
+        </ion-slide>
+      </ion-slide-box>
+      <!--<img src="build/img/main/pic_bar.png" style="width: 100%;height:60px;position:absolute;" ng-style="pic_bar">-->
+    </div>
+
+    <!--<div ng-style="picHeight" style="width: 100%;height: auto" ng-if="noNetFlag == 'success' && mainImgList.length == 2">-->
+      <!--<ion-slide-box  on-slide-changed="slideHasChanged($index)"  show-pager="true" auto-play="true" slide-interval="3000" >-->
+        <!--<ion-slide ng-repeat="img in mainImgList" ng-if="mainImgList.length>0">-->
+          <!--<img ion-img-cache ng-src="{{img.imgURL}}" style="width: 100%;" ng-style="picHeight"-->
+               <!--ng-click="goMainImgUrl(img.imgHrefURL)">-->
+        <!--</ion-slide>-->
+      <!--</ion-slide-box>-->
+      <!--&lt;!&ndash;<img src="build/img/main/pic_bar.png" style="width: 100%;height:60px;position:absolute;" ng-style="pic_bar">&ndash;&gt;-->
+    <!--</div>-->
+    <!--数据加载失败-->
+    <div ng-style="picHeight" style="width: 100%;height: 100px" ng-show="noNetFlag !== 'success'" ng-click="refreshPic()">
+      <div style="color: white; padding-top: 38%; text-align: center;">
+        加载失败，点击重新加载
+      </div>
+      <!--<img src="build/img/main/pic_bar.png" style="width: 100%;height:60px;position:absolute;" ng-style="pic_bar">-->
+    </div>
+
+    <div  class="appRegion">
+      <div class="application-icon" ng-repeat="item in applicationList" ng-if="item.appFlag == 'Y'"
+           ng-click="goApplication(item.appName, $event)">
+        <img ion-img-cache ng-src="{{item.mainAppImg}}" class="application-icon-img">
+
+        <div class="appTitle">{{item.appName}}</div>
+      </div>
+      <div class="application-icon" ng-click="goApplicationManage()">
+        <img src="build/img/main/more.png" class="application-icon-img">
+        <div class="appTitle">更多</div>
+      </div>
+    </div>
+  </ion-content>
+  <!--<div style="position: fixed; bottom: 55px; color: white; font-size: 18px; font-weight: bold; right: 10px;">{{versionType}}</div>-->
+</ion-view>

@@ -1,0 +1,408 @@
+<ion-view view-title="转正审批明细" class="positive-approval-detail">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon ion-ios-arrow-back" ng-click="$ionicGoBack()">
+      </button>
+    </div>
+    <h1 class="title">单据审批</h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item class="fake-leave-apply-detail-item">
+        <div class="row">
+          <img ng-src="build/img/application/approval-center-detail/approvalIcon.png" class="item-img"/>
+
+          <div class="col item-col">
+            <div class="row">
+              <div class="col item-col-text">
+                {{'转正'}}({{positiveDetail.positiveId}})
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-col-text">
+                提交人：{{positiveDetail.positivePerson}}
+              </div>
+            </div>
+          </div>
+          <!--<div>-->
+          <!--<img ng-src="build/img/application/approval-center-detail/approvalDetailAgree.png"-->
+          <!--class="approval-status-img"/>-->
+
+          <!--<div class="approval-status-text">审批通过</div>-->
+          <!--</div>-->
+        </div>
+      </ion-item>
+    </ion-list>
+    <div class="list employee-info-list" style="margin-top: 10px">
+      <ion-item class="employee-info-item">
+        <div class="row no-padding">
+          <div class="col">
+            <div class="row employee-info-icon-row">
+              <div class="col col-10 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/company.png" class="employee-info-icon"/>
+              </div>
+              <div class="col col-90">
+                <div class="row">签约公司</div>
+                <div class="row employee-info-company-row">{{positiveDetail.signedCompany}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+      <div class="employee-info-line"></div>
+      <ion-item class="employee-info-item">
+        <div class="row no-padding">
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/sector.png" class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">所在版块</div>
+                <div class="row employee-info-company-row">{{positiveDetail.company}}</div>
+              </div>
+            </div>
+            <div class="employee-info-line-y"></div>
+          </div>
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/department.png" class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">所在部门</div>
+                <div class="row employee-info-company-row">{{positiveDetail.department}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+      <div class="employee-info-line"></div>
+      <ion-item class="employee-info-item">
+        <div class="row no-padding">
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/position.png" class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">现岗位</div>
+                <div class="row employee-info-company-row">{{positiveDetail.position}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-50"></div>
+        </div>
+      </ion-item>
+      <ion-item class="leave-info-item">
+        <div class="row leave-info-row">
+          <div class="col no-padding text-color">试用期</div>
+        </div>
+      </ion-item>
+      <ion-item class="leave-info-item-detail">
+        <div class="row leave-info-row">
+          <div class="col no-padding text-color">开始时间</div>
+          <div class="col no-padding leave-info-date">{{positiveDetail.tryStartDate}}</div>
+        </div>
+        <div class="employee-info-line"></div>
+        <div class="row leave-info-row">
+          <div class="col no-padding text-color">结束时间</div>
+          <div class="col no-padding leave-info-date">{{positiveDetail.tryEndDate}}</div>
+        </div>
+        <div class="employee-info-line"></div>
+        <div class="row leave-info-row">
+          <div class="col no-padding text-color">试用期小结</div>
+          <div class="col no-padding leave-info-date"></div>
+        </div>
+        <div class="row leave-info-row" style="padding-top: 0;" ng-click="goTryDes(positiveDetail.realTryDes)">
+          <div class="col no-padding">{{positiveDetail.tryDes}}</div>
+          <img ng-if="showArrow == 'true'" ng-src="build/img/contact/arrow.png" class="arrow-img"/>
+        </div>
+        <div class="employee-info-line"></div>
+        <div class="row leave-info-row" ng-if="fileDetail.fileName !== '' || picsFileArr.length>0 || fileDetail.fileName !== undefined">
+          <div class="col no-padding text-color">附件：</div>
+          <div class="col no-padding leave-info-date"></div>
+        </div>
+        <div class="row leave-info-row" style="padding-top: 0; display: flex; flex-flow: wrap">
+          <div style="margin: 0 5px;min-height: 80px;background-color: white;" ng-if="fileDetail.isPics == 'true'">
+            <img ng-repeat="photo in picsFileArr"
+                 style="width: 65px; height: 65px; border: 1px solid #F0F0F0; margin-left: 6px"
+                 ion-img-cache
+                 hao-img-load
+                 load-src-str="{{photo}}"
+                 default-src="build/img/head_2.gif"
+                 ng-click="openImg(photo)"
+                 alt="">
+          </div>
+          <div ng-if="fileDetail.isPics == 'false' && fileDetail.fileName !== ''">
+            <img src="build/img/application/attachment.png" class="attachment">
+            <a href="" style="display: inline-block;position: absolute;"
+               ng-click="pADCtrl.openFile(fileDetail.fileName)">{{fileDetail.fileName}}</a>
+          </div>
+        </div>
+      </ion-item>
+      <ion-item class="leave-info-item">
+        <div class="row leave-info-row">
+          <div class="col no-padding text-color">试用期约定</div>
+        </div>
+      </ion-item>
+      <ion-item class="employee-info-item">
+        <div class="row no-padding">
+          <div class="col">
+            <div class="row employee-info-icon-row">
+              <div class="col col-10 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/total.png" style="margin-top: 4px"
+                     class="employee-info-icon"/>
+              </div>
+              <div class="col col-50">
+                <div class="row">合计</div>
+              </div>
+              <div class="col col-40" style="text-align: right; align-self: center">
+                <div class="employee-info-company-row" style="color: #374F9A">{{positiveDetail.tryTotal}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+      <div class="employee-info-line"></div>
+      <ion-item class="employee-info-item">
+        <div class="row no-padding">
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/basic-salary.png" class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">基本工资</div>
+                <div class="row employee-info-company-row">{{positiveDetail.tryBasicWage}}</div>
+              </div>
+            </div>
+            <div class="employee-info-line-y"></div>
+          </div>
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/station-allowance.png"
+                     class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">岗位津贴</div>
+                <div class="row employee-info-company-row">{{positiveDetail.tryPostAllowance}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+      <div class="employee-info-line"></div>
+      <ion-item class="employee-info-item">
+        <div class="row no-padding">
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/lunch-allowance.png" class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">午餐补贴</div>
+                <div class="row employee-info-company-row">{{positiveDetail.tryLunchAllowance}}</div>
+              </div>
+            </div>
+            <div class="employee-info-line-y"></div>
+          </div>
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/other-allowance.png" class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">其他补贴</div>
+                <div class="row employee-info-company-row">{{positiveDetail.tryOtherAllowance}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+      <ion-item class="leave-info-item">
+        <div class="row leave-info-row">
+          <div class="col no-padding text-color">转正后约定</div>
+        </div>
+      </ion-item>
+      <ion-item class="employee-info-item">
+        <div class="row no-padding">
+          <div class="col">
+            <div class="row employee-info-icon-row">
+              <div class="col col-10 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/total.png" style="margin-top: 4px"
+                     class="employee-info-icon"/>
+              </div>
+              <div class="col col-50">
+                <div class="row">合计</div>
+              </div>
+              <div class="col col-40" style="text-align: right; align-self: center">
+                <div class="employee-info-company-row" style="color: #374F9A">{{positiveDetail.positiveAllWage}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+      <div class="employee-info-line"></div>
+      <ion-item class="employee-info-item">
+        <div class="row no-padding">
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/basic-salary.png" class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">基本工资</div>
+                <div class="row employee-info-company-row">{{positiveDetail.positiveBasicWage}}</div>
+              </div>
+            </div>
+            <div class="employee-info-line-y"></div>
+          </div>
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/station-allowance.png"
+                     class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">岗位津贴</div>
+                <div class="row employee-info-company-row">{{positiveDetail.positivePostAllowance}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+      <div class="employee-info-line"></div>
+      <ion-item class="employee-info-item">
+        <div class="row no-padding">
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/lunch-allowance.png" class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">午餐补贴</div>
+                <div class="row employee-info-company-row">{{positiveDetail.positiveLunchAllowance}}</div>
+              </div>
+            </div>
+            <div class="employee-info-line-y"></div>
+          </div>
+          <div class="col col-50">
+            <div class="row employee-info-icon-row">
+              <div class="col col-20 employee-info-icon-col">
+                <img src="build/img/application/approval-center-detail/other-allowance.png" class="employee-info-icon"/>
+              </div>
+              <div class="col col-80">
+                <div class="row">其他补贴</div>
+                <div class="row employee-info-company-row">{{positiveDetail.positiveOtherAllowance}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+      <ion-item class="leave-track-item no-border">
+        <div class="row leave-track-row">
+          <div class="col no-padding text-color">审批记录</div>
+        </div>
+      </ion-item>
+      <ion-list>
+        <ion-item ng-repeat="items in rel_history" class="fake-leave-track-item">
+          <hms-approval-history
+            approval-time='items.positiveApprovalTrackDate'
+            approver='items.positiveApprovalTrackEmp'
+            approver-position='items.positiveApprovalTrackPosition'
+            approval-status='items.positiveApprovalTrackStatus'
+            approval-remark='items.positiveApprovalTrackRemark'
+            index='$index'
+            length="positiveDetail.positiveApprovalTrack.length">
+          </hms-approval-history>
+          <div class="row message-item" style="padding-left: 40px;" ng-if="items.positiveApprovalImg.length>0">
+            <div class="message-div" style="color: #2389FD">附件：</div>
+            <div style="margin: 0 5px;min-height: 80px;background-color: white;">
+              <img ng-repeat="photo in items.positiveApprovalImg"
+                   style="width: 65px; height: 65px; border: 1px solid #F0F0F0; margin-left: 6px"
+                   ion-img-cache
+                   hao-img-load
+                   load-src-str="{{photo}}"
+                   default-src="build/img/head_2.gif"
+                   ng-click="openImg(photo)"
+                   alt="">
+            </div>
+          </div>
+          <div class="row message-item" style="padding-left: 40px;" ng-if="items.positiveApprovalFiles.length>0">
+            <!--<img src="build/img/application/attachment.png" class="attachment">-->
+            <a href="" style="display: inline-block;" ng-repeat="file in items.positiveApprovalFiles" ng-click="pADCtrl.openFile(file)">{{file}}</a>
+          </div>
+        </ion-item>
+      </ion-list>
+      <ion-item class="leave-track-item no-border" ng-if="approvalStatus == 'Untreated'">
+        <div class="row leave-track-row">
+          <div class="col no-padding text-color">审批意见</div>
+        </div>
+      </ion-item>
+      <textarea class="textArea" placeholder="请输入审批意见" ng-model="positiveApproval.remark" ng-if="approvalStatus == 'Untreated'">
+
+      </textarea>
+      <!--<ion-item class="leave-track-item no-border">-->
+      <!--<div class="row leave-track-row">-->
+      <!--<div class="col no-padding text-color">附件</div>-->
+      <!--</div>-->
+      <!--<div class="row leave-info-row" style="padding-top: 0; display: flex; flex-flow: wrap">-->
+      <!--<div style="text-align: center; width: 60px; height: 60px; border: 1px solid #ECECEC;">-->
+      <!--<img style="width: 30px; height: 30px; margin-top: 13px" ng-src="build/img/image@3x.png"/>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</ion-item>-->
+      <!--图片上传-->
+      <div class="uploadPics" ng-click='cancelDelete()' ng-if="approvalStatus == 'Untreated'">
+        <div class="typeTitle">图片:</div>
+        <div style="margin: 0 5px;min-height: 80px;background-color: white">
+          <div ng-repeat="photo in imgArr track by $index" style="float: left;display: block;position: relative;"
+               ng-class="{'true':'shake-little','false':''}[showDelete == true]">
+            <img ng-src="build/img/delete.png" ng-if="showDelete == true" class="delete"
+                 ng-click="deleteImage($event,$index)">
+            <img
+              ng-src="{{photo}}" on-tap="showBigPicture($index);" on-hold="delImage($index)"
+              style="width: 65px; height: 65px; border: 1px solid #F0F0F0; margin-right: 5px">
+          </div>
+
+          <img ng-src="build/img/application/holiday-type/addphoto.png"
+               style="width: 65px; height: 65px; margin-left: 0px;float: left"
+               ng-click="getPicture()" ng-hide="imgArr.length ===3">
+
+          <div class="photo_tip">
+            <span>*</span>
+            <span>图片长按可删除</span>
+          </div>
+        </div>
+      </div>
+      <div class="row button-row" ng-if="approvalStatus == 'Untreated'">
+        <div class="row-child1">
+          <button class="button reject-button" ng-click="approvalCommit('REJECT')">拒绝</button>
+        </div>
+        <div class="row-child2">
+          <button class="button approval-button" ng-click="approvalCommit('APPROVE')">同意</button>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  <div class="myBackdrop" ng-class="{'active': showMyBackdrop}" ng-click="hideImgPropur();"></div>
+  <div style="position: fixed;width: 100%;height: auto;z-index: 12;top: 50%;left: 0;transform: translateY(-50%);"
+       ng-if="showImg">
+    <!--<img ng-src="{{ imgUrl }}" style="width: 100%;height: 100%;">-->
+    <ion-scroll overflow-scroll='false' direction="xy" scrollbar-x="false" scrollbar-y="false"
+                zooming="true" min-zoom="1" style="width: 100%; height: 100%"
+                delegate-handle="scrollHandle{{$index}}"> <!--ng-src="{{ imgUrl }}"-->
+      <img class="bigImage"
+           ion-img-cache
+           hao-img-load
+           load-src-str="{{ imgUrl }}"
+           default-src="build/img/head_2.gif"
+           style="width: 100%"
+           ng-click="hideImgPropur();"
+           alt="">
+      <!--<div class="bigImage" style="background-image: url({{imgUrl}});width: 100%;background-size: cover;" ng-style="photoHight" ng-click="hideImgPropur();"></div>-->
+    </ion-scroll>
+  </div>
+</ion-view>

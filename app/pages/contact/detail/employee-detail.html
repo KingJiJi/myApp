@@ -1,0 +1,115 @@
+<ion-modal-view class="contact-employee-detail" ng-controller="contactEmployeeDetailCtl">
+  <div class="row common-head">
+    <button class="button button-clear back-button" ng-click="goBackPage()">
+      <i class="ion-ios-arrow-back"></i>
+      <span class="back-text">返回</span>
+    </button>
+    <!--<button class="button button-clear img-button" ng-click="telPhone()">-->
+      <!--<img class="img-icon" ng-src="build/img/contact/dial-2@3x.png"/>-->
+    <!--</button>-->
+  </div>
+  <div class="human-head-image">
+  </div>
+  <div class="row">
+  </div>
+  <div class="img-section">
+    <img ion-img-cache class="img-employee" ng-cloak ng-src="{{employeeInfo.avatar}}" ng-click="showBigImage(employeeInfo.avatar)"/>
+  </div>
+  <div class="employee-name" ng-cloak>
+    {{employeeInfo.emp_name}}
+  </div>
+  <ion-content class="employee-content" has-bouncing="false">
+    <hms-loading ng-if="contactLoading" style="padding-top: 30px"></hms-loading>
+    <ion-item class="item-info">
+      <div class="employee-line"></div>
+      <div class="section-bg" ng-bind="employeeInfo.emp_code">
+      </div>
+      <div class="row icon-row">
+        <div class="col col-35 np-padding-margin">
+          <div class="row">
+            <img src="build/img/contact/baseland.png" class="col-image"/>
+            <ion-scroll direction="x" scrollbar-x="false">
+            <span class="info-text-label" ng-bind="employeeInfo.position_name"></span>
+            </ion-scroll>
+          </div>
+        </div>
+        <div class="col col-30 np-padding-margin">
+          <div class="row">
+            <img src="build/img/contact/status.png" class="col-image"/>
+            <span class="info-text-label" ng-bind="employeeInfo.emp_status"></span>
+          </div>
+        </div>
+        <div class="col-5">
+        </div>
+        <div class="col col-25 np-padding-margin">
+          <div class="row">
+            <img src="build/img/contact/position.png" class="col-image"/>
+            <span class="info-text-label" ng-bind="employeeInfo.base_name"></span>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+    <ion-item class="item-employee1">
+      <div class="item-line"></div>
+      <div class="row item-row1">
+        <img src="build/img/contact/email.png" class="tel-img"/>
+
+        <div class="col col-25 item-center">
+          <div class="div-item">办公邮箱</div>
+        </div>
+        <div class="col col-70 col-item item-center" style="padding-right: 30px;">
+          <a href="mailto: {{employeeInfo.workEmail}}" ng-bind="employeeInfo.workEmail"></a>
+        </div>
+      </div>
+    </ion-item>
+    <ion-item class="item-employee2">
+      <div class="row item-row2">
+        <img src="build/img/contact/mobilePhone.png" class="tel-img"/>
+
+        <div class="col col-25 item-center">
+          <div class="div-item">移动电话</div>
+        </div>
+        <div class="col col-70 col-item item-center" style="padding-right: 30px;">
+          <a  ng-bind="employeeInfo.slefMobil" ng-click="telPersonPhone()"></a>
+        </div>
+      </div>
+      <div class="item-line"></div>
+      <div class="row item-row2">
+        <img src="build/img/contact/tel.png" class="tel-img"/>
+
+        <div class="col col-25 item-center">
+          <div class="div-item">办公电话</div>
+        </div>
+        <div class="col col-70 col-item item-center" style="padding-right: 30px;">
+         <a ng-bind="employeeInfo.workMobil" ng-click="telWorkPhone()"></a>
+        </div>
+      </div>
+      <div class="item-line"></div>
+      <div class="row item-row2">
+        <img src="build/img/contact/workPositon.png" class="tel-img"/>
+
+        <div class="col col-25 item-center">
+          <div class="div-item">工位</div>
+        </div>
+        <div class="col col-70 col-item item-center" style="padding-right: 30px;"
+             ng-bind="employeeInfo.workStation"></div>
+      </div>
+      <div class="item-line"></div>
+      <div class="row item-row2">
+        <img src="build/img/contact/department.png" class="tel-img"/>
+
+        <div class="col col-25 item-center">
+          <div class="div-item">部门</div>
+        </div>
+        <div class="col col-70 col-item item-center" style="padding-right: 30px;white-space:normal;word-break: break-all;TEXT-ALIGN: justify;"
+        ng-bind="employeeInfo.rootUnitName">
+          <!--<textarea class="reasonArea"  ng-model='employeeInfo.rootUnitName'></textarea>-->
+        </div>
+      </div>
+      <!--<div class="row item-row1">-->
+      <!--<div class="col col-20">微信号</div>-->
+      <!--<div class="col col-75 col-item" ng-bind="employeeInfo.wxNumber"></div>-->
+      <!--</div>-->
+    </ion-item>
+  </ion-content>
+</ion-modal-view>

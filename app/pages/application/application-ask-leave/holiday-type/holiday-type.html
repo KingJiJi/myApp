@@ -1,0 +1,26 @@
+<ion-view view-title="请假类型" class="holiday-type-content">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div ng-click="goBack()" class="button button-clear" style="color: #fff">
+      <i class="icon ion-ios-arrow-back"></i>
+    </div>
+    <h1 class="title">请假类型</h1>
+    <!--<div class="button">-->
+      <img class="help" ng-src="build/img/application/holiday-type/help.png" ng-click="toHolidayPolicy()">
+    <!--</div>-->
+  </ion-header-bar>
+
+
+  <ion-content has-bouncing="false" overflow-scroll="false">
+    <ion-list class="typeList">
+      <ion-item class="holidayItem" ng-repeat="item in holidayTypeList" ng-click="chooseHoliday(item)">
+        <div class="row type-item-row">
+            <img class="type-icon" ng-src="{{item.src}}">
+            <label class="type-name" ng-bind="item.name"></label>
+        </div>
+        <div class="holiday-type-line"></div>
+      </ion-item>
+
+    </ion-list>
+
+  </ion-content>
+</ion-view>

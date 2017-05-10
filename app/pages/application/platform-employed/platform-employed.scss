@@ -1,0 +1,73 @@
+.platform-employed {
+  .platform-employed-content{
+    background-color: $global-background;
+  }
+  .platform-employed-nomargin {
+    margin: 0;
+    padding: 0;
+  }
+  .platform-employed-item{
+    margin: 0;
+    padding: 0;
+    border-bottom: none;
+  }
+  .platform-employed-img-col {
+    padding: 0;
+    margin: 0;
+  }
+  .platform-employed-img {
+    width: 88%;
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-bottom: 5px;
+  }
+  .platform-employed-title-row{
+    padding: 0;
+    margin: 0;
+    width: 80%;
+    height: 40px;
+  }
+  .platform-employed-title-col {
+    padding: 0;
+    margin: 0;
+  }
+  .platform-employed-title {
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 0.9rem;
+    display: block;
+    //white-space: nowrap;
+    //overflow: hidden;
+    //text-overflow: ellipsis;
+  }
+  .platform-employed-time {
+    padding: 0;
+    margin: 0;
+    color: #9B9B9B;
+    font-size: 0.9rem;
+    text-align: right;
+  }
+  .platform-employed-row-summary {
+    padding: 0;
+    margin: 0;
+    width: 95%;
+    height: 40px;
+  }
+  .platform-employed-summary {
+    margin-top: 5px;
+    margin-left: 10px;
+    color: #9B9B9B;
+    font-size: 0.9rem;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .platform-employed-row-time {
+    padding: 0;
+    margin: 0;
+    width: 95%;
+  }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="base_gray">#EAEADB</color>
+    <color name="black">#000000</color>
+    <color name="base_half_gray">#30000000</color>
+    <color name="diver_line">#dadadf</color>
+    <color name="shortlease_bg">#f9f9f9</color>
+    <color name="white">#FFFFFF</color>
+    <color name="base_greyly">#60606c</color>
+    <color name="base_yellow">#fabe00</color>
+    <color name="lease_title_text_color">#2f2f39</color>
+</resources>

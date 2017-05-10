@@ -1,0 +1,73 @@
+<ion-view view-title="费用审批详情" class="chargeApproval">
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-arrow-back" ng-click="$ionicGoBack()">
+      </button>
+    </div>
+    <div class="title">单据审批</div>
+  </ion-header-bar>
+
+  <ion-content>
+    <div class="approval-list-detail-item">
+      <div class="row">
+        <img ng-src="build/img/application/approval-center-detail/approvalIcon.png" class="item-img"/>
+
+        <div class="col item-col">
+          <div class="row">
+            <div class="col item-col-text">
+              <!--{{approvalList.typeValue}}-->
+              资金调拨单ZJ16100160
+            </div>
+          </div>
+          <div class="row">
+            <div class="col item-col-text">
+              <!--{{approvalList.submit}}：{{approvalList.submitPerson}}-->
+              提交人：张启明
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<div ng-if="approvalDetailStatus == 'N'">-->
+      <!--<img ng-src="build/img/application/approval-center-detail/approvalDetailCreat.png" class="approval-status-img"/>-->
+      <!--<div class="approval-status-text">审批创建</div>-->
+      <!--</div>-->
+      <!--<div ng-if="approvalDetailStatus == 'P'">-->
+      <!--<div ng-if="true">-->
+      <img ng-src="build/img/application/approval-center-detail/approvalDetailCommit.png"
+           class="approval-status-img"/>
+
+      <div class="approval-status-text">审批提交</div>
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div ng-if="approvalDetailStatus == 'A'">-->
+      <!--<img ng-src="build/img/application/approval-center-detail/approvalDetailing.png" class="approval-status-img"/>-->
+      <!--<div style="right: 18px" class="approval-status-text">审批中</div>-->
+      <!--</div>-->
+      <!--<div ng-if="approvalDetailStatus == 'E'">-->
+      <!--<img ng-src="build/img/application/approval-center-detail/approvalDetailAgree.png" class="approval-status-img"/>-->
+      <!--<div class="approval-status-text">审批通过</div>-->
+      <!--</div>-->
+      <!--<div ng-if="approvalDetailStatus == 'R'">-->
+      <!--<img ng-src="build/img/application/approval-center-detail/approvalDetailRefuse.png" class="approval-status-img"/>-->
+      <!--<div class="approval-status-text">审批拒绝</div>-->
+      <!--</div>-->
+    </div>
+
+    <div class="row headInformation" ng-repeat="list in lists">
+      <div class="col col-33 headTitle">{{list.title}}：</div>
+      <div class="col col-67 headValue">{{list.value}}</div>
+    </div>
+
+    <div class="lineInformation" ng-repeat="lineList in lineLists">
+      <div class="row">
+        <div class="col col-50 lineName">{{lineList.name}}</div>
+        <div class="col col-50 lineAmount">￥{{lineList.amount}}</div>
+      </div>
+      <div class="row" ng-if="lineList.other">
+        <div class="col">{{lineList.other}}</div>
+      </div>
+    </div>
+
+
+  </ion-content>
+</ion-view>

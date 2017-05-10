@@ -1,0 +1,44 @@
+// http://ionicframework.com/docs/v2/theming/
+
+// App Shared Imports
+// --------------------------------------------------
+// These are the various page imports which make up this app.
+// By default each design mode includes these shared imports.
+// App Shared Sass variables belong in app.variables.scss.
+
+@import "../scss/_Variables.scss";
+@import "../scss/_Minxin.scss";
+@import "../scss/animate.scss";
+@import "../scss/loading.scss";
+@import "../pages/application/application";
+@import "../pages/contact/contact";
+@import "../pages/contact/structure/contact-structure.scss";
+@import "../pages/login/login";
+@import "../pages/message/message";
+@import "../pages/myInfo/myInfo";
+@import "../pages/tab/tabs";
+@import "../pages/application/application-manage/application-manage.scss";
+@import "../pages/application/application-manage/apply-center-manage/apply-center-manage.scss";
+@import "../pages/application/company-advisory/company-advisory.scss";
+@import "../pages/application/company-notice/company-notice.scss";
+@import "../pages/application/social-activity/social-activity.scss";
+@import "../pages/application/platform-employed/platform-employed.scss";
+@import "../pages/application/approval-center/approval-center.scss";
+@import "../pages/application/approval-center/detail/approval-center-detail.scss";
+@import "../pages/application/application-ask-leave/application-ask-holiday-list.scss";
+@import "../pages/application/approval-center/charge-approval-detail/charge-approval-detail";
+@import "../pages/message/messageModal.scss";
+@import "../pages/application/application-ask-leave/new-application-holiday/new-application-holiday";
+@import "../pages/application/application-ask-leave/holiday-type/holiday-type.scss";
+@import "../pages/application/application-ask-leave/holiday-policy/holiday-policy.scss";
+@import "../pages/application/application-ask-leave/application-holiday-detail/application-holiday-detail.scss";
+@import "../pages/application/application-ask-leave/holiday-approval/holiday-approval.scss";
+@import "../pages/application/fake-leave-apply/fake-leave-apply.scss";
+@import "../pages/application/approval-center/fake-leave-approval-detail/fake-leave-approval-detail.scss";
+@import "../pages/application/approval-center/positive-approval-detail/positive-approval-detail.scss";
+@import "../pages/application/approval-center/positive-approval-detail/positive-approval-tryDes.scss";
+@import "../pages/application/payroll-inquire/payroll-inquire-detail.scss";
+@import "../pages/application/prove-application/prove-application.scss";
+@import "../lib/csshake/scss/csshake.scss";
+@import "../lib/csshake/scss/tools.scss";
+
